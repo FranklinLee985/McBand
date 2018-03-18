@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0437e731-6623-4405-a59b-2adbefc3bc0e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/front-end/McBand/about.html" afterPath="$PROJECT_DIR$/front-end/McBand/about.html" />
-      <change beforePath="$PROJECT_DIR$/front-end/McBand/community.html" afterPath="$PROJECT_DIR$/front-end/McBand/community.html" />
-      <change beforePath="$PROJECT_DIR$/front-end/McBand/event.html" afterPath="$PROJECT_DIR$/front-end/McBand/event.html" />
-      <change beforePath="$PROJECT_DIR$/front-end/McBand/index.html" afterPath="$PROJECT_DIR$/front-end/McBand/index.html" />
-      <change beforePath="$PROJECT_DIR$/front-end/McBand/musicinfo.html" afterPath="$PROJECT_DIR$/front-end/McBand/musicinfo.html" />
-      <change beforePath="$PROJECT_DIR$/front-end/McBand/musiclibrary.html" afterPath="$PROJECT_DIR$/front-end/McBand/musiclibrary.html" />
-      <change beforePath="$PROJECT_DIR$/front-end/McBand/sign.html" afterPath="$PROJECT_DIR$/front-end/McBand/sign.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/front-end/McBand/css/style.css" afterPath="$PROJECT_DIR$/front-end/McBand/css/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,41 +17,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front-end/McBand/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="92" column="61" lean-forward="false" selection-start-line="92" selection-start-column="61" selection-end-line="92" selection-end-column="61" />
+            <state relative-caret-position="455">
+              <caret line="104" column="22" lean-forward="false" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="musiclibrary.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="musiclibrary.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front-end/McBand/musiclibrary.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="73" column="51" lean-forward="false" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
+            <state relative-caret-position="305">
+              <caret line="229" column="32" lean-forward="true" selection-start-line="229" selection-start-column="32" selection-end-line="229" selection-end-column="32" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front-end/McBand/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="523" column="1" lean-forward="false" selection-start-line="523" selection-start-column="1" selection-end-line="523" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="community.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front-end/McBand/community.html">
+      <file leaf-file-name="animate.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front-end/McBand/css/animate.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="205" column="42" lean-forward="false" selection-start-line="205" selection-start-column="42" selection-end-line="205" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="event.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front-end/McBand/event.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="82" column="46" lean-forward="false" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
+            <state relative-caret-position="-56842">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -72,22 +69,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="about.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front-end/McBand/about.html">
+      <file leaf-file-name="community.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front-end/McBand/community.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="81" column="59" lean-forward="false" selection-start-line="81" selection-start-column="59" selection-end-line="81" selection-end-column="59" />
-              <folding />
+            <state relative-caret-position="161">
+              <caret line="179" column="14" lean-forward="false" selection-start-line="179" selection-start-column="14" selection-end-line="179" selection-end-column="14" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sign.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front-end/McBand/sign.html">
+      <file leaf-file-name="event.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front-end/McBand/event.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="107" column="46" lean-forward="false" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="324">
+              <caret line="82" column="46" lean-forward="false" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
+              <folding>
+                <marker date="1521383190243" expanded="true" signature="9339:9345" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front-end/McBand/about.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="803">
+              <caret line="81" column="59" lean-forward="false" selection-start-line="81" selection-start-column="59" selection-end-line="81" selection-end-column="59" />
+              <folding>
+                <marker date="1521383190241" expanded="true" signature="6126:6132" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,10 +116,11 @@
       <find>contai</find>
       <find>container</find>
       <find>drop_zone</find>
-      <find>modal</find>
       <find>user</find>
       <find>home.html</find>
       <find>home.</find>
+      <find>modal</find>
+      <find>form-wrap</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -129,12 +143,13 @@
         <option value="$PROJECT_DIR$/front-end/tasty-master/musiclibrary.html" />
         <option value="$PROJECT_DIR$/front-end/McBand/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/front-end/McBand/index.html" />
-        <option value="$PROJECT_DIR$/front-end/McBand/musiclibrary.html" />
-        <option value="$PROJECT_DIR$/front-end/McBand/community.html" />
         <option value="$PROJECT_DIR$/front-end/McBand/event.html" />
         <option value="$PROJECT_DIR$/front-end/McBand/sign.html" />
-        <option value="$PROJECT_DIR$/front-end/McBand/about.html" />
         <option value="$PROJECT_DIR$/front-end/McBand/musicinfo.html" />
+        <option value="$PROJECT_DIR$/front-end/McBand/about.html" />
+        <option value="$PROJECT_DIR$/front-end/McBand/musiclibrary.html" />
+        <option value="$PROJECT_DIR$/front-end/McBand/community.html" />
+        <option value="$PROJECT_DIR$/front-end/McBand/css/style.css" />
       </list>
     </option>
   </component>
@@ -143,6 +158,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1680" />
@@ -259,7 +277,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53241000" />
+    <option name="totallyTimeSpent" value="55470000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -325,8 +343,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/front-end/tasty-master/contact.html" />
-    <entry file="file://$PROJECT_DIR$/front-end/tasty-master/tasty/__MACOSX/__tasty" />
     <entry file="file://$PROJECT_DIR$/front-end/tasty-master/_gitattributes" />
     <entry file="file://$PROJECT_DIR$/front-end/tasty-master/reservation.html" />
     <entry file="file://$PROJECT_DIR$/front-end/tasty-master/tasty/__MACOSX/tasty/__index.html" />
@@ -391,10 +407,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/front-end/McBand/event.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="82" column="46" lean-forward="false" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
+          <folding>
+            <marker date="1521383190243" expanded="true" signature="9339:9345" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front-end/McBand/about.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
+        <state relative-caret-position="803">
           <caret line="81" column="59" lean-forward="false" selection-start-line="81" selection-start-column="59" selection-end-line="81" selection-end-column="59" />
+          <folding>
+            <marker date="1521383190241" expanded="true" signature="6126:6132" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-end/McBand/community.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="179" column="14" lean-forward="false" selection-start-line="179" selection-start-column="14" selection-end-line="179" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-end/McBand/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="104" column="22" lean-forward="false" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -407,35 +453,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/McBand/event.html">
+    <entry file="file://$PROJECT_DIR$/front-end/McBand/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="82" column="46" lean-forward="false" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
+        <state relative-caret-position="522">
+          <caret line="523" column="1" lean-forward="false" selection-start-line="523" selection-start-column="1" selection-end-line="523" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/McBand/community.html">
+    <entry file="file://$PROJECT_DIR$/front-end/McBand/css/animate.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="205" column="42" lean-forward="false" selection-start-line="205" selection-start-column="42" selection-end-line="205" selection-end-column="42" />
+        <state relative-caret-position="-56842">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front-end/McBand/musiclibrary.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="73" column="51" lean-forward="false" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/McBand/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="92" column="61" lean-forward="false" selection-start-line="92" selection-start-column="61" selection-end-line="92" selection-end-column="61" />
-          <folding />
+        <state relative-caret-position="305">
+          <caret line="229" column="32" lean-forward="true" selection-start-line="229" selection-start-column="32" selection-end-line="229" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

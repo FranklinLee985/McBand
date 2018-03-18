@@ -1,0 +1,23 @@
+{
+  "name": "mcband",
+  "version": "1.0.0",
+  "description": "3100project",
+  "main": "cookie.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FranklinLee985/McBand.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FranklinLee985/McBand/issues"
+  },
+  "homepage": "https://github.com/FranklinLee985/McBand#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3"
+  }
+}

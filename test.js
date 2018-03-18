@@ -11,7 +11,7 @@ app.use(express.static(__dirname +'/front-end/McBand/'));
 app.use(cookieParser());
 
 app.get('/front-end/McBand/index.html',function(request, response){
-    console.log("Cookies: " + util.inspect(req.cookies));
+    console.log("Cookies: " + util.inspect(request.cookies));
 	response.sendFile(__dirname + "/front-end/McBand/" + 'index.html');
 })
 
@@ -45,6 +45,7 @@ app.post('/register_process', urlencodedParser, function(req,res){
         });
         console.log("Sign up finished");
     }
+    res.redirect(302,'.')
 })
 
 app.post('/login_process', urlencodedParser, function(req,res){
@@ -54,6 +55,7 @@ app.post('/login_process', urlencodedParser, function(req,res){
 	};
 	console.log(response);
 	//res.end(JSON.stringify(response));
+    res.redirect(302,'.')
 })
 
 var server = app.listen(8888, function(){

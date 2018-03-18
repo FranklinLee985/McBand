@@ -470,7 +470,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-featured-menu .fh5co-heading, #fh5co-gallery .fh5co-heading, #fh5co-reservation-form .fh5co-heading {
-  margin-bottom: 170px;
+  margin-bottom: 100px;
 }
 @media screen and (d: 768px) {
   #fh5co-featured-menu .fh5co-heading, #fh5co-gallery .fh5co-heading, #fh5co-reservation-form .fh5co-heading {
@@ -519,6 +519,9 @@ h1, h2, h3, h4, h5, h6, figure {
   padding-right: 10px;
   overflow: hidden;
 }
+#fh5co-gallery .fh5co-gallery_item h3{
+  color: #fff;
+}
 #fh5co-gallery .fh5co-bg-img, #fh5co-gallery .fh5co-gallery_big {
   float: left;
   margin-bottom: 20px;
@@ -543,6 +546,32 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #form-wrap .form-group:last-child {
   margin-bottom: 0 !important;
+}
+
+#form-wrap .form-group h3, #form-wrap .form-group p{
+  color: #fff;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto;
+  background-color: #000000;
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #000000;
+  margin: 5% auto 15% auto;
+  border: 4px solid rgba(255, 255, 255, 0.04);
+  width: 80%;
 }
 
 #fh5co-featured-testimony {

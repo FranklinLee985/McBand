@@ -21,17 +21,8 @@ app.post('/register_process', urlencodedParser, function(req,res){
 		"email":req.body.email,
 		"password":req.body.password
 	};
-	/***Some operations to verify if the account is eligeble*/
-	res.end(JSON.stringify(response));
-})
-
-app.post('/login_process', urlencodedParser, function(req,res){
-	var response = {
-		"email":req.body.email,
-		"password":req.body.password
-	};
 	console.log(response);
-	res.end(JSON.stringify(response));
+	//res.end(JSON.stringify(response));
     let data = '';
     let readStream = fs.createReadStream("user_info.json");
     readStream.setEncoding('UTF8');
@@ -54,6 +45,15 @@ app.post('/login_process', urlencodedParser, function(req,res){
         });
         console.log("Sign up finished");
     }
+})
+
+app.post('/login_process', urlencodedParser, function(req,res){
+	var response = {
+		"email":req.body.email,
+		"password":req.body.password
+	};
+	console.log(response);
+	//res.end(JSON.stringify(response));
 })
 
 var server = app.listen(8888, function(){

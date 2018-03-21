@@ -76,7 +76,7 @@
 							<li><a href="community.html">Community</a></li>
 							<li><a href="event.html">Event</a></li>
 							<li><a href="about.html">About</a></li>
-							<a href="sign.html" class="button" style="float:right"><i class="icon-user2">   login</i></a>
+							<a href="sign.html" class="button" style="float:right"><i class="icon-user2"> Login</i></a>
 						</ul>
 					</div>
 				</div>
@@ -85,19 +85,8 @@
 		</div>
 	</nav>
 
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<div class="display-t js-fullheight">
-						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<h1><em>Explore</em> the Music Library</h1>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<header>
+		<br><br><br><br><br><br>
 	</header>
 
 	<div id="fh5co-featured-menu" class="fh5co-section">
@@ -223,15 +212,35 @@
 							<form class="modal-content zoom" action="#">
 								<div>
 									<div class="container">
-										<form class="modal-content" action="#">
-											<div class="row form-group" style="padding-top:10px; padding-left: 15px; padding-right: 795px">
-												<div class="col-md-12"  style="border:dashed">
-													<div id="drop_zone">Drop files here</div>
-													<output id="list"></output>
-												</div>
+										<div class="row form-group">
+											<div class="col-md-6">
+												<br>
+												<label for="musicname">Music Name</label>
+												<input type="text" class="form-control" id="musicname" required>
+												<br>
+												<label for="author">Author Name</label>
+												<input type="text" class="form-control" id="author" required>
+												<br>
+												<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Submit">
+												<br>
 											</div>
-										</form>
+											<div class="col-md-5 col-md-push-1">
+												<br><br>
+												<form class="modal-content" action="#">
+													<div class="row form-group">
+														<div class="col-md-12"  style="border:dashed;">
+															<br><br>
+															<div id="drop_zone" style="text-align: center">Drop files here</div>
+															<br><br>
+															<output id="list"></output>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+
 									</div>
+									<br>
 
 									<script>
                                         function handleFileSelect(evt) {
@@ -262,21 +271,7 @@
                                         dropZone.addEventListener('dragover', handleDragOver, false);
                                         dropZone.addEventListener('drop', handleFileSelect, false);
 									</script>
-									<div class="container">
-										<div class="row form-group">
-											<div class="col-md-4">
-												<label for="musicname"><b>Music Name</b></label>
-												<input type="text" class="form-control" id="musicname" required>
-											</div>
-										</div>
-										<div class="row form-group">
-											<div class="col-md-4">
-												<label for="authorname"><b>Author Name</b></label>
-												<input type="text" class="form-control" id="author" required>
-											</div>
-										</div>
-										<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Submit">
-									</div>
+
 								</div>
 							</form>
 						</div>
@@ -298,7 +293,7 @@
 		</div>
 	</div>
 
-	<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
+	<!--<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row animate-box">
@@ -309,7 +304,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 
 
 

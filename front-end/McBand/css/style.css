@@ -436,7 +436,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .fh5co-section {
-  padding: 7em 0;
+  padding: 3em 0;
 }
 @media screen and (d: 480px) {
   .fh5co-section {
@@ -479,7 +479,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-featured-menu .fh5co-heading h2, #fh5co-gallery .fh5co-heading h2, #fh5co-reservation-form .fh5co-heading h2 {
   color: #fff;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "Satisfy", cursive;
 }
 #fh5co-featured-menu .fh5co-item-wrap, #fh5co-gallery .fh5co-item-wrap, #fh5co-reservation-form .fh5co-item-wrap {
   padding-left: 20px;
@@ -561,14 +561,14 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto;
-  background-color: #000000;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(26,26,26);
+  background-color: rgba(26,26,26,0.4);
   padding-top: 60px;
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #000000;
+  background-color: rgb(26,26,26);
   margin: 5% auto 15% auto;
   border: 4px solid rgba(255, 255, 255, 0.04);
   width: 80%;
@@ -1056,7 +1056,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-blog .fh5co-heading, #fh5co-contact .fh5co-heading {
-  margin-bottom: 170px;
+  margin-bottom: 0px;
 }
 @media screen and (max-width: 768px) {
   #fh5co-blog .fh5co-heading, #fh5co-contact .fh5co-heading {

@@ -56,6 +56,91 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+		<style>
+			input[type=search] {
+				width: 130px;
+				-webkit-transition: width 0.4s ease-in-out;
+				transition: width 0.4s ease-in-out;
+			}
+
+			/* When the input field gets focus, change its width to 100% */
+			input[type=search]:focus {
+				width: 100%;
+			}
+.searchicon {
+  background: transparent;
+  border: none;
+  margin-bottom: 20px;
+}
+.searchicon:active, .searchicon:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #fff;
+}
+
+#fh5co-featured-menu .fh5co-bg-img {
+	height: 200px;
+	background-size: cover;
+}
+
+
+
+
+.mySlides {display: none}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 270px;
+  width: auto;
+  padding: 16px;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+.middle{
+	position: relative;
+	top: 25px;
+
+}
+
+
+		</style>
+
 	</head>
 
 
@@ -82,46 +167,173 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="musiclibrary.html">Music library</a></li>
-							<li><a href="community.html">Community</a></li>
+							<!--<li><a href="community.html">Community</a></li>-->
 							<li class="active"><a href="event.html">Event</a></li>
-							<li><a href="about.html">About</a></li>
+							<li><a href="account.html">Account</a></li>
 							<!--<button href="signuporlogin.html" class=" btn btn-primary btn-outline ml-2 my-sm-0" style="float: right" type="submit"><a>login/signup</a></button>-->
-							<a href="sign.html" class="button" style="float:right"><i class="icon-user2">   login</i></a>
+							<a href="sign.html" class="button" style="float:right"><i class="icon-user2">   Login</i></a>
 						</ul>
-
 					</div>
-
 				</div>
 				
 			</div>
 		<!-- </div> -->
 	</nav>
 
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
+
+	<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(images/hero_1.jpeg); margin-bottom: 10px;width:100%;height:400px;" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
+	</div>
+
+
+	<div id="fh5co-featured-testimony" class="fh5co-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 text-center">
-					<div class="display-t js-fullheight">
-						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<h1><em>Join</em> the Event</h1>
+				<div class="col-md-12 fh5co-heading animate-box">
+					<!--searching bar-->
+					<h2>Find Interesting Event</h2>
+					<div class="row">
+						<div class="col-md-12">
+							<input type="search" class="form-control" name="search" placeholder="Search..">
+							<button type="submit" class="searchicon"><i class="icon-search2"></i></button>
 						</div>
+
+                        <!--highlight event-->
+						<div id="fh5co-featured-menu" class="fh5co-section">
+							<div class="container ">
+								<div class="row mySlides">
+				
+									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+										<div class="fh5co-item">
+											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/musicparty.jpg);"></div>
+											<!--<img src="images/musicparty.jpg" class="img-responsive" alt="Music Party">-->
+											<div class="middle">
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+											</div>
+											<h3>Music Party</h3>
+											<p>7th April</p>
+										</div>
+									</div>
+
+
+									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+										<div class="fh5co-item">
+											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/jazz.jpg);" ></div>
+											<!--<img src="images/jazz.jpg" class="img-responsive" alt="Jazz Marathon">-->
+											<div class="middle">
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+											</div>
+											<h3>Jazz Marathon</h3>
+											<p>1st May</p>
+										</div>
+									</div>
+
+									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+										<div class="fh5co-item">						
+											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/pop.jpg);" ></div>
+											<!--<img src="images/pop.jpg" class="img-responsive" alt="Pop Music">-->
+											<div class="middle">
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+											</div>
+											<h3>Hey Summer!</h3><!--might have bug-->
+											<p>20th May</p>
+										</div>
+									</div>
+
+
+									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+										<div class="fh5co-item ">
+											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/beach.jpg);" ></div>
+											<!--<img src="images/beach.jpg" class="img-responsive" alt="beach party">-->
+											<div class="middle">
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" style="padding: 3px;">Details</a>
+												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+											</div>
+											<h3>Beach Concert</h3>
+											<p>22th June</p>
+										</div>
+									</div>		
+								</div>
+								<div class="row mySlides">
+				
+									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+										<div class="fh5co-item">
+											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/musicparty.jpg);" ></div>
+											<!--<img src="images/musicparty.jpg" class="img-responsive" alt="Music Party">-->
+											<div class="middle">
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+											</div>
+											<h3>Music Party</h3>
+											<p>7th April</p>
+										</div>
+									</div>
+
+
+									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+										<div class="fh5co-item">
+											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/jazz.jpg);" ></div>
+											<!--<img src="images/jazz.jpg" class="img-responsive" alt="Jazz Marathon">-->
+											<div class="middle">
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+											</div>
+											<h3>Jazz Marathon</h3>
+											<p>1st May</p>
+										</div>
+									</div>
+
+									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+										<div class="fh5co-item">
+											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/jazz.jpg);" ></div>
+											<!--<img src="images/jazz.jpg" class="img-responsive" alt="Jazz Marathon">-->
+											<div class="middle">
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+											</div>
+											<h3>Jazz Marathoneeeeeeeeeee</h3>
+											<p>1st May</p>
+										</div>
+									</div>
+
+
+									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+										<div class="fh5co-item">
+											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/jazz.jpg);" ></div>
+											<!--<img src="images/jazz.jpg" class="img-responsive" alt="Jazz Marathon">-->
+											<div class="middle">
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+											</div>
+											<h3>Jazz Marathon</h3>
+											<p>1st May</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+							<a class="next" onclick="plusSlides(1)">&#10095;</a>
+						</div>
+
+
 					</div>
 				</div>
 			</div>
 		</div>
-	</header>
+	</div>
+
+	
 
 
 
 
-
-
-
-	<div id="fh5co-about" class="fh5co-section">
+	<div id="fh5co-about" class="fh5co-section" style="margin-top:-100px;">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-6" style="width:100%;height:600px;">
+			    <!--map-->
+				<div id="eventinfo" class="col-md-6" style="width:100%;height:600px;margin-top: -300px;">
 					<div id="googleMap" style="width:60%;height:600px;"></div>
 					<script>
 					function myMap() {
@@ -145,11 +357,41 @@
 					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEuDeEqud2hsG_zVQMqPwKYE2FifHFICo&callback=myMap"></script>	
 				</div>
 
+				<!--info table-->
+				<form id="form-wrap" style="width:40%;height:600px;float: right; margin-top: -600px;">
+						<div class="row form-group text-center">
+							<div class="col-md-12">
+								<p style="font-size: 35px;">Jazz Marathon</p>
+								
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<i class="icon-clock3"></i>
+								<p>1st May 2018 - 3rd May 2018.</p>
+								<i class="icon-location3"></i>
+								<p>Causeway bay.</p>
+							</div>
+						</div>
+								
+						<div class="row form-group">
+							<div class="col-md-12">
+								<p>some intro about the event. </p>
+								<p>some intro about the event. </p>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-12 large" style="margin-top: 100px;">
+								<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">I will join!</a>
+								<button type="submit" class="btn btn-primary btn-outline btn-lg">it is interesting!</button>
+							</div>
+						</div>
+					</form>
 
-				<div class="col-md-12 col-md-push-0 animate-box"><!--3-->
+
+
+				<div class="col-md-12 col-md-push-0 animate-box" style="left:0px;"><!--3-->
 					<div class="section-heading">
-
-
 						<div id="fh5co-timeline" class="col-sm-1">
 							<div class="container">
 								<div class="row">
@@ -251,41 +493,136 @@
 								</div>
 							</div>
 						</div>
-
-
 					</div>
 				</div>
-			</div>
+			
 		</div>
 	</div>
 
 
-	<div id="fh5co-featured-testimony" class="fh5co-section">
+
+<!--create an event by yourself! need to change a little bit-->
+<div id="fh5co-featured-testimony" class="fh5co-section" style="margin-top: -600px;">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 fh5co-heading">
-					<h2>Testimony</h2>
+				<div class="col-md-12 fh5co-heading animate-box">
+					<h2>Hold an event yourself!</h2>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ab debitis sit itaque totam, a maiores nihil, nulla magnam porro minima officiis! Doloribus aliquam voluptates corporis et tempora consequuntur ipsam, itaque, nesciunt similique commodi omnis.</p>
+							<p>Create an event and invite people to join!</p>
 						</div>
+
+						<div class="col-md-12">
+							<button onclick="document.getElementById('id01').style.display='block' " class="btn btn-primary btn-outline btn-lg">Create</button>
+						</div>
+
+						<div id="id01" class="modal">
+							<form class="modal-content zoom" action="#">
+								<div>
+									<div class="container">
+										<form class="modal-content" action="#">
+											<div class="row">
+												<div style="border:dashed; width:50%;height:500px; margin-top: 50px;padding-left: 50px; margin-bottom: 50px;">
+													<div id="drop_zone"  style="margin-top: 200px;  width:100%;">picture of your event</div>
+													<output id="list"></output>
+												</div>
+		
+											</div>
+										</form>
+									</div>
+								
+									<script>
+                                        function handleFileSelect(evt) {
+                                            evt.stopPropagation();
+                                            evt.preventDefault();
+
+                                            var files = evt.dataTransfer.files; // FileList object.
+
+                                            // files is a FileList of File objects. List some properties.
+                                            var output = [];
+                                            for (var i = 0, f; f = files[i]; i++) {
+                                                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                                                    f.size, ' bytes, last modified: ',
+                                                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                                                    '</li>');
+                                            }
+                                            document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+                                        }
+
+                                        function handleDragOver(evt) {
+                                            evt.stopPropagation();
+                                            evt.preventDefault();
+                                            evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+                                        }
+
+                                        // Setup the dnd listeners.
+                                        var dropZone = document.getElementById('drop_zone');
+                                        dropZone.addEventListener('dragover', handleDragOver, false);
+                                        dropZone.addEventListener('drop', handleFileSelect, false);
+									</script>
+		<!--form to fill when create event-->							
+		<div class="container">			
+			<div class="row">
+				<div style="margin-left: 600px; margin-top: -550px;">
+				
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="name">Event Name</label>
+								<input type="text" class="form-control" id="eventname" maxlength="24" placeholder="Give your event a name!" required>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="email">Venue</label>
+								<input type="text" class="form-control" id="venue" required>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="email">Date and Time</label>
+								<input type="datetime-local" class="form-control" id="time" required>
+							</div>
+						</div>
+						
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="message">Brief Introduction</label>
+								<textarea name="" id="eventinfo" cols="30" rows="3" class="form-control"></textarea>
+							</div>
+						</div>
+						<div class="row form-group" style="margin-bottom: 30px;">
+							<div class="col-md-12">
+								<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Create Event">
+							</div>
+						</div>
+
+				</div>
+			</div>
+		</div>
+		
+								</div>
+							</form>
+						</div>
+
 					</div>
 				</div>
+				<script>
+                    // Get the modal
+                    var modal = document.getElementById('id01');
 
-				<div class="col-md-5 animate-box img-to-responsive">
-						<img src="images/person_1.jpg" alt="">
-				</div>
-				<div class="col-md-7 animate-box">
-					<blockquote>
-						<p> &ldquo; Quantum ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ab debitis sit itaque totam, a maiores nihil, nulla magnam porro minima officiis! Doloribus aliquam voluptates corporis et tempora consequuntur ipsam. &rdquo;</p>
-						<p class="author"><cite>&mdash; Jane Smith</cite></p>
-					</blockquote>
-				</div>
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+				</script>
 			</div>
 		</div>
 	</div>
 
 
+		<!--footer-->
 		<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
@@ -316,7 +653,51 @@
 					</p>
 				</div>
 
-	
+	<script>
+		Zoomerang
+      .config({
+        maxHeight: 600,
+        maxWidth: 900,
+        bgColor: '#000',
+        bgOpacity: .85
+      })
+      .listen('[data-trigger="zoomerang"]')
+	</script>
+
+
+	<!--script for slidwindow-->
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+
+
+
 	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>

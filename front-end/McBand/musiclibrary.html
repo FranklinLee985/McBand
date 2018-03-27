@@ -56,6 +56,19 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+			<style>
+			input[type=search] {
+				width: 130px;
+				-webkit-transition: width 0.4s ease-in-out;
+				transition: width 0.4s ease-in-out;
+			}
+
+			/* When the input field gets focus, change its width to 100% */
+			input[type=search]:focus {
+				width: 100%;
+			}
+			</style>
+
 	</head>
 	<body>
 		
@@ -71,12 +84,14 @@
 					</div>
 					<div class="col-xs-12 text-center menu-1 menu-wrap">
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li class="active"><a href="musiclibrary.html">Music library</a></li>
-							<li><a href="community.html">Community</a></li>
-							<li><a href="event.html">Event</a></li>
-							<li><a href="about.html">About</a></li>
-							<a href="sign.html" class="button" style="float:right"><i class="icon-user2">   login</i></a>
+							<div>
+								<li><a href="index.html">Home</a></li>
+								<li class="active"><a href="musiclibrary.html">Music library</a></li>
+								<!--<li><a href="community.html">Community</a></li>-->
+								<li><a href="event.html">Event</a></li>
+								<li><a href="account.html">Account</a></li>
+								<a href="sign.html" class="button" style="float:right"><i class="icon-user2">   Login</i></a>
+							</div>
 						</ul>
 					</div>
 				</div>
@@ -85,20 +100,9 @@
 		</div>
 	</nav>
 
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
+	<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(images/hero_1.jpeg); margin-bottom: 10px;width:100%;height:400px;" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<div class="display-t js-fullheight">
-						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<h1><em>Explore</em> the Music Library</h1>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+	</div>
 
 	<div id="fh5co-featured-menu" class="fh5co-section">
 		<div class="container">
@@ -109,10 +113,16 @@
 						<div class="col-md-3">
 							<p>Here are some trending sheet musics.</p>
 						</div>
+						<!--searching bar-->
+						<div class="col-md-12">
+							<input type="search" class="form-control" name="search" placeholder="Search..">
+							<br>
+							<p><a href="#" class="btn btn-primary btn-outline">Search</a></p>
+						</div>
 					</div>
 				</div>
 				
-				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap"  style="margin-top: -70px;">
 					<div class="fh5co-item animate-box">
 						<img src="images/This%20Is%20Me.jpg" class="img-responsive" alt="This Is Me">
 						<div class="middle">
@@ -134,7 +144,7 @@
 						<p>Coco (Original Motion Picture Soundtrack)</p>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap" style="margin-top: -70px;">
 					<div class="fh5co-item margin_top animate-box">
 						<img src="images/Divide.jpg" class="img-responsive" alt="Divide">
 						<div class="middle">
@@ -157,7 +167,7 @@
 					</div>
 				</div>
 				<div class="clearfix visible-sm-block visible-xs-block"></div>
-				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap" style="margin-top: -70px;">
 					<div class="fh5co-item animate-box">
 						<img src="images/Havana.jpg" class="img-responsive" alt="Havana">
 						<div class="middle">
@@ -179,7 +189,7 @@
 						<p>Call Me by Your Name (Original Motion Picture Soundtrack)</p>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap" style="margin-top: -70px;">
 					<div class="fh5co-item margin_top animate-box">
 						<img src="images/The%20Greatest%20Showman.jpg" class="img-responsive" alt="A Million Dreams">
 						<div class="middle">
@@ -223,15 +233,35 @@
 							<form class="modal-content zoom" action="#">
 								<div>
 									<div class="container">
-										<form class="modal-content" action="#">
-											<div class="row form-group" style="padding-top:10px; padding-left: 15px; padding-right: 795px">
-												<div class="col-md-12"  style="border:dashed">
-													<div id="drop_zone">Drop files here</div>
-													<output id="list"></output>
-												</div>
+										<div class="row form-group">
+											<div class="col-md-6">
+												<br>
+												<label for="musicname">Music Name</label>
+												<input type="text" class="form-control" id="musicname" required>
+												<br>
+												<label for="author">Author Name</label>
+												<input type="text" class="form-control" id="author" required>
+												<br>
+												<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Submit">
+												<br>
 											</div>
-										</form>
+											<div class="col-md-5 col-md-push-1">
+												<br><br>
+												<form class="modal-content" action="#">
+													<div class="row form-group">
+														<div class="col-md-12"  style="border:dashed;">
+															<br><br>
+															<div id="drop_zone" style="text-align: center">Drop files here</div>
+															<br><br>
+															<output id="list"></output>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+
 									</div>
+									<br>
 
 									<script>
                                         function handleFileSelect(evt) {
@@ -262,21 +292,7 @@
                                         dropZone.addEventListener('dragover', handleDragOver, false);
                                         dropZone.addEventListener('drop', handleFileSelect, false);
 									</script>
-									<div class="container">
-										<div class="row form-group">
-											<div class="col-md-4">
-												<label for="musicname"><b>Music Name</b></label>
-												<input type="text" class="form-control" id="musicname" required>
-											</div>
-										</div>
-										<div class="row form-group">
-											<div class="col-md-4">
-												<label for="authorname"><b>Author Name</b></label>
-												<input type="text" class="form-control" id="author" required>
-											</div>
-										</div>
-										<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Submit">
-									</div>
+
 								</div>
 							</form>
 						</div>
@@ -328,6 +344,18 @@
 						</ul>
 					</p>
 				</div>
+
+
+	<script>
+		Zoomerang
+      .config({
+        maxHeight: 600,
+        maxWidth: 900,
+        bgColor: '#000',
+        bgOpacity: .85
+      })
+      .listen('[data-trigger="zoomerang"]')
+	</script>
 	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>

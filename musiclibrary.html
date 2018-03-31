@@ -1,0 +1,474 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Mcband - project for CSCI3100</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="freehtml5.co" />
+
+	<!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FreeHTML5.co
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		input[type=search] {
+			width: 250px;
+			-webkit-transition: width 0.4s ease-in-out;
+			transition: width 0.4s ease-in-out;
+		}
+
+		/* When the input field gets focus, change its width to 100% */
+		input[type=search]:focus {
+			width: 100%;
+		}
+
+		.modal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto;
+			background-color: rgb(26,26,26);
+			background-color: rgba(26,26,26,0.4);
+			padding-top: 150px;
+		}
+
+		/* Modal Content/Box */
+		.modal-content {
+			background-color: rgb(26, 26, 26);
+			margin: auto auto auto auto;
+			border: 4px solid rgba(255, 255, 255, 0.04);
+			width: 99%;
+		}
+	</style>
+
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+		<script src="js/dropzone.js"></script>
+		<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		<!--loader-->
+		<div class="fh5co-loader"></div>
+
+	    <!--page content-->
+	    <div id="page">
+
+	    <!--navigator-->
+	    <nav class="fh5co-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+							<div class="col-xs-12 text-center logo-wrap">
+								<div id="fh5co-logo"><a href="index.html">McBand<span>.</span></a></div>
+							</div>
+						<div class="col-xs-12 text-center menu-1 menu-wrap">
+							<ul>
+								<div>
+									<li><a href="index.html">Home</a></li>
+									<li class="active"><a href="musiclibrary.html">Music library</a></li>
+									<li><a href="event.html">Event</a></li>
+									<li><a href="account.html">Account</a></li>
+									<a href="sign.html" class="button" style="float:right"><i class="icon-user2">   Login</i></a>
+								</div>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+	    <!--header-->
+	    <header>
+			<br><br><br><br><br><br>
+     	</header>
+
+	    <!--ranking-->
+	    <div id="fh5co-featured-menu" class="fh5co-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 fh5co-heading animate-box">
+					<h2>Sheet Musics Ranking</h2>
+					<div class="row">
+						<div class="col-md-3">
+							<p>Here are some trending sheet musics.</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+					<div class="fh5co-item animate-box">
+						<img src="images/album_artwork/This%20Is%20Me.jpg" class="img-responsive" alt="This Is Me">
+						<div class="middle">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
+						</div>
+						<h3>This Is Me</h3>
+						<!--<span class="fh5co-price">$20<sup>.50</sup></span>-->
+						<p>The Greatest Showman (Original Motion Picture Soundtrack)</p>
+					</div>
+					<div class="fh5co-item animate-box">
+						<img src="images/album_artwork/Coco.jpg" class="img-responsive" alt="Remember Me">
+						<div class="middle">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
+						</div>
+						<h3>Remember Me</h3>
+						<!--<span class="fh5co-price">$20<sup>.50</sup></span>-->
+						<p>Coco (Original Motion Picture Soundtrack)</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+					<div class="fh5co-item margin_top animate-box">
+						<img src="images/album_artwork/Divide.jpg" class="img-responsive" alt="Divide">
+						<div class="middle">
+							<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
+						</div>
+						<h3>Perfect</h3>
+						<!--<span class="fh5co-price">$19<sup>.00</sup></span>-->
+						<p>Divide</p>
+					</div>
+					<div class="fh5co-item animate-box">
+						<img src="images/album_artwork/Love%20In%20The%20Future.jpg" class="img-responsive" alt="All of Me">
+						<div class="middle">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
+						</div>
+						<h3>All of Me</h3>
+						<!--<span class="fh5co-price">$20<sup>.50</sup></span>-->
+						<p>Love in the Future</p>
+					</div>
+				</div>
+				<div class="clearfix visible-sm-block visible-xs-block"></div>
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+					<div class="fh5co-item animate-box">
+						<img src="images/album_artwork/Havana.jpg" class="img-responsive" alt="Havana">
+						<div class="middle">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
+						</div>
+						<h3>Havana</h3>
+						<!--<span class="fh5co-price">$17<sup>.99</sup></span>-->
+						<p>Camila</p>
+					</div>
+					<div class="fh5co-item animate-box">
+						<img src="images/album_artwork/Call%20Me%20By%20Your%20Name.jpg" class="img-responsive" alt="Mystery of Love">
+						<div class="middle">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
+						</div>
+						<h3>Mystery of love</h3>
+						<!--<span class="fh5co-price">$20<sup>.50</sup></span>-->
+						<p>Call Me by Your Name (Original Motion Picture Soundtrack)</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+					<div class="fh5co-item margin_top animate-box">
+						<img src="images/album_artwork/The%20Greatest%20Showman.jpg" class="img-responsive" alt="A Million Dreams">
+						<div class="middle">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
+						</div>
+						<h3>A Million Dreams</h3>
+						<!--<span class="fh5co-price">$22<sup>.50</sup></span>-->
+						<p>The Greatest Showman (Original Motion Picture Soundtrack)</p>
+					</div>
+					<div class="fh5co-item animate-box">
+						<img src="images/album_artwork/19.jpg" class="img-responsive" alt="To Make You Feel My Love">
+						<div class="middle">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
+						</div>
+						<h3>To Make You Feel My Love</h3>
+						<!--<span class="fh5co-price">$20<sup>.50</sup></span>-->
+						<p>19</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<!--search musics-->
+		<div id="fh5co-featured-testimony" class="fh5co-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 fh5co-heading animate-box">
+						<h2>Find new sheet musics</h2>
+						<div class="row">
+							<div class="col-md-6">
+								<p>Type in music name, author name or album name to search.</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<input type="search" class="form-control" name="search" placeholder="Search...">
+							</div>
+						</div>
+						<br>
+						<p><a href="#" class="btn btn-primary btn-outline">Search</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	    <!--upload-->
+	    <div id="fh5co-featured-testimony" class="fh5co-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 fh5co-heading animate-box">
+					<h2>Upload Your Creation</h2>
+					<div class="row">
+						<div class="col-md-6">
+							<p>Show your creativity to other music lovers!</p>
+						</div>
+
+						<div class="col-md-12">
+							<button onclick="document.getElementById('id01').style.display='block'" class="btn btn-primary btn-outline btn-lg">Upload</button>
+						</div>
+
+						<div id="id01" class="modal">
+							<form class="modal-content zoom" action="/upload.html" method="post" enctype="multipart/form-data">
+								<div>
+									<div class="container">
+										<div class="row form-group">
+											<div class="col-md-12 col-sm-12">
+												<br>
+												<div class="col-md-4 col-sm-4">
+													<label for="musicname">Music Name</label>
+													<input type="text" class="form-control" id="musicname" required/>
+													<label for="sheetmusic">Sheet Music</label>
+													<input type="file" class="form-control" id="sheetmusic" required/>
+													<label for="audiofile">Audio File</label>
+													<input type="file" class="form-control" id="audiofile" required/>
+													<label for="coverpic">Cover Picture</label>
+													<input type="file" class="form-control" id="coverpic" required/>
+												</div>
+												
+
+												<!--<br><br><br><br>
+												<div class="col-md-3 col-sm-3">
+													<label for="sheet_music">Sheet Music</label>
+
+														<div class="row form-group">
+															<div class="col-md-12 col-md-push-1 col-sm-12"  style="border:dashed;">
+																<br><br>
+																<div id="sheet_music" style="text-align: center;">Drop sheet music here</div>
+																<br><br>
+															</div>
+														</div>
+
+												</div>
+												<div class="col-md-3 col-md-push-1 col-sm-3">
+													<label for="audio_file">Audio File</label>
+
+														<div class="row form-group">
+															<div class="col-md-12 col-md-push-1 col-sm-12"  style="border:dashed;">
+																<br><br>
+																<div id="audio_file" style="text-align: center">Drop audio file here</div>
+																<br><br>
+															</div>
+														</div>
+
+												</div>
+												<div class="col-md-3 col-md-push-2 col-sm-3">
+													<label for="cover_pic">Cover Picture</label>
+
+														<div class="row form-group">
+															<div class="col-md-12 col-md-push-1 col-sm-12"  style="border:dashed;">
+																<br><br>
+																<div id="cover_pic" style="text-align: center">Drop cover picture here</div>
+																<br><br>
+															</div>
+														</div>
+
+												</div>
+												<div class="col-md-4 col-sm-4">
+													<output id="list_sheet_music"></output>
+													<output id="list_audio_file"></output>
+													<output id="list_cover_pic"></output>
+												</div>
+												<br>
+												<br>
+											</div>-->
+											<div class="col-md-12 col-sm-12" style="left: 15px">
+												<br>
+												<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Submit">
+											</div>
+										</div>
+									</div>
+									<br>
+
+									<script>
+                                        function handleCoverPicSelect(evt) {
+                                            evt.stopPropagation();
+                                            evt.preventDefault();
+
+                                            var files = evt.dataTransfer.files; // FileList object.
+
+                                            // files is a FileList of File objects. List some properties.
+                                            var output = [];
+                                            for (var i = 0, f; f = files[i]; i++) {
+                                                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                                                    f.size, ' bytes, last modified: ',
+                                                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                                                    '</li>');
+                                            }
+                                            document.getElementById('list_cover_pic').innerHTML = '<ul>' + output.join('') + '</ul>';
+                                        }
+                                        function handleSheetMusicSelect(evt) {
+                                            evt.stopPropagation();
+                                            evt.preventDefault();
+
+                                            var files = evt.dataTransfer.files; // FileList object.
+
+                                            // files is a FileList of File objects. List some properties.
+                                            var output = [];
+                                            for (var i = 0, f; f = files[i]; i++) {
+                                                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                                                    f.size, ' bytes, last modified: ',
+                                                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                                                    '</li>');
+                                            }
+                                            document.getElementById('list_sheet_music').innerHTML = '<ul>' + output.join('') + '</ul>';
+
+                                        }
+                                        function handleAudioFileSelect(evt) {
+                                            evt.stopPropagation();
+                                            evt.preventDefault();
+
+                                            var files = evt.dataTransfer.files; // FileList object.
+
+                                            // files is a FileList of File objects. List some properties.
+                                            var output = [];
+                                            for (var i = 0, f; f = files[i]; i++) {
+                                                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                                                    f.size, ' bytes, last modified: ',
+                                                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                                                    '</li>');
+                                            }
+                                            document.getElementById('list_audio_file').innerHTML = '<ul>' + output.join('') + '</ul>';
+                                        }
+
+                                        function handleDragOver(evt) {
+                                            evt.stopPropagation();
+                                            evt.preventDefault();
+                                            evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+                                        }
+
+                                        // Setup the dnd listeners.
+                                        var sheet_music = document.getElementById('sheet_music');
+                                        sheet_music.addEventListener('dragover', handleDragOver, false);
+                                        sheet_music.addEventListener('drop', handleSheetMusicSelect, false);
+                                        var audio_file = document.getElementById('audio_file');
+                                        audio_file.addEventListener('dragover', handleDragOver, false);
+                                        audio_file.addEventListener('drop', handleAudioFileSelect, false);
+                                        var cover_pic = document.getElementById('cover_pic');
+                                        cover_pic.addEventListener('dragover', handleDragOver, false);
+                                        cover_pic.addEventListener('drop', handleCoverPicSelect, false);
+									</script>
+
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+				<script>
+                    // Get the modal
+                    var modal = document.getElementById('id01');
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+				</script>
+			</div>
+		</div>
+	</div>
+
+
+		<!--footer-->
+		<div class="col-md-12 text-center">
+			<p>
+				<small class="block"><a>McBand<span>.</span></a> Project for CSCI 3100 <a>Group 16</a></small>
+				<br>
+				<small class="block">We Build The <a>Greatest</a> Music Cmmunity<a></a></small>
+			</p>
+			<p>
+			<ul class="fh5co-social-icons">
+			<li><a href="#"><i class="icon-twitter2"></i></a></li>
+			<li><a href="#"><i class="icon-facebook2"></i></a></li>
+			<li><a href="#"><i class="icon-linkedin2"></i></a></li>
+			<li><a href="#"><i class="icon-dribbble2"></i></a></li>
+		</ul>
+			</p>
+		</div>
+	
+		<!-- jQuery -->
+		<script src="js/jquery.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Waypoints -->
+		<script src="js/jquery.waypoints.min.js"></script>
+		<!-- Waypoints -->
+		<script src="js/jquery.stellar.min.js"></script>
+		<!-- Flexslider -->
+		<script src="js/jquery.flexslider-min.js"></script>
+		<!-- Main -->
+		<script src="js/main.js"></script>
+	</div>
+	</body>
+</html>
+

@@ -37,7 +37,7 @@ exports.search = function(login, callback){
         if(login.password === docs[0].password){
           exports.errMsg = '';
         }else{
-          exports.errMsg = docs;
+          exports.errMsg = "Invalid password!";
         }
         callback();
       }else {

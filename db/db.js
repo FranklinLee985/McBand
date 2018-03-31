@@ -61,23 +61,29 @@ exports.findAll = function(callback){
 }
 
 exports.add = function(register, callback){
-  regInfo.find({email: register.email }, function(err, docs){
-    if(err){
-      console.log('find error');
-    }else{
-      if(docs.length > 0){
-        exports.errMsg = docs;
-        callback();
-      }else {
-        regInfo.create(register, function(err){
-          if(err){
-            console.log('add error');
-          }else{
-            exports.errMsg = '';
-            callback();
-          }
-        });
+  if(register.password != register.checkpassword){
+    exports.errMsg = "Two passwords entered don't match!";
+    callback();
+  }
+  else{
+    regInfo.find({email: register.email }, function(err, docs){
+      if(err){
+        console.log('find error');
+      }else{
+        if(docs.length > 0){
+          exports.errMsg = 'Account already exists!';
+          callback();
+        }else {
+          regInfo.create(register, function(err){
+            if(err){
+              console.log('add error');
+            }else{
+              exports.errMsg = '';
+              callback();
+            }
+          });
+        }
       }
-    }
-  });
+    });
+  }
 }

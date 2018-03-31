@@ -38,10 +38,9 @@ router.post('/login_process', function(req,res){
                 res.redirect('/account');
             }
             else{
-                console.log(db.errMsg);
-                console.log("fail login");
                 //登录失败
                 res.redirect('/sign');
+                console.log(db.errMsg);
             }
         })
     })
@@ -51,7 +50,8 @@ router.post('/register_process', function(req,res){
 	var response = {
 		"name":req.body.name,
 		"email":req.body.email,
-		"password":req.body.password[0]
+		"password":req.body.password[0],
+        "checkpassword":req.body.password[1]
 	};
     var login_msg = {
         "email":req.body.email,
@@ -68,9 +68,8 @@ router.post('/register_process', function(req,res){
                 res.redirect('/account');
             }
             else{
-                console.log(db.errMsg);
-                console.log("fail sign up");
                 res.redirect('/sign');
+                console.log(db.errMsg);
             }
         })
     })

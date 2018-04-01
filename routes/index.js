@@ -106,8 +106,23 @@ router.post('/event_upload', function(req,res){
         "username":req.session.logInfo.name,
         "eventname": req.body.eventname,
         "venue": req.body.venue,
-        "date": req.body.time
-    }
+        "date": req.body.time,
+        "basicinfo": req.body.eventinfo,
+        "eventpicture": req.body.event_pic
+    };
+    console.log(eventinfo);
+    edb.connect(function(){
+        edb.add(eventinfo,function(){
+            edb.disconnect();
+            if(edb.errMsg === ''){
+                //Successfully add event
+                res.redirect('/event.html');
+            }else{
+                console.log(edb.errMsg);
+                res.redirect('/event.html');
+            }
+        })
+    })
 })
 
 router.post('/register_process', function(req,res){

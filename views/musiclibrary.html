@@ -146,87 +146,83 @@
 				
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
 					<div class="fh5co-item animate-box">
-						<img id = "first" src="" class="img-responsive" alt="First">
-						<script>
-							var obj = document.setElementById("first");
-							var imgSrc = obj.setAttribute("src",<%=musicInfo[0].coverPath%>);
-						</script>
+						<img src="<%=musicInfo[0].coverPath %>" class="img-responsive" alt="First">
 						<div class="middle">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
 						</div>
-						<h3><%=locals.logInfo.name %></h3>
+						<h3><%=musicInfo[0].musicname %></h3>
 						<p>Author: <%=musicInfo[0].uploader %></p>
 					</div>
 					<div class="fh5co-item animate-box">
-						<img src="images/album_artwork/Coco.JPG" class="img-responsive" alt="Remember Me">
+						<img src="<%=musicInfo[1].coverPath %>" class="img-responsive" alt="Remember Me">
 						<div class="middle">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
 						</div>
-						<h3>Remember Me</h3>
-						<p>Coco (Original Motion Picture Soundtrack)</p>
+						<h3><%=musicInfo[1].musicname %></h3>
+						<p>Author: <%=musicInfo[1].uploader %></p>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
 					<div class="fh5co-item margin_top animate-box">
-						<img src="images/album_artwork/Divide.jpg" class="img-responsive" alt="Divide">
+						<img src="<%=musicInfo[2].coverPath %>" class="img-responsive" alt="Divide">
 						<div class="middle">
 							<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
 						</div>
-						<h3>Perfect</h3>
-						<p>Divide</p>
+						<h3><%=musicInfo[2].musicname %></h3>
+						<p>Author: <%=musicInfo[2].uploader %></p>
 					</div>
 					<div class="fh5co-item animate-box">
-						<img src="images/album_artwork/Love%20In%20The%20Future.jpg" class="img-responsive" alt="All of Me">
+						<img src="<%=musicInfo[3].coverPath %>" class="img-responsive" alt="All of Me">
 						<div class="middle">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
 						</div>
-						<h3>All of Me</h3>
-						<p>Love in the Future</p>
+						<h3><%=musicInfo[3].musicname %></h3>
+						<p>Author: <%=musicInfo[3].uploader %></p>
 					</div>
 				</div>
 				<div class="clearfix visible-sm-block visible-xs-block"></div>
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
 					<div class="fh5co-item animate-box">
-						<img src="images/album_artwork/Havana.jpg" class="img-responsive" alt="Havana">
+						<img src="<%=musicInfo[4].coverPath %>" class="img-responsive" alt="Havana">
 						<div class="middle">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
 						</div>
-						<h3>Havana</h3>
-						<p>Camila</p>
+						<h3><%=musicInfo[4].musicname %></h3>
+						<p>Author: <%=musicInfo[4].uploader %></p>
 					</div>
 					<div class="fh5co-item animate-box">
-						<img src="images/album_artwork/Call%20Me%20By%20Your%20Name.jpg" class="img-responsive" alt="Mystery of Love">
+						<img src="<%=musicInfo[5].coverPath %>" class="img-responsive" alt="Mystery of Love">
 						<div class="middle">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
 						</div>
-						<h3>Mystery of love</h3>
-						<p>Call Me by Your Name (Original Motion Picture Soundtrack)</p>
+						<h3><%=musicInfo[5].musicname %></h3>
+						<p>Author: <%=musicInfo[5].uploader %></p>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
 					<div class="fh5co-item margin_top animate-box">
-						<img src="images/album_artwork/The%20Greatest%20Showman.jpg" class="img-responsive" alt="A Million Dreams">
+						<img src="<%=musicInfo[6].coverPath %>" class="img-responsive" alt="A Million Dreams">
 						<div class="middle">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
 						</div>
-						<h3>A Million Dreams</h3>
-						<p>The Greatest Showman (Original Motion Picture Soundtrack)</p>
+						<h3><%=musicInfo[6].musicname %></h3>
+						<p>Author: <%=musicInfo[6].uploader %></p>
 					</div>
 					<div class="fh5co-item animate-box">
-						<img src="images/album_artwork/19.jpg" class="img-responsive" alt="To Make You Feel My Love">
+						<img src="<%=musicInfo[7].coverPath %>" class="img-responsive" alt="To Make You Feel My Love">
 						<div class="middle">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
 						</div>
-						<h3>To Make You Feel My Love</h3>
-						<p>19</p>
+						<h3><%=musicInfo[7].musicname %></h3>
+						<p>Author: <%=musicInfo[7].uploader %></p>
 					</div>
 				</div>
 			</div>

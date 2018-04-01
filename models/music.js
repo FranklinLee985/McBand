@@ -70,9 +70,10 @@ exports.topTen = function(infos,callback){
         if(err)console.log(err);
         else{
             for(var i = 0;i<10;i++){
-            infos[i] = docs[i];
-            callback();
-        }
+                infos[i] = docs[i];
+                
+            }
+        callback();
         }
     })
 }

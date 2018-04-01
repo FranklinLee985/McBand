@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Mcband &mdash; project for CSCI3100</title>
@@ -11,19 +11,17 @@
 
 	<!-- 
 	//////////////////////////////////////////////////////
-
-	FREE HTML5 TEMPLATE 
+	FREE HTML5 TEMPLATE
 	DESIGNED & DEVELOPED by FreeHTML5.co
-		
+
 	Website: 		http://freehtml5.co/
 	Email: 			info@freehtml5.co
 	Twitter: 		http://twitter.com/fh5co
 	Facebook: 		https://www.facebook.com/fh5co
-
 	//////////////////////////////////////////////////////
 	 -->
 
-  	<!-- Facebook and Twitter integration -->
+	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content=""/>
@@ -36,7 +34,87 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-	
+
+	<style>
+		body {
+			font-family: Arial;
+			margin: 0;
+		}
+		* {
+			box-sizing: border-box;
+		}
+		img {
+			vertical-align: middle;
+		}
+		/* Position the image container (needed to position the left and right arrows) */
+		.container {
+			position: relative;
+		}
+		/* Hide the images by default */
+		.mySlides {
+			display: none;
+		}
+		/* Add a pointer when hovering over the thumbnail images */
+		.cursor {
+			cursor: pointer;
+		}
+		/* Next & previous buttons */
+		.prev,
+		.next {
+			cursor: pointer;
+			position: absolute;
+			top: 40%;
+			width: auto;
+			padding: 16px;
+			margin-top: -50px;
+			color: white;
+			font-weight: bold;
+			font-size: 20px;
+			border-radius: 0 3px 3px 0;
+			user-select: none;
+			-webkit-user-select: none;
+		}
+		/* Position the "next button" to the right */
+		.next {
+			right: 0;
+			border-radius: 3px 0 0 3px;
+		}
+		/* On hover, add a black background color with a little bit see-through */
+		.prev:hover,
+		.next:hover {
+			background-color: rgba(0, 0, 0, 0.8);
+		}
+		/* Number text (1/3 etc) */
+		.numbertext {
+			color: #000000;
+			font-size: 12px;
+			padding: 8px 12px;
+			position: absolute;
+			top: 0;
+		}
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		/* Add a transparency effect for thumnbail images */
+		.demo {
+			opacity: 0.6;
+			color: #ffffff;
+			border-color: #ea272d;
+			background-color: transparent;
+		}
+		.active,
+		.demo:hover {
+			opacity: 1;
+			background: #ea272d;
+		}
+		.comment{
+			padding-bottom: 15px;
+			left: 15px;
+		}
+	</style>
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -57,56 +135,47 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-	</head>
+</head>
 
+<body>
+<!--loader-->
+<div class="fh5co-loader"></div>
+<!--page content-->
+<div id="page">
 
-
-
-
-
-
-
-
-
-
-	<body>
-		
-	<div class="fh5co-loader"></div>
-	
-	<div id="page">
+	<!--navigator-->
 	<nav class="fh5co-nav" role="navigation">
 		<!-- <div class="top-menu"> -->
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 text-center logo-wrap">
-						<div id="fh5co-logo"><a href="index.html">McBand<span>.</span></a></div>
-					</div>
-					<div class="col-xs-12 text-center menu-1 menu-wrap">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="musiclibrary.html">Music library</a></li>
-							<!--<li><a href="community.html">Community</a></li>-->
-							<li><a href="event.html">Event</a></li>
-							<li><a href="account.html">Account</a></li>
-							<a href="sign.html" class="button" style="float:right"><i class="icon-user2">   Login</i></a>
-						</ul>
-					</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 text-center logo-wrap">
+					<div id="fh5co-logo"><a href="index.html">McBand<span>.</span></a></div>
 				</div>
-				
+				<div class="col-xs-12 text-center menu-1 menu-wrap">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="musiclibrary.html">Music library</a></li>
+						<li><a href="event.html">Event</a></li>
+						<li><a href="account.html">Account</a></li>
+						<a href="sign.html" class="button" style="float:right"><i class="icon-user2">   Login</i></a>
+					</ul>
+				</div>
 			</div>
+		</div>
 		<!-- </div> -->
 	</nav>
 
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(images/Divide.jpg);" data-stellar-background-ratio="0.5">
+	<!--header-->
+	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(images/album_artwork/Divide.jpg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-                            <!-- Music Name -->
+							<!-- Music Name -->
 							<h1>Perfect</h1>
-                            <!-- Author Name-->
+							<!-- Author Name-->
 							<p><em>Ed Sheeran</em></p>
 						</div>
 					</div>
@@ -115,101 +184,173 @@
 		</div>
 	</header>
 
-	
+	<!--sheet & info-->
 	<div id="fh5co-contact" class="fh5co-section animate-box">
 		<div class="container">
-			<!--<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Music Name</h2>
-					<p>Brief Info</p>
-				</div>
-			</div>-->
-			
 			<div class="row">
 				<div class="col-md-6 col-md-push-0 col-sm-6 col-sm-push-0">
 					<!-- sheet music-->
-					<img src="images/perfect_sheet.svg" alt="perfect sheet" style="background-color: white">
-					<p></p>
-					<!-- audio player-->
-                    <audio controls>
-                        <source src="audios/Ed_Sheeran_Perfect_Piano_Cover.ogg" type="audio/ogg">
-                        <source src="audios/Ed_Sheeran_Perfect_Piano_Cover.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-				</div>
+					<!-- Slideshow container -->
+					<div class="slideshow-container">
 
+						<!-- Full-width images with number and caption text -->
+						<div class="mySlides">
+							<div class="numbertext">1 / 2</div>
+							<img src="images/sheet%20musics/perfect_sheet(1).svg" style="width:100%; background-color: #ffffff">
+						</div>
+
+						<div class="mySlides">
+							<div class="numbertext">2 / 2</div>
+							<img src="images/sheet%20musics/perfect_sheet(2).svg" style="width:100%; background-color: white">
+						</div>
+						<br>
+						<!-- Next and previous buttons -->
+						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+						<a class="next" onclick="plusSlides(1)">&#10095;</a>
+					</div>
+					<div class="col-xs-12 text-center">
+						<input type="button" class="demo cursor" value="1" onclick="currentSlide(1)">
+						<input type="button" class="demo cursor" value="2" onclick="currentSlide(2)">
+					</div>
+					<br><br>
+					<script>
+                        var slideIndex = 1;
+                        showSlides(slideIndex);
+                        function plusSlides(n) {
+                            showSlides(slideIndex += n);
+                        }
+                        function currentSlide(n) {
+                            showSlides(slideIndex = n);
+                        }
+                        function showSlides(n) {
+                            var i;
+                            var slides = document.getElementsByClassName("mySlides");
+                            var dots = document.getElementsByClassName("demo");
+                            var captionText = document.getElementById("caption");
+                            if (n > slides.length) {slideIndex = 1}
+                            if (n < 1) {slideIndex = slides.length}
+                            for (i = 0; i < slides.length; i++) {
+                                slides[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots.length; i++) {
+                                dots[i].className = dots[i].className.replace(" active", "");
+                            }
+                            slides[slideIndex-1].style.display = "block";
+                            dots[slideIndex-1].className += " active";
+                            captionText.innerHTML = dots[slideIndex-1].alt;
+                        }
+					</script>
+
+
+				</div>
 				<div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
 					<form action="#" id="form-wrap">
 						<div class="row form-group">
 							<div class="col-md-12">
 								<h3>Music Information</h3>
+								<label>Music Name</label>
+								<p>Perfect</p>
+								<label>Uploader</label>
+								<p>Ed Sheeran</p>
+								<!-- audio player-->
+								<audio controls>
+									<source src="audios/Ed_Sheeran_Perfect_Piano_Cover.ogg" type="audio/ogg">
+									<source src="audios/Ed_Sheeran_Perfect_Piano_Cover.mp3" type="audio/mpeg">
+									Your browser does not support the audio element.
+								</audio>
+								<br><br>
 								<input type="submit" class="btn btn-primary btn-outline btn-lg" value="DOWNLOAD">
 								<input type="button" class="btn btn-primary btn-outline btn-lg" value="LIKE">
 							</div>
 						</div>
+
 					</form>
 				</div>
 			</div>
-
 		</div>
 	</div>
 
-		<div id="fh5co-contact" class="fh5co-section animate-box">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 col-md-push-0 col-sm-12 col-sm-push-0">
-
-						<form action="#" id="form-wrap">
-							<div class="row form-group">
-								<div class="col-md-12">
-									<h3>Your Comment</h3>
-									<textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-								</div>
-							</div>
-
-							<div class="row form-group">
-								<div class="col-md-12">
-									<br>
-									<input type="submit" class="btn btn-primary btn-outline btn-lg" value="SUBMIT">
-								</div>
-							</div>
-						</form>
+	<!--comment-->
+	<div id="fh5co-contact" class="fh5co-section animate-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-md-push-0 col-sm-12 col-sm-push-0">
+					<div class="col-md-12 fh5co-heading animate-box">
+						<h2>Comments</h2>
 					</div>
-				</div>
+					<div class="row comment">
+						<div class="col-md-1">
+							<img src="images/icons/taylor_swift_icon.jpeg" style="max-height: 60px; border-radius: 50%;" alt="Icon">
+						</div>
+						<div class="col-md-2">
+							<p style="color: white">Taylor Swift</p>
+						</div>
+						<div class="col-md-6">
+							<p style="color: white; text-decoration: underline; text-decoration-color: #ea272d">Ed is so talented!</p>
+						</div>
+					</div>
+					<div class="row comment">
+						<div class="col-md-1">
+							<img src="images/icons/shawn_mendes_icon.jpg" style="max-height: 60px; border-radius: 50%;" alt="Icon">
+						</div>
+						<div class="col-md-2">
+							<p style="color: white">Shawn Mendes</p>
+						</div>
+						<div class="col-md-6">
+							<p style="color: white; text-decoration: underline; text-decoration-color: #ea272d">I love this song!</p>
+						</div>
+					</div>
+					<div class="row comment">
+						<div class="col-md-1">
+							<img src="images/icons/charlie_puth_icon.jpg" style="max-height: 60px; border-radius: 50%;" alt="Icon">
+						</div>
+						<div class="col-md-2">
+							<p style="color: white">Charlie Puth</p>
+						</div>
+						<div class="col-md-6">
+							<p style="color: white; text-decoration: underline; text-decoration-color: #ea272d">Great sheet music!</p>
+						</div>
+					</div>
+					<br>
 
+
+					<form action="/postcomment" id="form-wrap">
+						<div class="row form-group">
+							<div class="col-md-12">
+								<h3>Share Your Comment</h3>
+								<textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<br>
+								<input type="submit" class="btn btn-primary btn-outline btn-lg" value="SUBMIT">
+							</div>
+						</div>
+					</form>
+
+				</div>
 			</div>
 		</div>
+	</div>
 
-		<!--<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Join McBand</h2>
-						<p>Create an account to upload, comment, make friends and sign up for an event!</p>
-						<p><a href="sign.html" class="btn btn-primary btn-outline">Register Now</a></p>
-					</div>
-				</div>
-			</div>
-		</div>-->
+	<!--footer-->
+	<div class="col-md-12 text-center">
+		<p>
+			<small class="block"><a>McBand<span>.</span></a> Project for CSCI 3100 <a>Group 16</a></small>
+			<br>
+			<small class="block">We Build The <a>Greatest</a> Music Cmmunity<a></a></small>
+		</p>
+		<p>
+		<ul class="fh5co-social-icons">
+			<li><a href="#"><i class="icon-twitter2"></i></a></li>
+			<li><a href="#"><i class="icon-facebook2"></i></a></li>
+			<li><a href="#"><i class="icon-linkedin2"></i></a></li>
+			<li><a href="#"><i class="icon-dribbble2"></i></a></li>
+		</ul>
+		</p>
+	</div>
 
-
-				<div class="col-md-12 text-center">
-					<p>
-						<small class="block"><a>McBand<span>.</span></a> Project for CSCI 3100 <a>Group 16</a></small> 
-						<br>
-						<small class="block">We Build The <a>Greatest</a> Music Cmmunity<a></a></small>
-					</p>
-					<p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-twitter2"></i></a></li>
-							<li><a href="#"><i class="icon-facebook2"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin2"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble2"></i></a></li>
-						</ul>
-					</p>
-				</div>
-	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -225,6 +366,7 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
-	</body>
+</div>
+</body>
 </html>
 

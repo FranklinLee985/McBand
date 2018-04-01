@@ -146,22 +146,39 @@ router.post('/music_upload',function(req,res,next){
 
      // 文件解析与保存
   function _fileParse() {
-    
+    var music = {
+        "name":'',
+        "music_path":'',
+        "cover_path":'',
+        "sheet_path":''
+
+    }
     form.parse(req, function (err, fields, files) {
       if (err) throw err;
           var filesUrl = [];
           var errCount = 0;
           var keys = Object.keys(files);
+
+          music.name = fields[Object.keys(fields)[0]];
+
       keys.forEach(function(key){
+        console.log(key);
         var filePath = files[key].path;
-        var fileName = files[key].name;
+        var fileExt = filePath.substring(filePath.lastIndexOf('.'));
+        var fileName = key +"_"+ new Date().getTime() + fileExt;
         var targetFile = path.join(targetDir, fileName);
         console.log(targetDir)
         //移动文件
         fs.renameSync(filePath, targetFile);
         // 文件的Url（相对路径）
         filesUrl.push('/music/'+fileName);
+        //console.log(filesUrl);
+
+        if(key == 'audiofile') music.music_path = targetFile;
+        if(key == 'coverpic') music.cover_path = targetFile;
+        if(key == 'sheetmusic') music.sheet_path = targetFile;
       });
+      console.log(music);
 
       // 返回上传信息
       //res.json({filesUrl:filesUrl, success:keys.length-errCount, error:errCount});

@@ -1,11 +1,11 @@
+// Here we want to stroe the music name to the database
+
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 
 var musicSchema = new Schema({
     musicname: String,
-    musicpic: Schema.Types.Mixed,
-    musicsheet: Schema.Types.Mixed,
-    music: Schema.Types.Mixed
+    musiclikecount: Number
 });
 
 var musicInfo = mongoose.model('MusicDB', musicSchema);
@@ -32,4 +32,32 @@ exports.search = function(musicsearch, callback){
         }else{
             if(docs.length > 0){
                 // Here is all the music information found according to the name
+                callback();
+            }else{
+                exports.errMsg = 'No such music';
+                callback();
+            }
+        }
+    });
+}
+
+
+exports.add = function(musicpara, callback) {
+    if (err){
+        console.log('find error');
+    }else{
+        var musicdata = new musicInfo({
+            musicname = musicpara.name,
+            musiclikecount = 0
+        });
+        musicdata.save(function(err){
+            if(err){
+                console.log('add error');
+            }else{
+                exports.errMsg = '';
+                callback();
+            }
+        }
+    }
+}
 

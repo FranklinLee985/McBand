@@ -121,6 +121,11 @@ router.post('/register_process', function(req,res){
     })
 })
 
+
+
+
+// The following is to store the music, pic, sheet to local files
+
 //router.post('/music_upload',checkLogin);
 router.post('/music_upload',function(req,res,next){
 

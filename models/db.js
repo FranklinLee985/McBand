@@ -1,18 +1,14 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var loginSchema = new Schema({
-  email: String,
-  password: String
-});
 
-var registerSchema = new Schema({
+
+var userSchema = new Schema({
 	username: String,
 	email: String,
 	password:String
 });
 
-var loginInfo = mongoose.model('UserDB',loginSchema);
-var regInfo = mongoose.model('UserDB',regInfo);
+var userInfo = mongoose.model('UserDB',userSchema);
 
 exports.connect = function(callback){
   mongoose.connect('mongodb://localhost:27017/mcband', function(err){
@@ -29,7 +25,7 @@ exports.disconnect = function(){
 }
 
 exports.search = function(login, callback){
-  loginInfo.find({email: login.email }, function(err, docs){
+  userInfo.find({email: login.email }, function(err, docs){
     if(err){
       console.log('find error');
     }else{
@@ -50,7 +46,7 @@ exports.search = function(login, callback){
 
 exports.findAll = function(callback){
 	//Not sure what it is used for. Need to be checked
-  loginInfo.find({}, {'username':1, '_id':0}, function(err, docs){
+  userInfo.find({}, {'username':1, '_id':0}, function(err, docs){
     if(err){
       console.log('find error');
     }else{
@@ -66,7 +62,7 @@ exports.add = function(register, callback){
     callback();
   }
   else{
-    regInfo.find({email: register.email }, function(err, docs){
+    userInfo.find({email: register.email }, function(err, docs){
       if(err){
         console.log('find error');
       }else{
@@ -74,7 +70,12 @@ exports.add = function(register, callback){
           exports.errMsg = 'Account already exists!';
           callback();
         }else {
-          regInfo.create(register, function(err){
+          var data = {
+            "name":register.name,
+            "email":register.email,
+            "password":register.password
+          }
+          userInfo.create(data, function(err){
             if(err){
               console.log('add error');
             }else{

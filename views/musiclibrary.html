@@ -149,7 +149,10 @@
 						<img src="<%=musicInfo[0].coverPath %>" class="img-responsive" alt="First">
 						<div class="middle">
 							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="View">
-							<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Like">
+							<form action="/like">
+								<input type="submit" class="btn btn-primary btn-outline btn-lg" name="" value="Like">
+							</form>
+
 						</div>
 						<h3><%=musicInfo[0].musicname %></h3>
 						<p>Author: <%=musicInfo[0].uploader %></p>

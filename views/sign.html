@@ -244,23 +244,23 @@
 	</script>
 
 	<script>
-	//var test="franklin@12.om";
 	function CheckMail(mail) {
-	 var filter  = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
-	 if (filter.test(mail)) return true;
-	 else {
-	 alert('Invalid email address!');
-	 return false;}
+		 var filter  = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
+		 if (filter.test(mail)) return true;
+		 else {
+		 alert('Invalid email address!');
+		 return res.redirect('/sign.html');
+		}
 	}
-	//var result=CheckMail(test);
-	//document.write("return: " +  result);
+	//6~21 chars, cannot include only numbers or characters
 	function CheckPW(PW) {
-	 var filter  = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/;
-	 if (filter.test(PW)) return true;
-	 else {
-	 alert('Incorrect password pattern!');
-	 return false;}
-	} 
+		 var filter  = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/;
+		 if (filter.test(PW)) return true;
+		 else {
+		 alert('Incorrect password pattern!');
+		 return res.redirect('/sign.html');
+		}
+	}
 	</script>
 
 	

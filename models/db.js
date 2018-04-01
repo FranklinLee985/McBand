@@ -24,7 +24,7 @@ exports.disconnect = function(){
   mongoose.disconnect();
 }
 
-exports.search = function(login, callback){
+exports.search = function(login, login_msg,callback){
   userInfo.find({email: login.email }, function(err, docs){
     if(err){
       console.log('find error');
@@ -32,6 +32,7 @@ exports.search = function(login, callback){
       if(docs.length > 0){
         if(login.password === docs[0].password){
           exports.errMsg = '';
+          login_msg.name = docs[0].username;
         }else{
           exports.errMsg = "Invalid password!";
         }

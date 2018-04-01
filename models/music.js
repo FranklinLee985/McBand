@@ -1,17 +1,20 @@
 // Here we want to stroe the music name to the database
 
 var mongoose = require('mongoose');
-var schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
 var musicSchema = new Schema({
+    uploader: String,
     musicname: String,
-    musiclikecount: Number
+    musicPath: String,
+    coverPath: String,
+    sheetPath: String
 });
 
 var musicInfo = mongoose.model('MusicDB', musicSchema);
 
 exports.connect = function(callback){
-    mongoose.connect('mongodb://localhost:27017//mcband', function(err){
+    mongoose.connect('mongodb://localhost:27017/mcband', function(err){
         if(err){
             console.log('connect failed');
         }else{
@@ -43,21 +46,21 @@ exports.search = function(musicsearch, callback){
 
 
 exports.add = function(musicpara, callback) {
-    if (err){
-        console.log('find error');
-    }else{
-        var musicdata = new musicInfo({
-            musicname = musicpara.name,
-            musiclikecount = 0
-        });
-        musicdata.save(function(err){
-            if(err){
-                console.log('add error');
-            }else{
-                exports.errMsg = '';
-                callback();
-            }
+    var musicdata = new musicInfo({
+        uploader:musicpara.username,
+        musicname:musicpara.musicname,
+        musicPath:musicpara.musicPath,
+        coverPath:musicpara.coverPath,
+        sheetPath:musicpara.sheetPath
+    });
+    musicdata.save(function(err){
+        if(err){
+            console.log('add error');
+        }else{
+            exports.errMsg = '';
+            callback();
         }
-    }
+    })
 }
+
 

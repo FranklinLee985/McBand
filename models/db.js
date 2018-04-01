@@ -71,7 +71,7 @@ exports.add = function(register, callback){
           callback();
         }else {
           var data = {
-            "name":register.name,
+            "name":register.username,
             "email":register.email,
             "password":register.password
           }

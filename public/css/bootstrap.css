@@ -1446,7 +1446,6 @@ img {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
-
 }
 .fh5co-item:hover .img-responsive {
   opacity: 0.3;

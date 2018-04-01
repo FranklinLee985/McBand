@@ -58,131 +58,32 @@
 
 	<style>
 
-input[type=search] {
-	width: 130px;
-	-webkit-transition: width 0.4s ease-in-out;
-	transition: width 0.4s ease-in-out;
-}
+	input[type=search] {
+		width: 130px;
+		-webkit-transition: width 0.4s ease-in-out;
+		transition: width 0.4s ease-in-out;
+	}
 
-/* When the input field gets focus, change its width to 100% */
-input[type=search]:focus {
-	width: 100%;
-}
-
-
-
-.searchicon {
-  background: transparent;
-  border: none;
-  margin-bottom: 20px;
-}
-.searchicon:active, .searchicon:focus {
-  outline: none;
-  box-shadow: none;
-  border-color: #fff;
-}
-
-#fh5co-friend-list .fh5co-bg-img {
-	height: 200px;
-	background-size: cover;
-}
-
-
-
-
-.mySlides {display: none}
-
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 180px;
-  width: auto;
-  padding: 16px;
-  margin-left: -15px;
-  margin-right: -15px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
-
-
-.middle{
-	position: absolute;
-	top: 110px;
-
-}
-
-
-/*css for friend list*/
-#fh5co-friend-list {
-  margin-bottom: 100px;
-}
-@media screen and (d: 768px) {
-  #fh5co-friend-list {
-    margin-bottom: 50px;
-  }
-}
-#fh5co-friend-list{
-  color: #fff;
-  font-family: "Satisfy", cursive;
-}
-#fh5co-friend-list .fh5co-item-wraplist, .fh5co-item-wraplist, .fh5co-item-wraplist {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-#fh5co-friend-list .fh5co-item, .fh5co-item, .fh5co-item {
-  padding-left: 30px;
-  float: inherit;
-  width: 85%;
-  backround: #fff;
-}
-#fh5co-friend-list .fh5co-item.margin_toplist, .fh5co-item.margin_toplist, .fh5co-item.margin_toplist {
-  margin-top: 150px;
-}
-@media screen and (d: 480px) {
-  #fh5co-friend-list .fh5co-item.margin_toplist, .fh5co-item.margin_toplist, .fh5co-item.margin_toplist {
-    margin-top: 0;
-  }
-}
-#fh5co-friend-list .fh5co-item h3, .fh5co-item h3, .fh5co-item h3{
-  margin-bottom: 0px;
-  color: #fff;
-}
-#fh5co-friend-list .fh5co-item img, .fh5co-item img, .fh5co-item img {
-
-  margin-bottom: 30px;
-  transition: .5s ease;
-}
-
-/*for change information! show tool icon when click usericon*/
-.containericon {
-  position: relative;
-}
-.containericon:hover .overlayll {
-  opacity: 1;
-  border: none;
-  border-radius: 50%;
-}
-.overlayll {
-  position: relative; 
-  bottom: 0; 
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.5); /* Black see-through */
-  color: #f1f1f1; 
-  transition: .5s ease;
-  opacity:0;
-  color: white;
-  text-align: center;
-}
+	/*for change information! show tool icon when click usericon*/
+	.containericon {
+ 	 	position: relative;
+	}
+	.containericon:hover .overlayll {
+  		opacity: 1;
+		border: none;
+		border-radius: 50%;
+	}
+	.overlayll {
+		position: relative;
+		bottom: 0;
+		background: rgb(0, 0, 0);
+  		background: rgba(0, 0, 0, 0.5); /* Black see-through */
+		color: #f1f1f1;
+  		transition: .5s ease;
+  		opacity:0;
+  		color: white;
+  		text-align: center;
+	}
 
 	input[type=text] {
 		width: 250px;
@@ -215,10 +116,13 @@ input[type=search]:focus {
 		max-width:300px;
 	}
 
-	#scroll:hover .individual{
+   .individual:hover{
 		opacity: 0.3;
 	}
 
+	.individual:hover .middle{
+		opacity: 1.0;
+	}
 
 
 	</style>
@@ -292,8 +196,8 @@ input[type=search]:focus {
 						</div>
 					</div>
 
-					<section id="scroll" class="container animate-box">
-						<div class="individual">
+					<section id="scroll" class="animate-box">
+						<div class="container individual">
 							<!--User Icon-->
 							<img src="images/icons/taylor_swift_icon.jpeg" style="border-radius: 50%;" alt="Icon">
 							<div class="middle">
@@ -403,6 +307,9 @@ input[type=search]:focus {
 						<div class="individual">
 							<!--Album Artwork-->
 							<img src="images/album_artwork/19.jpg" alt="19">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
 							<!--Music Name-->
 							<br><br>
 							<p>To Make You Feel My Love</p>
@@ -410,6 +317,9 @@ input[type=search]:focus {
 						<div class="individual">
 							<!--Album Artwork-->
 							<img src="images/album_artwork/Call%20Me%20By%20Your%20Name.jpg" alt="Call Me By Your Name">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
 							<!--Music Name-->
 							<br><br>
 							<p>Mystery of Love</p>
@@ -417,6 +327,9 @@ input[type=search]:focus {
 						<div class="individual">
 							<!--Album Artwork-->
 							<img src="images/album_artwork/Coco.jpg" alt="Coco">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
 							<!--Music Name-->
 							<br><br>
 							<p>Remember Me</p>
@@ -424,6 +337,9 @@ input[type=search]:focus {
 						<div class="individual">
 							<!--Album Artwork-->
 							<img src="images/album_artwork/Divide.jpg" alt="Divide">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
 							<!--Music Name-->
 							<br><br>
 							<p>Perfect</p>
@@ -431,6 +347,9 @@ input[type=search]:focus {
 						<div class="individual">
 							<!--Album Artwork-->
 							<img src="images/album_artwork/Havana.jpg" alt="Havana">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
 							<!--Music Name-->
 							<br><br>
 							<p>Havana</p>
@@ -438,6 +357,9 @@ input[type=search]:focus {
 						<div class="individual">
 							<!--Album Artwork-->
 							<img src="images/album_artwork/Love%20In%20The%20Future.jpg" alt="Love In The Future">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
 							<!--Music Name-->
 							<br><br>
 							<p>All of Me</p>
@@ -445,6 +367,9 @@ input[type=search]:focus {
 						<div class="individual">
 							<!--Album Artwork-->
 							<img src="images/album_artwork/The%20Greatest%20Showman.jpg" alt="The Greatest Showman">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
 							<!--Music Name-->
 							<br><br>
 							<p>A Million Dreams</p>
@@ -452,6 +377,9 @@ input[type=search]:focus {
 						<div class="individual">
 							<!--Album Artwork-->
 							<img src="images/album_artwork/This%20Is%20Me.jpg" alt="This is Me">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
 							<!--Music Name-->
 							<br><br>
 							<p>This Is Me</p>

@@ -3,11 +3,11 @@ var router = express.Router();
 var db = require('../models/db');
 var bodyParser = require('body-parser');
 var fs=require('fs');
-var multer=require('multer');
+var formidable = require('formidable');
 var path=require('path');
 
-var musicUploadDir = '../redources/upload/music';
-var musicUpload = multer({dest:musicUploadDir}).single('music');
+var musicUploadDir = '../resources/upload/music/';
+
 
 function checkLogin(req,res,next){
     if(!req.session.logInfo){
@@ -28,7 +28,7 @@ function checkNotLogin(req,res,next){
 /* GET home page. */
 router.get('/', function(req, res, next) {
   console.log("To homepage");
-  res.redirect('/index');
+  res.redirect('/index.html');
 });
 
 router.get('/index.html', function(req, res, next) {
@@ -122,41 +122,53 @@ router.post('/register_process', function(req,res){
     })
 })
 
-router.post('/music_upload',checkLogin);
+//router.post('/music_upload',checkLogin);
 router.post('/music_upload',function(req,res,next){
-    musicUpload(req,res,function(err){
+
+    var form = new formidable.IncomingForm();
+    //form.encoding = 'utf-8';
+    form.uploadDir = path.normalize(musicUploadDir);
+    form.maxFilesSize = 10*1024*1024;
+    form.keepExtensions = true;
+    form.multiples=true;
+    var targetDir = path.join(__dirname, musicUploadDir);
+    fs.access(targetDir, function(err){
         if(err){
-            console.error(err.message);
+          fs.mkdirSync(targetDir);
         }
-        else{
-            var des_file = musicUploadDir+req.file.originalname;
+        _fileParse();
+  });
 
-            fs.readFile(req.file.path,function(err,data){
-                fs.writeFile(des_file,data,function(err){
-                    if(err){
-                        console.error(err.message);
-                    }
-                    else{
-                        var response={
-                            message:'File uploaded successfully!',
-                            filename:req.file.originalname
-                        };
 
-                        //delete temp file
-                        fs.unlink(req.file.path,function(err){
-                            if(err){
-                                console.error(err.message);
-                            }
-                            else{
-                                console.log('delete '+req.file.path+' successfully!');
-                            }
-                        })
-                    }
-                })
-            })
-        }
-    })
+     // 文件解析与保存
+  function _fileParse() {
+    
+    form.parse(req, function (err, fields, files) {
+      if (err) throw err;
+          var filesUrl = [];
+          var errCount = 0;
+          var keys = Object.keys(files);
+      keys.forEach(function(key){
+        var filePath = files[key].path;
+        console.log(files[key].originalFilename);
+        var fileName = files[key].originalFilename;
+        var targetFile = path.join(targetDir, fileName);
+        console.log(targetDir)
+        //移动文件
+        fs.renameSync(filePath, targetFile);
+        // 文件的Url（相对路径）
+        filesUrl.push('/music/'+fileName);
+      });
 
+      // 返回上传信息
+      res.json({filesUrl:filesUrl, success:keys.length-errCount, error:errCount});
+      res.redirect('/musicinfo.html');
+
+    }); 
+  }
+  
 })
+
+
 
 module.exports = router;

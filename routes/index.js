@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../models/db');
 var mdb = require('../models/music');
+var edb = require('../models/events');
 var fs=require('fs');
 var formidable = require('formidable');
 var path=require('path');
@@ -103,6 +104,30 @@ router.post('/login_process', function(req,res){
                 //登录失败
                 res.redirect('/sign.html');
                 console.log(db.errMsg);
+            }
+        })
+    })
+})
+
+router.post('/event_upload', function(req,res){
+    var eventinfo = {
+        "username":req.session.logInfo.name,
+        "eventname": req.body.eventname,
+        "venue": req.body.venue,
+        "date": req.body.time,
+        "basicinfo": req.body.eventinfo,
+        "eventpicture": req.body.event_pic
+    };
+    console.log(eventinfo);
+    edb.connect(function(){
+        edb.add(eventinfo,function(){
+            edb.disconnect();
+            if(edb.errMsg === ''){
+                //Successfully add event
+                res.redirect('/event.html');
+            }else{
+                console.log(edb.errMsg);
+                res.redirect('/event.html');
             }
         })
     })

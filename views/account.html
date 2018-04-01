@@ -184,36 +184,42 @@ input[type=search]:focus {
   text-align: center;
 }
 
-input[type=text] {
-	width: 250px;
-	-webkit-transition: width 0.4s ease-in-out;
-	transition: width 0.4s ease-in-out;
-}
-/* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
-	width: 100%;
-}
-#scroll {
-	width: 100%;
-	height: 100%;
-	background-color: transparent;
-	overflow: auto;
-	white-space: nowrap;
-}
-#scroll .individual{
-	display: inline-block;
-	text-align: center;
-	margin-left: 10px;
-	margin-right: 10px;
-}
-#scroll .individual p{
-	color: #ffffff;
-}
-#scroll .individual img{
-	height: 180px;
-	width:auto;/*maintain aspect ratio*/
-	max-width:300px;
-}
+	input[type=text] {
+		width: 250px;
+		-webkit-transition: width 0.4s ease-in-out;
+		transition: width 0.4s ease-in-out;
+	}
+	/* When the input field gets focus, change its width to 100% */
+	input[type=text]:focus {
+		width: 100%;
+	}
+	#scroll {
+		width: 100%;
+		height: 100%;
+		background-color: transparent;
+		overflow: auto;
+		white-space: nowrap;
+	}
+	#scroll .individual{
+		display: inline-block;
+		text-align: center;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	#scroll .individual p{
+		color: #ffffff;
+	}
+	#scroll .individual img{
+		height: 180px;
+		width:auto;/*maintain aspect ratio*/
+		max-width:300px;
+	}
+
+	#scroll:hover .individual{
+		opacity: 0.3;
+	}
+
+
 
 	</style>
 
@@ -225,64 +231,54 @@ input[type=text]:focus {
 
 
 
-
-
-
-
-
-
 	<body>
 		
-	<div class="fh5co-loader"></div>
+		<div class="fh5co-loader"></div>
 	
-	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
-		<!-- <div class="top-menu"> -->
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 text-center logo-wrap">
-						<div id="fh5co-logo"><a href="index.html">McBand<span>.</span></a></div>
-					</div>
-					<div class="col-xs-12 text-center menu-1 menu-wrap">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="musiclibrary.html">Music library</a></li>
-							<!--<li><a href="community.html">Community</a></li>-->
-							<li><a href="event.html">Event</a></li>
-							<li class="active"><a href="account.html">Account</a></li>
-							<!--<button href="signuporlogin.html" class=" btn btn-primary btn-outline ml-2 my-sm-0" style="float: right" type="submit"><a>login/signup</a></button>-->
-							<a href="sign.html" class="button" style="float:right"><i class="icon-user2">   Login</i></a>
-						</ul>
+		<div id="page">
+		<nav class="fh5co-nav" role="navigation">
+			<!-- <div class="top-menu"> -->
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 text-center logo-wrap">
+							<div id="fh5co-logo"><a href="index.html">McBand<span>.</span></a></div>
+						</div>
+						<div class="col-xs-12 text-center menu-1 menu-wrap">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="musiclibrary.html">Music library</a></li>
+								<li><a href="event.html">Event</a></li>
+								<li class="active"><a href="account.html">Account</a></li>
+								<a href="sign.html" class="button" style="float:right"><i class="icon-user2">   Login</i></a>
+							</ul>
+						</div>
 					</div>
 				</div>
-				
-			</div>
-		<!-- </div> -->
-	</nav>
+		</nav>
 
 
-	<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(images/hero_1.jpeg); margin-bottom: 10px;width:100%;height:400px;" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-	</div>
-	<div id="fh5co-contact" class="fh5co-section animate-box">
-		<div class="container" style="margin-top: -250px;">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<!--User Icon-->
-					<div class="containericon">
-						<img src="images/One_Republic_Icon.jpg" alt="Icon" style="width: 30%; border-radius: 50%;">
-						<a href="#" class="button overlayll"><i class="icon-wrench"></i></a>
-					</div>
-					<!--User Name-->
-					<br><br>
-					<h2 style="margin-top: -50px;">One Republic</h2>
-					<!--Email-->
-					<p>onerepublic@gmail.com</p>
-				</div>
-			</div>
-
+		<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(images/hero_1.jpeg); margin-bottom: 10px;width:100%;height:400px;" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
 		</div>
-	</div>
+
+		<div id="fh5co-contact" class="fh5co-section animate-box">
+			<div class="container" style="margin-top: -250px;">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<!--User Icon-->
+						<div class="containericon">
+							<img src="images/icons/One_Republic_Icon.jpg" alt="Icon" style="width: 30%; border-radius: 50%;">
+							<a href="#" class="button overlayll"><i class="icon-wrench"></i></a>
+						</div>
+						<!--User Name-->
+						<br><br>
+						<h2 style="margin-top: -50px;">One Republic</h2>
+						<!--Email-->
+						<p>onerepublic@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div id="fh5co-gallery" class="fh5co-section">
 			<div class="container">
@@ -296,10 +292,13 @@ input[type=text]:focus {
 						</div>
 					</div>
 
-					<section id="scroll" class="animate-box">
+					<section id="scroll" class="container animate-box">
 						<div class="individual">
 							<!--User Icon-->
 							<img src="images/icons/taylor_swift_icon.jpeg" style="border-radius: 50%;" alt="Icon">
+							<div class="middle">
+								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+							</div>
 							<!--User Name-->
 							<br><br>
 							<p>Taylor Swift</p>
@@ -307,6 +306,9 @@ input[type=text]:focus {
 						<div class="individual">
 							<!--User Icon-->
 							<img src="images/icons/kendrick_lamar_icon.jpeg" style="border-radius: 50%;" alt="Icon">
+							<div class="middle">
+								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+							</div>
 							<!--User Name-->
 							<br><br>
 							<p>Kendrick Lamar</p>
@@ -314,6 +316,9 @@ input[type=text]:focus {
 						<div class="individual">
 							<!--User Icon-->
 							<img src="images/icons/the_chainsmokers_icon.jpeg" style="border-radius: 50%;" alt="Icon">
+							<div class="middle">
+								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+							</div>
 							<!--User Name-->
 							<br><br>
 							<p>The Chainsmokers</p>
@@ -321,6 +326,9 @@ input[type=text]:focus {
 						<div class="individual">
 							<!--User Icon-->
 							<img src="images/icons/imagine_dragons_icon.jpeg" style="border-radius: 50%;" alt="Icon">
+							<div class="middle">
+								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+							</div>
 							<!--User Name-->
 							<br><br>
 							<p>Imagine Dragons</p>
@@ -328,6 +336,9 @@ input[type=text]:focus {
 						<div class="individual">
 							<!--User Icon-->
 							<img src="images/icons/justin_timberlake_icon.jpg" style="border-radius: 50%;" alt="Icon">
+							<div class="middle">
+								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+							</div>
 							<!--User Name-->
 							<br><br>
 							<p>Justin Timberlake</p>
@@ -335,6 +346,9 @@ input[type=text]:focus {
 						<div class="individual">
 							<!--User Icon-->
 							<img src="images/icons/dua_lipa_icon.jpg" style="border-radius: 50%;" alt="Icon">
+							<div class="middle">
+								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+							</div>
 							<!--User Name-->
 							<br><br>
 							<p>Dua Lipa</p>
@@ -342,6 +356,9 @@ input[type=text]:focus {
 						<div class="individual">
 							<!--User Icon-->
 							<img src="images/icons/charlie_puth_icon.jpg" style="border-radius: 50%;" alt="Icon">
+							<div class="middle">
+								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+							</div>
 							<!--User Name-->
 							<br><br>
 							<p>Charlie Puth</p>
@@ -349,6 +366,9 @@ input[type=text]:focus {
 						<div class="individual">
 							<!--User Icon-->
 							<img src="images/icons/shawn_mendes_icon.jpg" style="border-radius: 50%;" alt="Icon">
+							<div class="middle">
+								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+							</div>
 							<!--User Name-->
 							<br><br>
 							<p>Shawn Mendes</p>
@@ -379,7 +399,7 @@ input[type=text]:focus {
 						</div>
 					</div>
 
-					<section id="scroll" class="animate-box">
+					<section id="scroll" class="container animate-box">
 						<div class="individual">
 							<!--Album Artwork-->
 							<img src="images/album_artwork/19.jpg" alt="19">

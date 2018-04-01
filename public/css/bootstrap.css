@@ -1436,6 +1436,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 .middle {
   transition: .5s ease;
   opacity: 0;
@@ -1961,6 +1962,10 @@ pre code {
 .container:after {
   clear: both;
 }
+.container::-webkit-scrollbar {
+  display: none;  // Safari and Chrome
+}
+
 @media (min-width: 768px) {
   .container {
     width: 750px;

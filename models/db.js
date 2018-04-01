@@ -70,12 +70,12 @@ exports.add = function(register, callback){
           exports.errMsg = 'Account already exists!';
           callback();
         }else {
-          var data = {
-            "name":register.name,
-            "email":register.email,
-            "password":register.password
-          }
-          userInfo.create(data, function(err){
+          var data = new userInfo({
+            username:register.name,
+            email:register.email,
+            password:register.password
+          });
+          data.save(function(err){
             if(err){
               console.log('add error');
             }else{

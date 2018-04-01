@@ -101,8 +101,9 @@ router.post('/login_process', function(req,res){
     })
 })
 
+
 router.post('/event_upload', function(req,res){
-    var eventinfo = {
+    var response = {
         "username":req.session.logInfo.name,
         "eventname": req.body.eventname,
         "venue": req.body.venue,
@@ -110,20 +111,23 @@ router.post('/event_upload', function(req,res){
         "basicinfo": req.body.eventinfo,
         "eventpicture": req.body.event_pic
     };
-    console.log(eventinfo);
+    console.log(response);
+    //Up to here, it is correct
     edb.connect(function(){
-        edb.add(eventinfo,function(){
+        edb.add(response,function(){
             edb.disconnect();
             if(edb.errMsg === ''){
-                //Successfully add event
                 res.redirect('/event.html');
-            }else{
+            }
+            else{
+                res.redirect('/event.html');
                 console.log(edb.errMsg);
-                res.redirect('/event.html');
             }
         })
     })
 })
+
+
 
 router.post('/register_process', function(req,res){
 	var response = {

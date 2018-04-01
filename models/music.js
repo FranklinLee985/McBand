@@ -8,7 +8,8 @@ var musicSchema = new Schema({
     musicname: String,
     musicPath: String,
     coverPath: String,
-    sheetPath: String
+    sheetPath: String,
+    likeCount: Number
 });
 
 var musicInfo = mongoose.model('MusicDB', musicSchema);
@@ -51,7 +52,8 @@ exports.add = function(musicpara, callback) {
         musicname:musicpara.musicname,
         musicPath:musicpara.musicPath,
         coverPath:musicpara.coverPath,
-        sheetPath:musicpara.sheetPath
+        sheetPath:musicpara.sheetPath,
+        likeCount:0
     });
     musicdata.save(function(err){
         if(err){
@@ -63,4 +65,14 @@ exports.add = function(musicpara, callback) {
     })
 }
 
-
+exports.topTen = function(infos,callback){
+    musicInfo.find({}).sort('-likeCount').exec(function(err,docs){
+        if(err)console.log(err);
+        else{
+            for(var i = 0;i<10;i++){
+            infos[i] = docs[i];
+            callback();
+        }
+        }
+    })
+}

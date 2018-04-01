@@ -53,7 +53,15 @@ router.get('/event.html', checkLogin,function(req, res, next) {
 });
 
 router.get('/musiclibrary.html', function(req, res, next) {
-  res.render('musiclibrary');
+  var topTen = [];
+  mdb.connect(function(){
+    mdb.topTen(topTen,function(){
+      db.disconnect();
+      res.locals.logInfo = req.session.logInfo;
+      res.render('musiclibrary',{ musicInfo: topTen });
+    })
+  })
+  
 });
 
 router.get('/musicinfo.html', function(req, res, next) {

@@ -106,13 +106,9 @@ router.post('/event_upload', function(req,res){
         "username":req.session.logInfo.name,
         "eventname": req.body.eventname,
         "venue": req.body.venue,
-        "date"
-
+        "date": req.body.time
     }
-
-
-
-}
+})
 
 router.post('/register_process', function(req,res){
 	var response = {

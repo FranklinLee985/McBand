@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models/db');
-var bodyParser = require('body-parser');
 var fs=require('fs');
 var formidable = require('formidable');
 var path=require('path');
@@ -126,8 +125,8 @@ router.post('/register_process', function(req,res){
 router.post('/music_upload',function(req,res,next){
 
     var form = new formidable.IncomingForm();
-    //form.encoding = 'utf-8';
-    form.uploadDir = path.normalize(musicUploadDir);
+    form.encoding = 'utf-8';
+    //form.uploadDir = path.normalize(musicUploadDir);
     form.maxFilesSize = 10*1024*1024;
     form.keepExtensions = true;
     form.multiples=true;
@@ -150,8 +149,7 @@ router.post('/music_upload',function(req,res,next){
           var keys = Object.keys(files);
       keys.forEach(function(key){
         var filePath = files[key].path;
-        console.log(files[key].originalFilename);
-        var fileName = files[key].originalFilename;
+        var fileName = files[key].name;
         var targetFile = path.join(targetDir, fileName);
         console.log(targetDir)
         //移动文件
@@ -161,7 +159,7 @@ router.post('/music_upload',function(req,res,next){
       });
 
       // 返回上传信息
-      res.json({filesUrl:filesUrl, success:keys.length-errCount, error:errCount});
+      //res.json({filesUrl:filesUrl, success:keys.length-errCount, error:errCount});
       res.redirect('/musicinfo.html');
 
     }); 

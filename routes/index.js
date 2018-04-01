@@ -7,7 +7,7 @@ var fs=require('fs');
 var formidable = require('formidable');
 var path=require('path');
 
-var musicUploadDir = '../resources/upload/music/';
+var musicUploadDir = '../public/resources/upload/music/';
 var tempDir = '../resources/upload/temp/';
 
 
@@ -54,7 +54,14 @@ router.get('/event.html', checkLogin,function(req, res, next) {
 });
 
 router.get('/musiclibrary.html', function(req, res, next) {
-  res.render('musiclibrary');
+  var topTen = [];
+  mdb.connect(function(){
+    mdb.topTen(topTen,function(){
+      db.disconnect();
+      res.render('musiclibrary',{ musicInfo: topTen });
+    })
+  })
+  
 });
 
 router.get('/musicinfo.html', function(req, res, next) {
@@ -227,9 +234,9 @@ router.post('/music_upload',function(req,res,next){
         filesUrl.push('/music/'+fileName);
         //console.log(filesUrl);
 
-        if(key == 'audiofile') music.musicPath = targetFile;
-        if(key == 'coverpic') music.coverPath = targetFile;
-        if(key == 'sheetmusic') music.sheetPath = targetFile;
+        if(key == 'audiofile') music.musicPath = path.join('/resources/upload/music/', fileName);
+        if(key == 'coverpic') music.coverPath = path.join('/resources/upload/music/', fileName);
+        if(key == 'sheetmusic') music.sheetPath = path.join('/resources/upload/music/', fileName);
       });
       console.log(music);
 

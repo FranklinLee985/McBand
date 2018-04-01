@@ -10,6 +10,7 @@ var sio = require('socket.io');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var musicRouter = require('./routes/music_index');
 
 var app = express();
 
@@ -45,6 +46,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/music', musicRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

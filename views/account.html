@@ -56,133 +56,58 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+	<script src="js/dropzone.js"></script>
+
 	<style>
 
-input[type=search] {
-	width: 130px;
-	-webkit-transition: width 0.4s ease-in-out;
-	transition: width 0.4s ease-in-out;
-}
+		.modal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto;
+			background-color: rgb(26,26,26);
+			background-color: rgba(26,26,26,0.4);
+			padding-top: 150px;
+		}
 
-/* When the input field gets focus, change its width to 100% */
-input[type=search]:focus {
-	width: 100%;
-}
+		/* Modal Content/Box */
+		.modal-content {
+			background-color: rgb(26, 26, 26);
+			margin: 10% 10% 10% 10%;
+			border: 4px solid rgba(255, 255, 255, 0.04);
+			width: 99%;
+		}
 
+	input[type=search] {
+		width: 130px;
+		-webkit-transition: width 0.4s ease-in-out;
+		transition: width 0.4s ease-in-out;
+	}
 
-
-.searchicon {
-  background: transparent;
-  border: none;
-  margin-bottom: 20px;
-}
-.searchicon:active, .searchicon:focus {
-  outline: none;
-  box-shadow: none;
-  border-color: #fff;
-}
-
-#fh5co-friend-list .fh5co-bg-img {
-	height: 200px;
-	background-size: cover;
-}
-
-
-
-
-.mySlides {display: none}
-
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 180px;
-  width: auto;
-  padding: 16px;
-  margin-left: -15px;
-  margin-right: -15px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
-
-
-.middle{
-	position: absolute;
-	top: 110px;
-
-}
-
-
-/*css for friend list*/
-#fh5co-friend-list {
-  margin-bottom: 100px;
-}
-@media screen and (d: 768px) {
-  #fh5co-friend-list {
-    margin-bottom: 50px;
-  }
-}
-#fh5co-friend-list{
-  color: #fff;
-  font-family: "Satisfy", cursive;
-}
-#fh5co-friend-list .fh5co-item-wraplist, .fh5co-item-wraplist, .fh5co-item-wraplist {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-#fh5co-friend-list .fh5co-item, .fh5co-item, .fh5co-item {
-  padding-left: 30px;
-  float: inherit;
-  width: 85%;
-  backround: #fff;
-}
-#fh5co-friend-list .fh5co-item.margin_toplist, .fh5co-item.margin_toplist, .fh5co-item.margin_toplist {
-  margin-top: 150px;
-}
-@media screen and (d: 480px) {
-  #fh5co-friend-list .fh5co-item.margin_toplist, .fh5co-item.margin_toplist, .fh5co-item.margin_toplist {
-    margin-top: 0;
-  }
-}
-#fh5co-friend-list .fh5co-item h3, .fh5co-item h3, .fh5co-item h3{
-  margin-bottom: 0px;
-  color: #fff;
-}
-#fh5co-friend-list .fh5co-item img, .fh5co-item img, .fh5co-item img {
-
-  margin-bottom: 30px;
-  transition: .5s ease;
-}
-
-/*for change information! show tool icon when click usericon*/
-.containericon {
-  position: relative;
-}
-.containericon:hover .overlayll {
-  opacity: 1;
-  border: none;
-  border-radius: 50%;
-}
-.overlayll {
-  position: relative; 
-  bottom: 0; 
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.5); /* Black see-through */
-  color: #f1f1f1; 
-  transition: .5s ease;
-  opacity:0;
-  color: white;
-  text-align: center;
-}
+	/*for change information! show tool icon when click usericon*/
+	.containericon {
+ 	 	position: relative;
+	}
+	.containericon:hover .overlayll {
+  		opacity: 1;
+		border: none;
+		border-radius: 50%;
+	}
+	.overlayll {
+		position: relative;
+		bottom: 0;
+		background: rgb(0, 0, 0);
+  		background: rgba(0, 0, 0, 0.5); /* Black see-through */
+		color: #f1f1f1;
+  		transition: .5s ease;
+  		opacity:0;
+  		color: white;
+  		text-align: center;
+	}
 
 	input[type=text] {
 		width: 250px;
@@ -207,6 +132,7 @@ input[type=search]:focus {
 		margin-right: 10px;
 	}
 	#scroll .individual p{
+		margin-top: -50px;
 		color: #ffffff;
 	}
 	#scroll .individual img{
@@ -215,10 +141,14 @@ input[type=search]:focus {
 		max-width:300px;
 	}
 
-	#scroll:hover .individual{
+   .individual:hover img{
 		opacity: 0.3;
 	}
 
+	.individual:hover .middle{
+		opacity: 1.0;
+		top: -30%;
+	}
 
 
 	</style>
@@ -268,14 +198,119 @@ input[type=search]:focus {
 						<!--User Icon-->
 						<div class="containericon">
 							<img src="images/icons/One_Republic_Icon.jpg" alt="Icon" style="width: 30%; border-radius: 50%;">
-							<a href="#" class="button overlayll"><i class="icon-wrench"></i></a>
+							<button onclick="document.getElementById('id01').style.display='block'" class="button overlayll"><i class="icon-wrench"></i></button>
+							<div id="id01" class="modal">
+								<div class="modal-content">
+									<label>Update your icon</label>
+									<form action="/icon_upload" class="dropzone" id="icon_upload"></form>
+								</div>
+							</div>
 						</div>
 						<!--User Name-->
 						<br><br>
-						<h2 style="margin-top: -50px;">One Republic</h2>
+						<h2 style="margin-top: -50px;"><%=locals.logInfo.name %></h2>
 						<!--Email-->
-						<p>onerepublic@gmail.com</p>
+						<p><%=locals.logInfo.name %></p>
 					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="fh5co-gallery" class="fh5co-section">
+			<div class="container">
+				<div class="row" style="margin-top: -150px;">
+					<div class="col-md-12 fh5co-heading animate-box">
+						<h2>My Collections</h2>
+						<div class="row">
+							<div class="col-md-6">
+								<p>Check your favourite music you have liked before.</p>
+							</div>
+						</div>
+					</div>
+
+					<section id="scroll" class="container animate-box"  style="margin-top: -100px;">
+						<div class="individual">
+							<!--Album Artwork-->
+							<img src="images/album_artwork/19.jpg" alt="19">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
+							<!--Music Name-->
+							<br><br>
+							<p>To Make You Feel My Love</p>
+						</div>
+						<div class="individual">
+							<!--Album Artwork-->
+							<img src="images/album_artwork/Call%20Me%20By%20Your%20Name.jpg" alt="Call Me By Your Name">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
+							<!--Music Name-->
+							<br><br>
+							<p>Mystery of Love</p>
+						</div>
+						<div class="individual">
+							<!--Album Artwork-->
+							<img src="images/album_artwork/Coco.jpg" alt="Coco">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
+							<!--Music Name-->
+							<br><br>
+							<p>Remember Me</p>
+						</div>
+						<div class="individual">
+							<!--Album Artwork-->
+							<img src="images/album_artwork/Divide.jpg" alt="Divide">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
+							<!--Music Name-->
+							<br><br>
+							<p>Perfect</p>
+						</div>
+						<div class="individual">
+							<!--Album Artwork-->
+							<img src="images/album_artwork/Havana.jpg" alt="Havana">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
+							<!--Music Name-->
+							<br><br>
+							<p>Havana</p>
+						</div>
+						<div class="individual">
+							<!--Album Artwork-->
+							<img src="images/album_artwork/Love%20In%20The%20Future.jpg" alt="Love In The Future">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
+							<!--Music Name-->
+							<br><br>
+							<p>All of Me</p>
+						</div>
+						<div class="individual">
+							<!--Album Artwork-->
+							<img src="images/album_artwork/The%20Greatest%20Showman.jpg" alt="The Greatest Showman">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
+							<!--Music Name-->
+							<br><br>
+							<p>A Million Dreams</p>
+						</div>
+						<div class="individual">
+							<!--Album Artwork-->
+							<img src="images/album_artwork/This%20Is%20Me.jpg" alt="This is Me">
+							<div class="middle">
+								<a href="musicinfo.html" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
+							</div>
+							<!--Music Name-->
+							<br><br>
+							<p>This Is Me</p>
+						</div>
+					</section>
+
 				</div>
 			</div>
 		</div>
@@ -292,12 +327,13 @@ input[type=search]:focus {
 						</div>
 					</div>
 
-					<section id="scroll" class="container animate-box">
+					<section id="scroll" class="container animate-box" style="margin-top: -100px;">
 						<div class="individual">
 							<!--User Icon-->
 							<img src="images/icons/taylor_swift_icon.jpeg" style="border-radius: 50%;" alt="Icon">
 							<div class="middle">
-								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+								<button onclick="openDialogA()" class="btn btn-primary btn-outline btn-lg"><i class="icon-chat2"></i></button>
+								<!-- <button onclick="openDialogA()" class="btn btn-primary btn-outline btn-lg"><i class="icon-chat2"></i></button> -->
 							</div>
 							<!--User Name-->
 							<br><br>
@@ -307,7 +343,7 @@ input[type=search]:focus {
 							<!--User Icon-->
 							<img src="images/icons/kendrick_lamar_icon.jpeg" style="border-radius: 50%;" alt="Icon">
 							<div class="middle">
-								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+								<button onclick="openDialogA()" class="btn btn-primary btn-outline btn-lg"><i class="icon-chat2"></i></button>
 							</div>
 							<!--User Name-->
 							<br><br>
@@ -317,7 +353,7 @@ input[type=search]:focus {
 							<!--User Icon-->
 							<img src="images/icons/the_chainsmokers_icon.jpeg" style="border-radius: 50%;" alt="Icon">
 							<div class="middle">
-								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+								<button onclick="openDialogA()" class="btn btn-primary btn-outline btn-lg"><i class="icon-chat2"></i></button>
 							</div>
 							<!--User Name-->
 							<br><br>
@@ -327,7 +363,7 @@ input[type=search]:focus {
 							<!--User Icon-->
 							<img src="images/icons/imagine_dragons_icon.jpeg" style="border-radius: 50%;" alt="Icon">
 							<div class="middle">
-								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+								<button onclick="openDialogA()" class="btn btn-primary btn-outline btn-lg"><i class="icon-chat2"></i></button>
 							</div>
 							<!--User Name-->
 							<br><br>
@@ -337,7 +373,7 @@ input[type=search]:focus {
 							<!--User Icon-->
 							<img src="images/icons/justin_timberlake_icon.jpg" style="border-radius: 50%;" alt="Icon">
 							<div class="middle">
-								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+								<button onclick="openDialogA()" class="btn btn-primary btn-outline btn-lg"><i class="icon-chat2"></i></button>
 							</div>
 							<!--User Name-->
 							<br><br>
@@ -347,7 +383,7 @@ input[type=search]:focus {
 							<!--User Icon-->
 							<img src="images/icons/dua_lipa_icon.jpg" style="border-radius: 50%;" alt="Icon">
 							<div class="middle">
-								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+								<button onclick="openDialogA()" class="btn btn-primary btn-outline btn-lg"><i class="icon-chat2"></i></button>
 							</div>
 							<!--User Name-->
 							<br><br>
@@ -357,7 +393,7 @@ input[type=search]:focus {
 							<!--User Icon-->
 							<img src="images/icons/charlie_puth_icon.jpg" style="border-radius: 50%;" alt="Icon">
 							<div class="middle">
-								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+								<button onclick="openDialogA()" class="btn btn-primary btn-outline btn-lg"><i class="icon-chat2"></i></button>
 							</div>
 							<!--User Name-->
 							<br><br>
@@ -367,7 +403,7 @@ input[type=search]:focus {
 							<!--User Icon-->
 							<img src="images/icons/shawn_mendes_icon.jpg" style="border-radius: 50%;" alt="Icon">
 							<div class="middle">
-								<a href="dialog.html" class="btn btn-primary btn-outline btn-lg" role="button">Chat</a>
+								<button onclick="openDialogA()" class="btn btn-primary btn-outline btn-lg"><i class="icon-chat2"></i></button>
 							</div>
 							<!--User Name-->
 							<br><br>
@@ -387,80 +423,7 @@ input[type=search]:focus {
 			</div>
 		</div>
 
-		<div id="fh5co-gallery" class="fh5co-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 fh5co-heading animate-box">
-						<h2>My Collections</h2>
-						<div class="row">
-							<div class="col-md-6">
-								<p>Check your favourite music you have liked before.</p>
-							</div>
-						</div>
-					</div>
-
-					<section id="scroll" class="container animate-box">
-						<div class="individual">
-							<!--Album Artwork-->
-							<img src="images/album_artwork/19.jpg" alt="19">
-							<!--Music Name-->
-							<br><br>
-							<p>To Make You Feel My Love</p>
-						</div>
-						<div class="individual">
-							<!--Album Artwork-->
-							<img src="images/album_artwork/Call%20Me%20By%20Your%20Name.jpg" alt="Call Me By Your Name">
-							<!--Music Name-->
-							<br><br>
-							<p>Mystery of Love</p>
-						</div>
-						<div class="individual">
-							<!--Album Artwork-->
-							<img src="images/album_artwork/Coco.jpg" alt="Coco">
-							<!--Music Name-->
-							<br><br>
-							<p>Remember Me</p>
-						</div>
-						<div class="individual">
-							<!--Album Artwork-->
-							<img src="images/album_artwork/Divide.jpg" alt="Divide">
-							<!--Music Name-->
-							<br><br>
-							<p>Perfect</p>
-						</div>
-						<div class="individual">
-							<!--Album Artwork-->
-							<img src="images/album_artwork/Havana.jpg" alt="Havana">
-							<!--Music Name-->
-							<br><br>
-							<p>Havana</p>
-						</div>
-						<div class="individual">
-							<!--Album Artwork-->
-							<img src="images/album_artwork/Love%20In%20The%20Future.jpg" alt="Love In The Future">
-							<!--Music Name-->
-							<br><br>
-							<p>All of Me</p>
-						</div>
-						<div class="individual">
-							<!--Album Artwork-->
-							<img src="images/album_artwork/The%20Greatest%20Showman.jpg" alt="The Greatest Showman">
-							<!--Music Name-->
-							<br><br>
-							<p>A Million Dreams</p>
-						</div>
-						<div class="individual">
-							<!--Album Artwork-->
-							<img src="images/album_artwork/This%20Is%20Me.jpg" alt="This is Me">
-							<!--Music Name-->
-							<br><br>
-							<p>This Is Me</p>
-						</div>
-					</section>
-
-				</div>
-			</div>
-		</div>
+		
 
 
 
@@ -544,7 +507,7 @@ input[type=search]:focus {
 
 
 		<!--footer-->
-		<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
+		<div id="fh5co-started" class="fh5co-section animate-box" style="margin-top:-50px; background-image: url(images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row animate-box">

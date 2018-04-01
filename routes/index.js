@@ -122,6 +122,26 @@ router.post('/register_process', function(req,res){
     })
 })
 
+<<<<<<< HEAD
+router.post('/music_upload', function(req,res){
+    var response = {
+        "name": req.body.musicname
+    };
+    console.log(response);
+    db.connect(function(){
+        db.add(response,function(){
+            db.disconnect();
+            if (db.errMsg === ''){
+                //Successfully upload the music, redirect to muisclibrary interface
+                res.redirect('/musiclibrary.html');
+            }
+            else{
+                res.redirect('/musiclibrary.html');
+                console.log(db.errMsg);
+            }
+        })
+    })
+=======
 router.post('/download',function(req,res){
     var name = req.body.name;
     //DB 操作
@@ -134,6 +154,7 @@ router.post('/download',function(req,res){
         if(err) console.log(err);
         fs.unlinkSync(file);
     });
+>>>>>>> d87f4bcea4d25dbcb2b60b736c2a8527880829be
 })
 
 

@@ -1961,6 +1961,10 @@ pre code {
 .container:after {
   clear: both;
 }
+.container::-webkit-scrollbar {
+  display: none;  // Safari and Chrome
+}
+
 @media (min-width: 768px) {
   .container {
     width: 750px;

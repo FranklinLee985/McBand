@@ -7,7 +7,7 @@ var eventSchema = new Schema({
     uploader: String,
     eventname: String,
     venue: String,
-    date: Date,
+    date: String,
     basicinfo: String,
     eventpicture: Schema.Types.Mixed
 });
@@ -48,13 +48,14 @@ exports.search = function(eventsearch, callback){
 
 exports.add = function(eventpara, callback) {
     var eventdata = new eventInfo({
-        uploader: eventInfo.user,
-        eventname: eventInfo.eventname,
-        venue: eventInfo.venue,
-        date: eventInfo.date,
-        basicinfo: eventInfo.introduction,
-        eventpicture: eventInfo.pic
+        uploader: eventpara.username,
+        eventname: eventpara.eventname,
+        venue: eventpara.venue,
+        date: eventpara.date,
+        basicinfo: eventpara.basicinfo,
+        eventpicture: eventpara.eventpicture
     });
+
     eventdata.save(function(err){
         if(err){
             console.log('add error');

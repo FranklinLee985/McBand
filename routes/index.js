@@ -121,7 +121,25 @@ router.post('/register_process', function(req,res){
     })
 })
 
-
+router.post('/music_upload', function(req,res){
+    var response = {
+        "name": req.body.musicname
+    };
+    console.log(response);
+    db.connect(function(){
+        db.add(response,function(){
+            db.disconnect();
+            if (db.errMsg === ''){
+                //Successfully upload the music, redirect to muisclibrary interface
+                res.redirect('/musiclibrary.html');
+            }
+            else{
+                res.redirect('/musiclibrary.html');
+                console.log(db.errMsg);
+            }
+        })
+    })
+})
 
 
 // The following is to store the music, pic, sheet to local files

@@ -4,83 +4,101 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var musicSchema = new Schema({
-    uploader: String,
-    musicname: String,
-    musicPath: String,
-    coverPath: String,
-    sheetPath: String,
-    likeCount: Number
+	uploader: String,
+	musicname: String,
+	musicPath: String,
+	coverPath: String,
+	sheetPath: String,
+	likeCount: Number,
+	musicId:String
 });
 
 var musicInfo = mongoose.model('MusicDB', musicSchema);
 
 exports.connect = function(callback){
-    mongoose.connect('mongodb://localhost:27017/mcband', function(err){
-        if(err){
-            console.log('connect failed');
-        }else{
-            callback();
-        }
-    });
+	mongoose.connect('mongodb://localhost:27017/mcband', function(err){
+		if(err){
+			console.log('connect failed');
+		}else{
+			callback();
+		}
+	});
 }
 
 
 exports.disconnect = function(){
-    mongoose.disconnect();
+	mongoose.disconnect();
 }
 
 exports.search = function(musicsearch, callback){
-    musicInfo.find({musicname: musicsearch.musicname}, function(err, docs){
-        if(err){
-            console.log('find error');
-        }else{
-            if(docs.length > 0){
-                // Here is all the music information found according to the name
-                callback();
-            }else{
-                exports.errMsg = 'No such music';
-                callback();
-            }
-        }
-    });
+	musicInfo.find({musicId: musicsearch.musicId}, function(err, docs){
+		if(err){
+			console.log('find error');
+		}else{
+			if(docs.length > 0){
+				// Here is all the music information found according to the name
+				callback();
+			}else{
+				exports.errMsg = 'No such music';
+				callback();
+			}
+		}
+	});
 }
 
 
 exports.add = function(musicpara, callback) {
-    var musicdata = new musicInfo({
-        uploader:musicpara.username,
-        musicname:musicpara.musicname,
-        musicPath:musicpara.musicPath,
-        coverPath:musicpara.coverPath,
-        sheetPath:musicpara.sheetPath,
-        likeCount:0
-    });
-    musicdata.save(function(err){
-        if(err){
-            console.log('add error');
-        }else{
-            exports.errMsg = '';
-            callback();
-        }
-    })
+	var musicdata = new musicInfo({
+		uploader:musicpara.username,
+		musicname:musicpara.musicname,
+		musicPath:musicpara.musicPath,
+		coverPath:musicpara.coverPath,
+		sheetPath:musicpara.sheetPath,
+		likeCount:0,
+		musicId:new Date().getTime()+'_'+musicpara.username+'_'+musicpara.musicname
+	});
+	musicdata.save(function(err){
+		if(err){
+			console.log('add error');
+		}else{
+			exports.errMsg = '';
+			callback();
+		}
+	})
 }
 
-exports.topTen = function(infos,callback){
-    var defaultValue = {
-        uploader: 'None',
-        musicname: 'None',
-        coverPath: '/resources/upload/music/default.png',
-        likeCount: 0
-    }
-    musicInfo.find({}).sort('-likeCount').exec(function(err,docs){
-        if(err)console.log(err);
-        else{
-            for(var i = 0;i<10;i++){
-                if(docs[i] != null)infos[i] = docs[i];
-                else infos[i] = defaultValue;
+exports.likeChange = function(para,mid,callback){
+	musicInfo.find({musicId:mid},function(err,docs){
+		if(err) console.log(err);
+		else{
+			var count = docs[0].likeCount + para;
+			musicInfo.update({musicId:mid},{likeCount:count},{multi:false},function(err,rec){
+				if(err) console.log(err);
+				else{
+					console.log("update success! "+rec);
+				}
+			})
+		}
 
-            }
-        callback();
-        }
-    })
+	})
+}
+exports.topTen = function(infos,callback){
+	var defaultValue = {
+		uploader: 'None',
+		musicname: 'None',
+		coverPath: '/resources/upload/music/default.png',
+		likeCount: 0,
+		musicId:''
+	}
+	musicInfo.find({}).sort('-likeCount').exec(function(err,docs){
+		if(err)console.log(err);
+		else{
+			for(var i = 0;i<10;i++){
+				if(docs[i] != null)infos[i] = docs[i];
+				else infos[i] = defaultValue;
+
+			}
+		callback();
+		}
+	})
 }

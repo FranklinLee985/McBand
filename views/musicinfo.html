@@ -113,6 +113,19 @@
 			padding-bottom: 15px;
 			left: 15px;
 		}
+		.comment .comment_icon img{
+			max-height: 60px;
+			border-radius: 50%;
+		}
+		.comment .comment_username p{
+			color: white;
+		}
+		.comment .comment_text p{
+			color: white;
+			text-decoration: underline;
+			text-decoration-color: #ea272d;
+		}
+
 	</style>
 
 	<!-- Animate.css -->
@@ -167,16 +180,16 @@
 
 	<!--header-->
 	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(images/album_artwork/Divide.jpg);" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
+		<div class="overlay"></div>                                                                       <!-- <%= musicInfo[].coverPath %> -->
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
 							<!-- Music Name -->
-							<h1>Perfect</h1>
+							<h1>Perfect</h1> <!--<h1><%= musicInfo[].musicname %></h1>-->
 							<!-- Author Name-->
-							<p><em>Ed Sheeran</em></p>
+							<p><em>Ed Sheeran</em></p> <!--<p><em><%= musicInfo[].uploader %></em></p>-->
 						</div>
 					</div>
 				</div>
@@ -192,7 +205,6 @@
 					<!-- sheet music-->
 					<!-- Slideshow container -->
 					<div class="slideshow-container">
-
 						<!-- Full-width images with number and caption text -->
 						<div class="mySlides">
 							<div class="numbertext">1 / 2</div>
@@ -254,7 +266,7 @@
 								<p>Ed Sheeran</p>
 								<!-- audio player-->
 								<audio controls>
-									<source src="audios/Ed_Sheeran_Perfect_Piano_Cover.ogg" type="audio/ogg">
+									<!--<source src="audios/Ed_Sheeran_Perfect_Piano_Cover.ogg" type="audio/ogg">-->
 									<source src="audios/Ed_Sheeran_Perfect_Piano_Cover.mp3" type="audio/mpeg">
 									Your browser does not support the audio element.
 								</audio>
@@ -263,7 +275,6 @@
 								<input type="button" class="btn btn-primary btn-outline btn-lg" value="LIKE">
 							</div>
 						</div>
-
 					</form>
 				</div>
 			</div>
@@ -280,36 +291,36 @@
 					</div>
 					<div class="container">
 						<div class="row comment">
-							<div class="col-md-1">
-								<img src="images/icons/taylor_swift_icon.jpeg" style="max-height: 60px; border-radius: 50%;" alt="Icon">
+							<div class="col-md-1 comment_icon">
+								<img src="images/icons/taylor_swift_icon.jpeg" alt="Icon">
 							</div>
-							<div class="col-md-2">
-								<p style="color: white">Taylor Swift</p>
+							<div class="col-md-2 comment_username">
+								<p>Taylor Swift</p>
 							</div>
-							<div class="col-md-6">
-								<p style="color: white; text-decoration: underline; text-decoration-color: #ea272d">Ed is so talented!</p>
-							</div>
-						</div>
-						<div class="row comment">
-							<div class="col-md-1">
-								<img src="images/icons/shawn_mendes_icon.jpg" style="max-height: 60px; border-radius: 50%;" alt="Icon">
-							</div>
-							<div class="col-md-2">
-								<p style="color: white">Shawn Mendes</p>
-							</div>
-							<div class="col-md-6">
-								<p style="color: white; text-decoration: underline; text-decoration-color: #ea272d">I love this song!</p>
+							<div class="col-md-6 comment_text">
+								<p>Ed is so talented!</p>
 							</div>
 						</div>
 						<div class="row comment">
-							<div class="col-md-1">
-								<img src="images/icons/charlie_puth_icon.jpg" style="max-height: 60px; border-radius: 50%;" alt="Icon">
+							<div class="col-md-1 comment_icon">
+								<img src="images/icons/shawn_mendes_icon.jpg" alt="Icon">
 							</div>
-							<div class="col-md-2">
-								<p style="color: white">Charlie Puth</p>
+							<div class="col-md-2 comment_username">
+								<p>Shawn Mendes</p>
 							</div>
-							<div class="col-md-6">
-								<p style="color: white; text-decoration: underline; text-decoration-color: #ea272d">Great sheet music!</p>
+							<div class="col-md-6 comment_text">
+								<p>I love this song!</p>
+							</div>
+						</div>
+						<div class="row comment">
+							<div class="col-md-1 comment_icon">
+								<img src="images/icons/charlie_puth_icon.jpg" alt="Icon">
+							</div>
+							<div class="col-md-2 comment_username">
+								<p>Charlie Puth</p>
+							</div>
+							<div class="col-md-6 comment_text">
+								<p>Great sheet music!</p>
 							</div>
 						</div>
 					</div>

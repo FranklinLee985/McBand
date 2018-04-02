@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('mcband:server');
 var http = require('http');
+var sio = require('socket.io');
 
 /**
  * Get port from environment and store in Express.
@@ -88,3 +89,32 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+/**
+*For Chatting use
+*
+**/
+var io = sio.listen(server);
+var names = [];
+io.sockets.on('connection', function(socket){
+  socket.on('login', function(name){
+    if(names.indexOf(name) == -1){
+      names.push(name);
+      socket.broadcast.emit('login', name);
+    }
+    io.sockets.emit('users', names);
+  });
+  socket.on('chat', function(data){
+    io.sockets.emit('chat', data);
+  });
+  socket.on('logout', function(name){
+    for(var i = 0; i < names.length; i++){
+      if(names[i] == name){
+        names.splice(i, 1);
+        break;
+      }
+    }
+    io.sockets.emit('usersList', names);
+  });
+});

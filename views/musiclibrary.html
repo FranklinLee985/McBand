@@ -246,22 +246,23 @@
 						</div>
 						<div class="row">
 							<div class="col-md-6">
-								<input id="search" type="search" class="form-control" name="search" onkeyup="filterSearch()" placeholder="Search...">
+								<input id="search" type="search" class="form-control" name="search" onkeydown="filterSearch()" placeholder="Search...">
 							</div>
 						</div>
 						<script>
-                            function myFunction() {
+                            function filterSearch() {
                                 var input, filter, section, colmd4, a, i;
                                 input = document.getElementById("search");
                                 filter = input.value.toUpperCase();
                                 section = document.getElementById("all_music");
-                                colmd4 = section.getElementsByClassName("section");
+                                colmd4 = section.getElementsByClassName("col-md-4");
                                 for (i = 0; i < colmd4.length; i++) {
+                                   
                                     a = colmd4[i].getElementsByTagName("a")[0];
                                     if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                                        li[i].style.display = "";
+                                        colmd4[i].style.display = "";
                                     } else {
-                                        li[i].style.display = "none";
+                                        colmd4[i].style.display = "none";
 
                                     }
                                 }
@@ -356,6 +357,32 @@
 							</div>
 
 						</section>
+						<!--<script>
+                        var xmlhttp, myObj, x, txt = "";
+                        xmlhttp = new XMLHttpRequest();
+                        xmlhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                myObj = JSON.parse(this.responseText);
+                                if(myObj == null){
+                                    txt += "No musics yet!"
+								}
+								else{
+                                    for (x in myObj) {
+                                        txt += "<div class=\"col-md-4\">";
+                                        txt += "<div class=\"col-md-6\">";
+                                        txt += "<a href=\"musicinfo.html\:musicName\"><%= myObj[x].musicName</a>";
+                                        txt += "<div class=\"col-md-6\">";
+                                        txt += "<p><%= myObj[x].publisher %></p>";
+                                        txt += "</div>";
+                                        txt += "</div>";
+                                    }
+								}
+                                document.getElementById("all_music").innerHTML = txt;
+                            }
+                        };
+                        xmlhttp.open("POST", "getAllMusic.txt", true);
+                        xmlhttp.send();
+					</script>-->
 					</div>
 
 				</div>

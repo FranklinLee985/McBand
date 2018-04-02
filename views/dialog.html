@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+	<meta http-equiv="content-type" content="text/html; charset=gb2312" />
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Mcband &mdash; Chat Room</title>
@@ -37,6 +38,13 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+
+	<!--Socketio-->
+	<script src="/socket.io/socket.io.js"></script>
+
+	<!--jjquery-->
+	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -153,13 +161,7 @@
 		}
 	</style>
 
-
-
 	</head>
-
-
-
-
 
 
 
@@ -171,45 +173,58 @@
 
 				<div class="chat friend">
 					<div class="user-photo"><img src="images/Havana.jpg"></div>
-					<p class="chat-message">What's up!</p>
+					<p class="chat-message">hihih</p>
 				</div>
+
+
 				<div class="chat self">
 					<div class="user-photo"><img src="images/person_1.jpg"></div>
 					<p class="chat-message">hello!!!!!</p>
 				</div>
+
+	
+<!-- 
+
 				<div class="chat friend">
 					<div class="user-photo"><img src="images/Havana.jpg"></div>
 					<p class="chat-message">hffhwoiusaueiwojkjkh
 					ffhwoiusaueiwojkjhffhwoiusaueiwojkj
 					hffhwo
-				iusaueiwojkjhffhw
-			oiusaueiwojkjhffhwoiusaueiwoj
-			kjhffhwo
-		usaueiwojkjhffhwoiusaueiwo
-		jkjhffhwoius
-	aueiwojkjhffhwoiusaueiwojkj</p>
+								iusaueiwojkjhffhw
+							oiusaueiwojkjhffhwoiusaueiwoj
+							kjhffhwo
+						usaueiwojkjhffhwoiusaueiwo
+						jkjhffhwoius
+					aueiwojkjhffhwoiusaueiwojkj</p>
 				</div>
+
+
 				<div class="chat self">
 					<div class="user-photo"><img src="images/person_1.jpg"></div>
 					<p class="chat-message">hello!!!!!hffhwoiusaueiwojkj
 						hffhwoi
-					usaueiwojkjhffhwoiusaueiwojkjhffhw
-					oiusaueiwojkjhf
-				fhwoiusaueiwojkj</p>
-				</div>
+							usaueiwojkjhffhwoiusaueiwojkjhffhw
+							oiusaueiwojkjhf
+						fhwoiusaueiwojkj</p>
+				</div> -->
+
+				<div id="chatlogs"></div>
 			</div>
+
 
 			<div class="chat-form">
-				<textarea></textarea>
-				<button>Send</button>
+				<textarea id="chat-input"></textarea>
+				<button id="senmesg">Send</button>
 			</div>
+		</div>
 		
+<!-- 
+		 <div id="chat-logs"></div>
+		 <textarea id="chat-input"></textarea>
+ -->
 
-
-
-
-
-	
+	<!-- Chat -->
+	<script src="js/chat.js"></script>
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

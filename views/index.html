@@ -99,12 +99,18 @@
 							<!--<form action="sign.html">
 								<button class="btn btn-primary btn-outline" style="float:right"><i class="icon-lock"></i></button>
 							</form>-->
-							<a href="sign.html" class="button" style="float:right"><i class="icon-user2">   Login</i></a>
+							
 						</ul>
 					</div>
 				</div>
 				
 			</div>
+		<% if (1) { %>
+			<a href="sign.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;"><i class="icon-user2">   Login</i></a>
+				
+			<% } else { %>
+				<a href="index.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>  <i class="icon-log-out">   Logout</i></a>
+			<% } %>
 		<!-- </div> -->
 	</nav>
 
@@ -126,7 +132,6 @@
 							<div class="row">
 					                <form action="#" id="form-wrap">
 
-
 						                <div class="row form-group">
 							                <div class="col-md-12">
 								                <input type="text" class="form-control" id="musicname">
@@ -138,7 +143,6 @@
 								                <input type="submit" class="btn btn-primary btn-outline" value="Search">
 							                </div>
 						                </div>
-
 
 					                </form>
 			                </div>

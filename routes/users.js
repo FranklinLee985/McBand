@@ -28,12 +28,14 @@ router.get('/users/',checkLogin,function(req, res, next) {
 });
 
 router.get('/users/:name',checkLogin,function(req, res, next) {
-	var por = '';
+	var ptr = {
+		por:''
+	};
 	db.connect(function(){
-		db.getPortrait(res.locals.logInfo.email,por,function(){
+		db.getPortrait(res.locals.logInfo.email,ptr,function(){
 			db.disconnect();
-			console.log(por);
-			res.render('account',{portrait:por});
+			console.log(ptr.por);
+			res.render('account',{portrait:ptr.por});
 		});
 	});
 

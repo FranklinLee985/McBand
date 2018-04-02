@@ -46,12 +46,13 @@ exports.search = function(login, login_msg,callback){
   });
 }
 
-exports.getPortrait = function(userEmail,por,callback){
+exports.getPortrait = function(userEmail,ptr,callback){
   userInfo.find({email:userEmail},function(err,docs){
     if(err) console.log(err);
     else{
       console.log('in DB:' + docs[0].portraitPath);
-      por = docs[0].portraitPath;
+      ptr.por = docs[0].portraitPath;
+      console.log('porPath:' + ptr.por);
       callback();
     }
   })
@@ -87,7 +88,7 @@ exports.add = function(register, callback){
             username:register.name,
             email:register.email,
             password:register.password,
-            portraitPath:'/resources/upload/protraits/default.png'
+            portraitPath:'/resources/upload/portraits/default.png'
           });
           data.save(function(err){
             if(err){

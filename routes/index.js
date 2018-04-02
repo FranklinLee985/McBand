@@ -232,7 +232,8 @@ router.post('/music_upload',function(req,res,next){
         fs.renameSync(filePath, targetFile);
         // 文件的Url（相对路径）
         filesUrl.push('/music/'+fileName);
-        //console.log(filesUrl);
+        console.log("Here is the path!");
+        console.log(filesUrl);
 
         if(key == 'audiofile') music.musicPath = path.join('/resources/upload/music/', fileName);
         if(key == 'coverpic') music.coverPath = path.join('/resources/upload/music/', fileName);

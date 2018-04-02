@@ -89,12 +89,18 @@
 							<li class="active"><a href="community.html">Community</a></li>
 							<li><a href="event.html">Event</a></li>
 							<li><a href="account.html">Account</a></li>
-							<a href="sign.html" class="button" style="float:right"><i class="icon-user2">   Login</i></a>
+							
 						</ul>
 					</div>
 				</div>
 				
 			</div>
+		<% if (1) { %>
+			<a href="sign.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;"><i class="icon-user2">   Login</i></a>
+				
+			<% } else { %>
+				<a href="index.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>  <i class="icon-log-out">   Logout</i></a>
+			<% } %>
 		<!-- </div> -->
 	</nav>
 

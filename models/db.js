@@ -5,7 +5,8 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
 	username: String,
 	email: String,
-	password:String
+	password:String,
+  portraitPath:String
 });
 
 var userInfo = mongoose.model('UserDB',userSchema);
@@ -45,6 +46,17 @@ exports.search = function(login, login_msg,callback){
   });
 }
 
+exports.getPortrait = function(userEmail,porPath,callback){
+  userInfo.find({email:userEmail},function(err,docs){
+    if(err) console.log(err);
+    else{
+      console.log('in DB:' + docs[0].portraitPath);
+      porPath = docs[0].portraitPath;
+      callback();
+    }
+  })
+}
+
 exports.findAll = function(callback){
 	//Not sure what it is used for. Need to be checked
   userInfo.find({}, {'username':1, '_id':0}, function(err, docs){
@@ -74,7 +86,8 @@ exports.add = function(register, callback){
           var data = new userInfo({
             username:register.name,
             email:register.email,
-            password:register.password
+            password:register.password,
+            portraitPath:'/resources/upload/protraits/default.png'
           });
           data.save(function(err){
             if(err){

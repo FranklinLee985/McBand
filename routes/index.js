@@ -41,9 +41,6 @@ router.get('/sign.html',checkNotLogin, function(req, res, next) {
   res.render('sign');
 });
 
-router.get('/account.html', checkLogin,function(req, res, next) {
-  res.render('account');
-});
 
 router.get('/community.html', checkLogin,function(req, res, next) {
   res.render('community');

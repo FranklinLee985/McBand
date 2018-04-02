@@ -66,7 +66,7 @@ exports.add = function(musicpara, callback) {
 }
 
 exports.topTen = function(infos,callback){
-    var default = {
+    var defaultValue = {
         uploader: 'None',
         musicname: 'None',
         coverPath: '/resources/upload/music/default.png',
@@ -77,7 +77,7 @@ exports.topTen = function(infos,callback){
         else{
             for(var i = 0;i<10;i++){
                 if(docs[i] != null)infos[i] = docs[i];
-                else infos[i] = default;
+                else infos[i] = defaultValue;
 
             }
         callback();

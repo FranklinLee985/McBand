@@ -6,7 +6,7 @@ var logger = require('morgan');
 var favicon = require('serve-favicon'); //页面图标
 var bodyParser = require('body-parser'); //处理请求body的中间件
 var session = require('express-session');
-var sio = require('socket.io');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -45,7 +45,7 @@ app.use(session({
 }));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 app.use('/music', musicRouter);
 
 // catch 404 and forward to error handler
@@ -64,28 +64,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-/*var io = sio.listen(server);
-var names = [];
-io.sockets.on('connection', function(socket){
-  socket.on('login', function(name){
-    if(names.indexOf(name) == -1){
-      names.push(name);
-      socket.broadcast.emit('login', name);
-    }
-    io.sockets.emit('usersList', names);
-  });
-  socket.on('chat', function(data){
-    io.sockets.emit('chat', data);
-  });
-  socket.on('logout', function(name){
-    for(var i = 0; i < names.length; i++){
-      if(names[i] == name){
-        names.splice(i, 1);
-        break;
-      }
-    }
-    io.sockets.emit('usersList', names);
-  });
-});*/
+
 
 module.exports = app;

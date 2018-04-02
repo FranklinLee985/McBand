@@ -38,7 +38,7 @@ router.get('/index.html', function(req, res, next) {
 });
 
 router.get('/sign.html',checkNotLogin, function(req, res, next) {
-  res.render('sign',{err:errMsg});
+  res.render('sign',{err:db.errMsg});
 });
 
 

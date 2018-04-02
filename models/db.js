@@ -71,6 +71,8 @@ exports.findAll = function(callback){
 }
 
 exports.add = function(register, callback){
+  var PWfilter  = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/;
+  var EMfilter  = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
   if(register.password != register.checkpassword){
     exports.errMsg = "Two passwords entered don't match!";
     callback();
@@ -83,7 +85,16 @@ exports.add = function(register, callback){
         if(docs.length > 0){
           exports.errMsg = 'Account already exists!';
           callback();
-        }else {
+        }
+        else if(!EMfilter.test(register.email)){
+          exports.errMsg = 'Incorrect email addrress!';
+          callback();
+        }
+        else if(!PWfilter.test(register.password)){
+          exports.errMsg = 'Please enter a password with 6~21 chars, cannot include only numbers or characters!';
+          callback();
+        }
+        else {
           var data = new userInfo({
             username:register.name,
             email:register.email,

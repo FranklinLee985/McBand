@@ -105,8 +105,8 @@ io.sockets.on('connection', function(socket){
     }
     io.sockets.emit('users', names);
   });
-  socket.on('chat', function(data){
-    io.sockets.emit('chat', data);
+  socket.on('chat-message', function(message){
+    io.sockets.emit('chat-message', message);
   });
   socket.on('logout', function(name){
     for(var i = 0; i < names.length; i++){

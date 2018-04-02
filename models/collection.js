@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var mdb = require('../models/music');
+var mdb = require('music');
 
 var collectionSchema = new Schema({
 	email: String,
@@ -67,7 +67,7 @@ exports.add = function(infos, callback) {
 				callback();
 			}
 			else{
-				var musicdata = new musicInfo({
+				var collectdata = new collectInfo({
 					email:infos.email,
 					musicId:infos.musicId
 				});

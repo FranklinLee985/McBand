@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0437e731-6623-4405-a59b-2adbefc3bc0e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/musiclibrary.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/musiclibrary.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,21 +16,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
-              <caret line="126" column="51" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
+              <caret line="132" column="51" selection-start-line="132" selection-start-column="51" selection-end-line="132" selection-end-column="51" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="musiclibrary.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="musiclibrary.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/musiclibrary.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="888">
-              <caret line="467" column="40" selection-start-line="467" selection-start-column="40" selection-end-line="467" selection-end-column="40" />
+            <state relative-caret-position="229">
+              <caret line="257" column="64" selection-start-line="257" selection-start-column="64" selection-end-line="257" selection-end-column="64" />
               <folding>
+                <element signature="n#style#0;n#a#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h3#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -44,9 +47,8 @@
         <entry file="file://$PROJECT_DIR$/views/musicinfo.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1408">
-              <caret line="222" column="20" selection-start-line="222" selection-start-column="20" selection-end-line="222" selection-end-column="20" />
+              <caret line="223" column="20" selection-start-line="223" selection-start-column="20" selection-end-line="223" selection-end-column="20" />
               <folding>
-                <element signature="n#style#0;n#a#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#header#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -59,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/views/event.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1029">
-              <caret line="479" column="10" lean-forward="true" selection-start-line="479" selection-start-column="10" selection-end-line="479" selection-end-column="10" />
+              <caret line="481" column="10" lean-forward="true" selection-start-line="481" selection-start-column="10" selection-end-line="481" selection-end-column="10" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -78,9 +80,8 @@
         <entry file="file://$PROJECT_DIR$/views/account.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="196">
-              <caret line="605" column="6" selection-start-line="605" selection-start-column="6" selection-end-line="605" selection-end-column="6" />
+              <caret line="606" column="6" selection-start-line="606" selection-start-column="6" selection-end-line="606" selection-end-column="6" />
               <folding>
-                <element signature="n#style#0;n#a#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -147,9 +148,9 @@
         <option value="$PROJECT_DIR$/views/event.html" />
         <option value="$PROJECT_DIR$/public/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/views/musicinfo.html" />
-        <option value="$PROJECT_DIR$/views/musiclibrary.html" />
         <option value="$PROJECT_DIR$/views/account.html" />
         <option value="$PROJECT_DIR$/views/index.html" />
+        <option value="$PROJECT_DIR$/views/musiclibrary.html" />
       </list>
     </option>
   </component>
@@ -208,7 +209,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="SearchEverywhereHistoryKey" value="middle&#9;null&#9;null&#10;fh5co-item&#9;null&#9;null&#10;container&#9;null&#9;null&#10;img-responsive&#9;null&#9;null&#10;fh5co-item-wrap&#9;null&#9;null&#10;fh5co-heading&#9;null&#9;null&#10;form-wrap&#9;null&#9;null&#10;modal-content&#9;null&#9;null&#10;modal&#9;null&#9;null&#10;button&#9;FILE&#9;file:///Users/whenryin/Documents/GitHub/McBand/front-end/tasty-master/sass/bootstrap/mixins/_buttons.scss&#10;banner&#9;FILE&#9;file:///Users/whenryin/Documents/GitHub/McBand/front-end/login&amp;signup/images/banner.jpg&#10;fh5co-started&#9;null&#9;null&#10;tasty&#9;FILE&#9;file:///Users/whenryin/Documents/GitHub/McBand/front-end/tasty-master/tasty/__MACOSX/__tasty&#10;zoomout&#9;null&#9;null&#10;zoomin&#9;null&#9;null&#10;close&#9;FILE&#9;file:///Users/whenryin/Documents/GitHub/McBand/front-end/tasty-master/sass/bootstrap/_close.scss&#10;animate&#9;FILE&#9;file:///Users/whenryin/Documents/GitHub/McBand/front-end/tasty-master/css/animate.css&#10;form-group&#9;null&#9;null&#10;fh5co-header&#9;null&#9;null&#10;col-md-pull-0&#9;null&#9;null&#10;col-md-6&#9;null&#9;null&#10;col-md-pull-6&#9;null&#9;null&#10;col-sm-push-6&#9;null&#9;null&#10;midd;e&#9;null&#9;null&#10;submit&#9;null&#9;null&#10;btn-lg&#9;null&#9;null&#10;btn-outline&#9;null&#9;null&#10;btn&#9;null&#9;null&#10;btn-primary&#9;null&#9;null&#10;col-md-12&#9;null&#9;null&#10;animate-box&#9;null&#9;null&#10;fh5co-cover&#9;null&#9;null&#10;row&#9;null&#9;null&#10;col-md-&#9;null&#9;null&#10;fh5co-gallery_item&#9;null&#9;null&#10;h3&#9;null&#9;null&#10;col-sm-6&#9;null&#9;null&#10;form-control&#9;null&#9;null&#10;col-md-push-6&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="filter&#9;null&#9;null&#10;middle&#9;null&#9;null&#10;fh5co-item&#9;null&#9;null&#10;container&#9;null&#9;null&#10;img-responsive&#9;null&#9;null&#10;fh5co-item-wrap&#9;null&#9;null&#10;fh5co-heading&#9;null&#9;null&#10;form-wrap&#9;null&#9;null&#10;modal-content&#9;null&#9;null&#10;modal&#9;null&#9;null&#10;button&#9;FILE&#9;file:///Users/whenryin/Documents/GitHub/McBand/front-end/tasty-master/sass/bootstrap/mixins/_buttons.scss&#10;banner&#9;FILE&#9;file:///Users/whenryin/Documents/GitHub/McBand/front-end/login&amp;signup/images/banner.jpg&#10;fh5co-started&#9;null&#9;null&#10;tasty&#9;FILE&#9;file:///Users/whenryin/Documents/GitHub/McBand/front-end/tasty-master/tasty/__MACOSX/__tasty&#10;zoomout&#9;null&#9;null&#10;zoomin&#9;null&#9;null&#10;close&#9;FILE&#9;file:///Users/whenryin/Documents/GitHub/McBand/front-end/tasty-master/sass/bootstrap/_close.scss&#10;animate&#9;FILE&#9;file:///Users/whenryin/Documents/GitHub/McBand/front-end/tasty-master/css/animate.css&#10;form-group&#9;null&#9;null&#10;fh5co-header&#9;null&#9;null&#10;col-md-pull-0&#9;null&#9;null&#10;col-md-6&#9;null&#9;null&#10;col-md-pull-6&#9;null&#9;null&#10;col-sm-push-6&#9;null&#9;null&#10;midd;e&#9;null&#9;null&#10;submit&#9;null&#9;null&#10;btn-lg&#9;null&#9;null&#10;btn-outline&#9;null&#9;null&#10;btn&#9;null&#9;null&#10;btn-primary&#9;null&#9;null&#10;col-md-12&#9;null&#9;null&#10;animate-box&#9;null&#9;null&#10;fh5co-cover&#9;null&#9;null&#10;row&#9;null&#9;null&#10;col-md-&#9;null&#9;null&#10;fh5co-gallery_item&#9;null&#9;null&#10;h3&#9;null&#9;null&#10;col-sm-6&#9;null&#9;null&#10;form-control&#9;null&#9;null&#10;col-md-push-6&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.prettier" value="true" />
@@ -266,12 +267,12 @@
       <workItem from="1521278072951" duration="6307000" />
       <workItem from="1521359303732" duration="14490000" />
       <workItem from="1522575923654" duration="3186000" />
-      <workItem from="1522581832429" duration="22918000" />
+      <workItem from="1522581832429" duration="24163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79176000" />
+    <option name="totallyTimeSpent" value="80421000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -331,7 +332,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/front-end/tasty-master/sass/_bootstrap-compass.scss" />
     <entry file="file://$PROJECT_DIR$/front-end/tasty-master/sass/_bootstrap-mincer.scss" />
     <entry file="file://$PROJECT_DIR$/front-end/tasty-master/sass/_bootstrap-sprockets.scss" />
     <entry file="file://$PROJECT_DIR$/front-end/tasty-master/css/index.html" />
@@ -399,23 +399,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/musiclibrary.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
-          <caret line="467" column="40" selection-start-line="467" selection-start-column="40" selection-end-line="467" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#h3#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/musicinfo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1408">
-          <caret line="222" column="20" selection-start-line="222" selection-start-column="20" selection-end-line="222" selection-end-column="20" />
+          <caret line="223" column="20" selection-start-line="223" selection-start-column="20" selection-end-line="223" selection-end-column="20" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#header#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -426,9 +414,8 @@
     <entry file="file://$PROJECT_DIR$/views/account.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
-          <caret line="605" column="6" selection-start-line="605" selection-start-column="6" selection-end-line="605" selection-end-column="6" />
+          <caret line="606" column="6" selection-start-line="606" selection-start-column="6" selection-end-line="606" selection-end-column="6" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -455,7 +442,7 @@
     <entry file="file://$PROJECT_DIR$/views/event.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1029">
-          <caret line="479" column="10" lean-forward="true" selection-start-line="479" selection-start-column="10" selection-end-line="479" selection-end-column="10" />
+          <caret line="481" column="10" lean-forward="true" selection-start-line="481" selection-start-column="10" selection-end-line="481" selection-end-column="10" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -472,7 +459,30 @@
     <entry file="file://$PROJECT_DIR$/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
-          <caret line="126" column="51" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
+          <caret line="132" column="51" selection-start-line="132" selection-start-column="51" selection-end-line="132" selection-end-column="51" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="1" column="13782" selection-start-line="1" selection-start-column="13782" selection-end-line="1" selection-end-column="13782" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/musiclibrary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="257" column="64" selection-start-line="257" selection-start-column="64" selection-end-line="257" selection-end-column="64" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

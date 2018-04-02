@@ -46,12 +46,12 @@ exports.search = function(login, login_msg,callback){
   });
 }
 
-exports.getPortrait = function(userEmail,porPath,callback){
+exports.getPortrait = function(userEmail,por,callback){
   userInfo.find({email:userEmail},function(err,docs){
     if(err) console.log(err);
     else{
       console.log('in DB:' + docs[0].portraitPath);
-      porPath = docs[0].portraitPath;
+      por = docs[0].portraitPath;
       callback();
     }
   })

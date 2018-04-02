@@ -66,12 +66,19 @@ exports.add = function(musicpara, callback) {
 }
 
 exports.topTen = function(infos,callback){
+    var default = {
+        uploader: 'None',
+        musicname: 'None',
+        coverPath: '/resources/upload/music/default.png',
+        likeCount: 0
+    }
     musicInfo.find({}).sort('-likeCount').exec(function(err,docs){
         if(err)console.log(err);
         else{
             for(var i = 0;i<10;i++){
-                infos[i] = docs[i];
-                
+                if(docs[i] != null)infos[i] = docs[i];
+                else infos[i] = default;
+
             }
         callback();
         }

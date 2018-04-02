@@ -63,6 +63,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   app.set('view engine', 'jade');
   res.render('error', { error: err });
+  app.set('view engine', 'html');
 });
 
 

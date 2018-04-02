@@ -42,10 +42,6 @@ router.get('/sign.html',checkNotLogin, function(req, res, next) {
 });
 
 
-router.get('/community.html', checkLogin,function(req, res, next) {
-  res.render('community');
-});
-
 router.get('/event.html', checkLogin,function(req, res, next) {
   res.render('event');
 });
@@ -55,6 +51,7 @@ router.get('/musiclibrary.html', function(req, res, next) {
   mdb.connect(function(){
 	mdb.topTen(topTen,function(){
 	  db.disconnect();
+	  console.log(topTen);
 	  res.render('musiclibrary',{ musicInfo: topTen });
 	})
   })
@@ -62,9 +59,7 @@ router.get('/musiclibrary.html', function(req, res, next) {
 });
 
 
-router.get('/musicinfo.html', function(req, res, next) {
-  res.render('musicinfo');
-});
+
 
 router.get('/dialog.html', function(req, res, next) {
   res.render('dialog');

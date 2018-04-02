@@ -143,10 +143,7 @@
 
 	<!-- Modernizr JS -->
 	<script src="/js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="/js/respond.min.js"></script>
-	<![endif]-->
+
 
 </head>
 
@@ -180,17 +177,17 @@
 	</nav>
 
 	<!--header-->
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(/images/album_artwork/Divide.jpg);" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>                                                                       <!-- <%= musicInfo[].coverPath %> -->
+	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(<%= musicInfo.coverPath.toString() %>);" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>                                                                    
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
 							<!-- Music Name -->
-							<h1>Perfect</h1> <!--<h1><%= musicInfo[].musicname %></h1>-->
+							<h1>Perfect</h1> 
 							<!-- Author Name-->
-							<p><em>Ed Sheeran</em></p> <!--<p><em><%= musicInfo[].uploader %></em></p>-->
+							<p><em>Ed Sheeran</em></p> 
 						</div>
 					</div>
 				</div>
@@ -221,53 +218,12 @@
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1)">&#10095;</a>
 					</div>
-					<!--<script>
-                        var xmlhttp, myObj, x, txt = "";
-                        xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                myObj = JSON.parse(this.responseText);
-                                if(myObj == null){
-                                    txt += "No sheet Musics yet!"
-								}
-								else{
-                                    for (x in myObj) {
-                                        txt += "<div class= \"muSlides\">";
-                                        txt += "<div class=\"numbertext\">1 / x</div>";
-                                        txt += "<img src=\"<%= myObj[].sheet[x] %>\" style=\"width:100%;\">"
-                                        txt += "<\div>"
-                                    }
-								}
-                                document.getElementById("sheet").innerHTML = txt;
-                            }
-                        };
-                        xmlhttp.open("POST", "getsheet.txt", true);
-                        xmlhttp.send();
-					</script>-->
+
 					<div id="page_button" class="col-xs-12 text-center">
 						<input type="button" class="demo cursor" value="1" onclick="currentSlide(1)">
 						<input type="button" class="demo cursor" value="2" onclick="currentSlide(2)">
 					</div>
-					<!--<script>
-                        var xmlhttp, myObj, x, txt = "";
-                        xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                myObj = JSON.parse(this.responseText);
-                                if(myObj == null){
-                                    txt += "No sheet Musics yet!"
-								}
-								else{
-                                    for (x in myObj) {
-                                        txt += "<input type=\"button\" class=\"demo cursor\" value=\"x\" onclick=\"currentSlide(x)\">";
-                                    }
-								}
-                                document.getElementById("page_button").innerHTML = txt;
-                            }
-                        };
-                        xmlhttp.open("POST", "getsheet.txt", true);
-                        xmlhttp.send();
-					</script>-->
+
 					<br><br>
 					<script>
                         var slideIndex = 1;
@@ -304,12 +260,12 @@
 							<div class="col-md-12">
 								<h3>Music Information</h3>
 								<label>Music Name</label>
-								<p>Perfect</p><!--<p><%= musicInfo[].musicname %></p>-->
+								<p><%= musicInfo.musicname %></p>
 								<label>Uploader</label>
-								<p>Ed Sheeran</p><!--<p><%= musicInfo[].uploader %></p>-->
+								<p><%= musicInfo.uploader %></p>
 								<!-- audio player-->
 								<audio controls>
-									<source src="/audios/Ed_Sheeran_Perfect_Piano_Cover.mp3" type="audio/mpeg"><!-- <source src="musicInfo[].audio" type="audio/mpeg"> -->
+									<source src="<%= musicInfo.musicPath %>" type="audio/mpeg">
 									Your browser does not support the audio element.
 								</audio>
 								<br><br>
@@ -366,36 +322,7 @@
 							</div>
 						</div>
 					</div>
-					<!--<script>
-                        var xmlhttp, myObj, x, txt = "";
-                        xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                myObj = JSON.parse(this.responseText);
-                                if(myObj == null){
-                                    txt += "No comments yet!"
-								}
-								else{
-                                    for (x in myObj) {
-                                        txt += "<div class=\"row comment\">";
-                                        txt += "<div class=\"col-md-1 comment_icon\">";
-                                        txt += "<img src=\"myObj[x].icon\" alt=\"Icon\">";
-                                        txt += "</div>";
-                                        txt += "<div class=\"col-md-2 comment_username\">";
-                                        txt += "<p>myObj[x].userName</p>";
-                                        txt += "</div>";
-                                        txt += "<div class=\"col-md-6 comment_text\">";
-                                        txt += "<p>myObj[x].commentText</p>";
-                                        txt += "</div>";
-                                        txt += "</div>";
-                                    }
-								}
-                                document.getElementById("comment_list").innerHTML = txt;
-                            }
-                        };
-                        xmlhttp.open("POST", "getcommentlist.txt", true);
-                        xmlhttp.send();
-					</script>-->
+
 					<br>
 
 

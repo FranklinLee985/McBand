@@ -30,13 +30,13 @@ exports.disconnect = function(){
 	mongoose.disconnect();
 }
 
-exports.search = function(musicsearch, callback){
-	musicInfo.find({musicId: musicsearch.musicId}, function(err, docs){
+exports.search = function(mid,result,callback){
+	musicInfo.find({musicId: mid}, function(err, docs){
 		if(err){
 			console.log('find error');
 		}else{
 			if(docs.length > 0){
-				// Here is all the music information found according to the name
+				result.push(docs[0]);
 				callback();
 			}else{
 				exports.errMsg = 'No such music';
@@ -102,3 +102,5 @@ exports.topTen = function(infos,callback){
 		}
 	})
 }
+
+

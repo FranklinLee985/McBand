@@ -329,18 +329,18 @@
                             if (this.readyState == 4 && this.status == 200) {
                                 myObj = JSON.parse(this.responseText);
                                 if(myObj == null){
-                                    txt += "You don't have any liked music!"
+                                    txt += "You don't have any liked music!";
 								}
 								else{
                                     for (x in myObj) {
-                                        txt += "<div class= \"individual\">"
-                                        txt += "<img src=\"myObj[x].coverPic\" alt=\"myObj[x].musicName\">"
-                                        txt += "<div class=\"middle\">"
-                                        txt += "<a href=\"musicinfo.html\" class=\"btn btn-primary btn-outline btn-lg\" role=\"button\">View</a>"
-                                        txt += "</div>"
-                                        txt += "<br><br>"
-                                        txt += "<p>myObj[x].musicName</p>"
-                                        txt += "</div>"
+                                        txt += "<div class= \"individual\">";
+                                        txt += "<img src=\"myObj[x].coverPic\" alt=\"myObj[x].musicName\">";
+                                        txt += "<div class=\"middle\">";
+                                        txt += "<a href=\"musicinfo.html\" class=\"btn btn-primary btn-outline btn-lg\" role=\"button\">View</a>";
+                                        txt += "</div>";
+                                        txt += "<br><br>";
+                                        txt += "<p>myObj[x].musicName</p>";
+                                        txt += "</div>";
                                     }
 								}
                                 document.getElementById("album_list").innerHTML = txt;
@@ -350,7 +350,6 @@
                         xmlhttp.send();
 
 					</script>-->
-
 				</div>
 			</div>
 		</div>
@@ -453,6 +452,33 @@
 							<p>Shawn Mendes</p>
 						</div>
 					</section>
+					<!--<script>
+                        var xmlhttp, myObj, x, txt = "";
+                        xmlhttp = new XMLHttpRequest();
+                        xmlhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                myObj = JSON.parse(this.responseText);
+                                if(myObj == null){
+                                    txt += "You don't have friends on McBand now!";
+								}
+								else{
+                                    for (x in myObj) {
+                                        txt += "<div class= \"individual\">";
+                                        txt += "<img src=\"myObj[x].icon\" style=\"border-radius: 50%;\" alt=\"myObj[x].userName\">";
+                                        txt += "<div class=\"middle\">";
+                                        txt += "<button onclick=\"openDialogA()\" class=\"btn btn-primary btn-outline btn-lg\"><i class=\"icon-chat2\"></i></button>";
+                                        txt += "</div>";
+                                        txt += "<br><br>";
+                                        txt += "<p>myObj[x].userName</p>";
+                                        txt += "</div>";
+                                    }
+								}
+                                document.getElementById("friend_list").innerHTML = txt;
+                            }
+                        };
+                        xmlhttp.open("POST", "getfriendlist.txt", true);
+                        xmlhttp.send();
+					</script>-->
 
 					<div class="row">
 						<div class="col-md-6 animate-box">
@@ -483,7 +509,7 @@
 						</div>
 					</div>
 					<!--timeline for my event-->
-					<div class="col-md-12 col-md-push-0 animate-box" style="margin-top: -300px;"><!--3-->
+					<div id="event_list" class="col-md-12 col-md-push-0 animate-box" style="margin-top: -300px;"><!--3-->
 					<div class="section-heading">
 						<div id="fh5co-timeline" class="col-sm-1">
 							<div class="container">
@@ -501,7 +527,6 @@
 												<div class="timeline-panel">
 													<div class="timeline-heading">
 														<h3 class="timeline-title">Music Party</h3>
-								
 													</div>
 													<div class="timeline-body">
 														<p>7th April 2018 15:00 - 24:00 Shatin.</p>
@@ -535,7 +560,6 @@
 												</div>
 											</li>
 
-
 			    						</ul>
 									</div>
 								</div>
@@ -543,7 +567,59 @@
 						</div>
 					</div>
 					</div>
+					<script>
+                        var xmlhttp, myObj, x, txt = "";
+                        xmlhttp = new XMLHttpRequest();
+                        xmlhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                myObj = JSON.parse(this.responseText);
+                                if(myObj == null){
+                                    txt += "Go to search for some interesting events now!";
+								}
+								else{
+								    txt += "<div class=\"section-heading\">";
+								    txt += "<div id=\"fh5co-timeline\" class=\"col-sm-1\">";
+								    txt += "<div class=\"container\">";
+								    txt += "<div class=\"row\">";
+								    txt += "<div class=\"col-md-offset-0\">";
+								    txt += "<ul class=\"timeline animate-box\">";
 
+                                    txt += "<li class=\"timeline-heading text-center animate-box\">";
+                                    txt += "<div><h3>My event</h3></div>";
+                                    txt += "</li>";
+
+                                    for (x in myObj) {
+								        if(x % 2 == 0){
+                                            txt += "<li class=\"animate-box timeline-unverted\">";
+										}
+                                        else if(x % 2 == 1){
+                                            txt += "<li class=\"timeline-inverted animate-box\">";
+										}
+                                        txt += "<div class=\"timeline-badge\"><i class=\"icon-genius\"></i></div>";
+                                        txt += "<div class=\"timeline-panel\">";
+                                        txt += "<div class=\"timeline-heading\">";
+                                        txt += "<h3 class=\"timeline-title\">myObj[x].eventTitle</h3>";
+                                        txt += "</div>";
+                                        txt += "<div class=\"timeline-body\">";
+                                        txt += "<p>myObj[x].eventTime myObj[x].eventLocation</p>";
+                                        txt += "</div>";
+                                        txt += "</div>";
+                                        txt += "</li>";
+                                    }
+                                    txt += "</ul>";
+                                    txt += "</div>";
+                                    txt += "</div>";
+                                    txt += "</div>";
+                                    txt += "</div>";
+									txt += "</div>";
+
+								}
+                                document.getElementById("event_list").innerHTML = txt;
+                            }
+                        };
+                        xmlhttp.open("POST", "geteventlist.txt", true);
+                        xmlhttp.send();
+					</script>
 				</div>
 			</div>
 		</div>

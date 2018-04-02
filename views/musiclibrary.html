@@ -457,52 +457,7 @@
 													<label for="coverpic">Cover Picture</label>
 													<input type="file" class="form-control" name="coverpic" accept="image/*" required/>
 												</div>
-												
 
-												<!--<br><br><br><br>
-												<div class="col-md-3 col-sm-3">
-													<label for="sheet_music">Sheet Music</label>
-
-														<div class="row form-group">
-															<div class="col-md-12 col-md-push-1 col-sm-12"  style="border:dashed;">
-																<br><br>
-																<div id="sheet_music" style="text-align: center;">Drop sheet music here</div>
-																<br><br>
-															</div>
-														</div>
-
-												</div>
-												<div class="col-md-3 col-md-push-1 col-sm-3">
-													<label for="audio_file">Audio File</label>
-
-														<div class="row form-group">
-															<div class="col-md-12 col-md-push-1 col-sm-12"  style="border:dashed;">
-																<br><br>
-																<div id="audio_file" style="text-align: center">Drop audio file here</div>
-																<br><br>
-															</div>
-														</div>
-
-												</div>
-												<div class="col-md-3 col-md-push-2 col-sm-3">
-													<label for="cover_pic">Cover Picture</label>
-
-														<div class="row form-group">
-															<div class="col-md-12 col-md-push-1 col-sm-12"  style="border:dashed;">
-																<br><br>
-																<div id="cover_pic" style="text-align: center">Drop cover picture here</div>
-																<br><br>
-															</div>
-														</div>
-
-												</div>
-												<div class="col-md-4 col-sm-4">
-													<output id="list_sheet_music"></output>
-													<output id="list_audio_file"></output>
-													<output id="list_cover_pic"></output>
-												</div>
-												<br>
-												<br>-->
 											</div>
 											<div class="col-md-12 col-sm-12" style="left: 15px">
 												<br>
@@ -511,75 +466,6 @@
 										</div>
 									</div>
 									<br>
-
-									<!--<script>
-                                        function handleCoverPicSelect(evt) {
-                                            evt.stopPropagation();
-                                            evt.preventDefault();
-
-                                            var files = evt.dataTransfer.files; // FileList object.
-
-                                            // files is a FileList of File objects. List some properties.
-                                            var output = [];
-                                            for (var i = 0, f; f = files[i]; i++) {
-                                                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-                                                    f.size, ' bytes, last modified: ',
-                                                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                                                    '</li>');
-                                            }
-                                            document.getElementById('list_cover_pic').innerHTML = '<ul>' + output.join('') + '</ul>';
-                                        }
-                                        function handleSheetMusicSelect(evt) {
-                                            evt.stopPropagation();
-                                            evt.preventDefault();
-
-                                            var files = evt.dataTransfer.files; // FileList object.
-
-                                            // files is a FileList of File objects. List some properties.
-                                            var output = [];
-                                            for (var i = 0, f; f = files[i]; i++) {
-                                                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-                                                    f.size, ' bytes, last modified: ',
-                                                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                                                    '</li>');
-                                            }
-                                            document.getElementById('list_sheet_music').innerHTML = '<ul>' + output.join('') + '</ul>';
-
-                                        }
-                                        function handleAudioFileSelect(evt) {
-                                            evt.stopPropagation();
-                                            evt.preventDefault();
-
-                                            var files = evt.dataTransfer.files; // FileList object.
-
-                                            // files is a FileList of File objects. List some properties.
-                                            var output = [];
-                                            for (var i = 0, f; f = files[i]; i++) {
-                                                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-                                                    f.size, ' bytes, last modified: ',
-                                                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                                                    '</li>');
-                                            }
-                                            document.getElementById('list_audio_file').innerHTML = '<ul>' + output.join('') + '</ul>';
-                                        }
-
-                                        function handleDragOver(evt) {
-                                            evt.stopPropagation();
-                                            evt.preventDefault();
-                                            evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
-                                        }
-
-                                        // Setup the dnd listeners.
-                                        var sheet_music = document.getElementById('sheet_music');
-                                        sheet_music.addEventListener('dragover', handleDragOver, false);
-                                        sheet_music.addEventListener('drop', handleSheetMusicSelect, false);
-                                        var audio_file = document.getElementById('audio_file');
-                                        audio_file.addEventListener('dragover', handleDragOver, false);
-                                        audio_file.addEventListener('drop', handleAudioFileSelect, false);
-                                        var cover_pic = document.getElementById('cover_pic');
-                                        cover_pic.addEventListener('dragover', handleDragOver, false);
-                                        cover_pic.addEventListener('drop', handleCoverPicSelect, false);
-									</script>-->
 
 								</div>
 							</form>

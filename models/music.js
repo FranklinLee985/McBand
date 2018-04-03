@@ -76,6 +76,7 @@ exports.likeChange = function(para,mid,callback){
 				if(err) console.log(err);
 				else{
 					console.log("update success! "+rec);
+					callback();
 				}
 			})
 		}

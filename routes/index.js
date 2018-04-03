@@ -75,7 +75,7 @@ router.post("/send-music", function(req, res){
 	mdb.connect(function(){
 		mdb.getAll(function(){
 			mdb.disconnect();
-			//console.log("request get:" + mdb.musicList);  
+			console.log("request get:" + mdb.musicList);  
 			res.send(JSON.stringify(mdb.musicList));
 		});
 	});
@@ -90,7 +90,7 @@ router.get('/dialog.html', function(req, res, next) {
 router.get('/logout', function(req, res){
 	db.errMsg = '';
 	req.session.logInfo = null;
-	res.redirect('/sign');
+	res.redirect('/sign.html');
 });
 
 router.post('/login_process', function(req,res){

@@ -72,8 +72,73 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-	</head>
+		<!-- live search -->
+		<script>
+            var xmlhttp, myObj, x, txt, input,filter, hasMatch= "";
+            hasMatch = 0;
+            function showResult() {
+                input = document.getElementById("musicname");
+                filter = input.value.toUpperCase();
+                if (filter.length==0) {
+                    document.getElementById("livesearch").innerHTML="";
+                    document.getElementById("livesearch").class="";
+                    return;
+                }
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp=new XMLHttpRequest();
+                } else {  // code for IE6, IE5
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange=function() {
+                    if (this.readyState==4 && this.status==200) {
+                        console.log("Connected!");
+                        myObj = JSON.parse(this.responseText);
+                        if(myObj == null){
+                            txt += "No musics yet!";
+                        }
+                        else{
+                            console.log("hasMatch =" + hasMatch);
+                            txt = "";
+                            for (x in myObj) {
+                                if(myObj[x].musicname.toUpperCase().indexOf(filter) > -1){
+                                    txt += "<div class=\"col-md-12\">";
+                                    txt += "<div class=\"col-md-4\">";
+                                    txt += "<a href=\"/music/" + myObj[x].musicId + "\">"+myObj[x].musicname+"</a>";
+                                    txt += "</div>";
+                                    txt += "<div class=\"col-md-4\">";
+                                    txt += "<p>"+myObj[x].uploader+"</p>";
+                                    txt += "</div>";
+                                    txt += "</div>";
+                                    hasMatch = 1;
+                                }
+                            }
+                            if(hasMatch == 0){
+                                txt += "<div class=\"col-md-12\">";
+                                txt += "<p>No match.</p>";
+                                txt += "</div>";
+                            }
+                        }
+                        console.log(txt);
+                        document.getElementById("livesearch").innerHTML = txt;
+                        document.getElementById("livesearch").className = "form-control";
+                    }
+                };
+                xmlhttp.open("POST", "/send-music", true);
+                xmlhttp.send();
+            }
+		</script>
 
+		<!-- play video in the background -->
+		<script>
+            var video = document.getElementById("bgvideo");
+            video.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                video.play();
+            });
+		</script>
+
+	</head>
 
 
 	<body>
@@ -92,25 +157,19 @@
 						<ul>
 							<li class="active"><a href="index.html">Home</a></li>
 							<li><a href="musiclibrary.html">Music library</a></li>
-							<!--<li><a href="community.html">Community</a></li>-->
 							<li><a href="event.html">Event</a></li>
 							<li><a href="account.html">Account</a></li>
-
-							<!--<form action="sign.html">
-								<button class="btn btn-primary btn-outline" style="float:right"><i class="icon-lock"></i></button>
-							</form>-->
-							
 						</ul>
 					</div>
 				</div>
 				
 			</div>
-		<% if (1) { %>
-			<a href="sign.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;"><i class="icon-user2">   Login</i></a>
-				
+			<% if (locals.logInfo == null) { %>
+				<a href="sign.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;"><i class="icon-user2">   Login</i></a>
 			<% } else { %>
-				<a href="index.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>  <i class="icon-log-out">   Logout</i></a>
+				<form action="http://127.0.0.1:8888/logout" method="GET"><a style="float:right; margin-top: -30px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>! <input type="submit" style="border:0 none; background: transparent;" value="Logout"/></a></form>
 			<% } %>
+		
 		<!-- </div> -->
 	</nav>
 
@@ -127,80 +186,16 @@
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
 							<h1> <em>Start Your Music Journey</em></h1>
-
-
 							<div class="row">
-					                <form action="#" id="form-wrap">
-
-						                <div class="row form-group">
-							                <div class="col-md-12">
-
-								                <input type="text" class="form-control" id="musicname" onkeyup="showResult()" placeholder="Enter Music Name here">
-
-												<div id="livesearch"></div>
-							                </div>
-						                </div>
-
-										<script>
-                                            var xmlhttp, myObj, x, txt, str, hasMatch= "";
-                                            hasMatch = 0;
-                                            function showResult() {
-                                                str = document.getElementById("musicname").value;
-                                                if (str.length==0) {
-                                                    document.getElementById("livesearch").innerHTML="";
-                                                    document.getElementById("livesearch").class="";
-                                                    return;
-                                                }
-                                                if (window.XMLHttpRequest) {
-                                                    // code for IE7+, Firefox, Chrome, Opera, Safari
-                                                    xmlhttp=new XMLHttpRequest();
-                                                } else {  // code for IE6, IE5
-                                                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                                                }
-                                                xmlhttp.onreadystatechange=function() {
-                                                    if (this.readyState==4 && this.status==200) {
-                                                        myObj = JSON.parse(this.responseText);
-                                                        if(myObj == null){
-                                                            txt += "No musics yet!";
-                                                        }
-                                                        else{
-                                                            for (x in myObj) {
-                                                                if(myObj[x].musicName.toString.indexOf(str) > -1){
-                                                                    txt += "<div class=\"col-md-12\">";
-                                                                    txt += "<div class=\"col-md-6\">";
-                                                                    txt += "<a href=\"/music/" + myObj[x].musicId + "\">"+myObj[x].musicname+"</a>";
-                                                                    txt += "<div class=\"col-md-6\">";
-                                                                    txt += "<p>"+myObj[x].uploader+"</p>";
-                                                                    txt += "</div>";
-                                                                    txt += "</div>";
-                                                                    hasMatch = 1;
-																}
-                                                            }
-                                                            if(hasMatch == 0){
-                                                                txt += txt += "<div class=\"col-md-12\">";
-                                                                txt += "<p>No match.</p>";
-                                                                txt += "</div>";
-                                                            }
-                                                        }
-                                                        document.getElementById("livesearch").innerHTML = txt;
-                                                        document.getElementById("livesearch").className = "form-control";
-                                                    }
-                                                };
-                                                xmlhttp.open("POST", "/send-music", true);
-                                                xmlhttp.send();
-                                            }
-										</script>
-
-						                <!--<div class="row form-group">
-							                <div class="col-md-12">
-								                <input type="submit" class="btn btn-primary btn-outline" value="Search">
-							                </div>
-						                </div>-->
-
-					                </form>
-			                </div>
-
-
+								<form action="#" id="form-wrap">
+									<div class="row form-group">
+										<div class="col-md-12">
+											<input type="text" class="form-control" id="musicname" onkeyup="showResult()" autocomplete="off" placeholder="Enter Music Name here">
+											<div id="livesearch"></div>
+										</div>
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -208,13 +203,7 @@
 		</div>
 	</header>
 
-	<script>
-		var video = document.getElementById("bgvideo");
-		video.addEventListener('touchstart', function(e) {
-		e.preventDefault();
-		video.play();
-		});
-	</script>
+
 
 	
 	<!-- jQuery -->

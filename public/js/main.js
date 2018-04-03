@@ -334,3 +334,10 @@
 
 
 }());
+
+ function alert(e){
+        $("body").append('<div id="msg"><div id="msg_top">Warning<span class="msg_close">×</span></div><div id="msg_cont">'+e+'</div><div class="msg_close" id="msg_clear">Confirm</div></div>');
+        $(".msg_close").click(function (){
+            $("#msg").remove();
+        });
+    }

@@ -669,6 +669,7 @@ function showSlides(n) {
                                 txt += "</div>";
                             }
                         }
+                        console.log("album collection section =" + txt);
                         document.getElementById("album_list").innerHTML = txt;
                     }
                 };
@@ -697,6 +698,7 @@ function showSlides(n) {
                         txt += "<p>"+myObj[x].username+"</p>";
                         txt += "</div>";
                     }
+                    console.log("all user section is " + txt);
                     document.getElementById("user_list").innerHTML = txt;
                 };
                 xmlhttp.open("POST", "http://127.0.0.1:8888/get_all_user", true);
@@ -752,7 +754,7 @@ function showSlides(n) {
                             // txt += "</div>";
 
                         }
-                        console.log("txt is"+txt);
+                        console.log("all event section is"+txt);
                         document.getElementById("event_list").innerHTML = txt;
                     }
                 };

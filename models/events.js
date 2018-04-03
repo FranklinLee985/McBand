@@ -88,3 +88,13 @@ exports.passevent = function(infos, callback){
     })
 }
 
+exports.getAll = function(callback){
+    eventInfo.find({},function(err,docs){
+        if(err) console.log(err);
+        else{
+            exports.eventList = docs;
+            callback();
+        }
+    })
+}
+

@@ -359,32 +359,33 @@
 						</section>
 
 						<script>
-                        var xmlhttp, myObj, x, txt = "";
-                        xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                myObj = JSON.parse(this.responseText);
-                                if(myObj == null){
-                                    txt += "No musics yet!"
-								}
-								else{
-                                    for (x in myObj) {
-                                        txt += "<div class=\"col-md-4\">";
-                                        txt += "<div class=\"col-md-6\">";
-                                        txt += "<a href=\"musicinfo.html\:musicName\"><%= myObj[x].musicName</a>";
-                                        txt += "<div class=\"col-md-6\">";
-                                        txt += "<p><%= myObj[x].publisher %></p>";
-                                        txt += "</div>";
-                                        txt += "</div>";
+                            var xmlhttp, myObj, x, txt = "";
+                            xmlhttp = new XMLHttpRequest();
+                            xmlhttp.onreadystatechange = function() {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    myObj = JSON.parse(this.responseText);
+                                    if(myObj == null){
+                                        txt += "No musics yet!"
                                     }
-								}
-                                document.getElementById("all_music").innerHTML = txt;
-                            }
-                        };
-                        xmlhttp.open("POST", "getAllMusic.txt", true);
-                        xmlhttp.send();
-					</script>
-						
+                                    else{
+                                        for (x in myObj) {
+                                            txt += "<div class=\"col-md-4\">";
+                                            txt += "<div class=\"col-md-6\">";
+                                            txt += "<a href=\"musicinfo.html\:musicName\"><%= myObj[x].musicName</a>";
+                                            txt += "</div>";
+                                            txt += "<div class=\"col-md-6\">";
+                                            txt += "<p><%= myObj[x].publisher %></p>";
+                                            txt += "</div>";
+                                            txt += "</div>";
+                                        }
+                                    }
+                                    document.getElementById("all_music").innerHTML = txt;
+                                }
+                            };
+                            xmlhttp.open("POST", "getAllMusic.txt", true);
+                            xmlhttp.send();
+						</script>
+
 					</div>
 
 				</div>

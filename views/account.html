@@ -654,6 +654,7 @@ function showSlides(n) {
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         myObj = JSON.parse(this.responseText);
+                        console.log("collection json is"+myObj);
                         if(myObj == null){
                             txt += "You don't have any liked music!";
                         }
@@ -684,13 +685,14 @@ function showSlides(n) {
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         myObj = JSON.parse(this.responseText);
+                        console.log("all user json is"+myObj);
                         for (x in myObj) {
                             if(myobj[x].userName === "<%=portrait%>"){
                                 continue;
                             }
                         }
                         txt += "<div class= \"individual\">";
-                        txt += "<img src=+"myObj[x].portraitPath+" style=\"border-radius: 50%;\" alt="+myObj[x].username+">";
+                        txt += "<img src="+myObj[x].portraitPath+" style=\"border-radius: 50%;\" alt="+myObj[x].username+">";
                         txt += "<div class=\"middle\">";
                         txt += "<button onclick=\"openDialogA()\" class=\"btn btn-primary btn-outline btn-lg\"><i class=\"icon-chat2\"></i></button>";
                         txt += "</div>";

@@ -93,6 +93,54 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+	<!-- filter music by input -->
+	<script>
+		function filterSearch() {
+        	var input, filter, section, colmd4, colmd6, a, i;
+			input = document.getElementById("search");
+			filter = input.value.toUpperCase();
+			section = document.getElementById("all_music");
+			colmd4 = section.getElementsByClassName("col-md-4");
+			for (i = 0; i < colmd4.length; i++) {
+				a = colmd4[i].getElementsByTagName("a")[0];
+				if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					colmd4[i].style.display = "";
+				} else {
+					colmd4[i].style.display = "none";
+				}
+			}
+		}
+	</script>
+
+	<!-- display all musics -->
+	<script>
+		var xmlhttp, myObj, x, txt = "";
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				myObj = JSON.parse(this.responseText);
+				if(myObj == null){
+					txt += "No musics yet!"
+				}
+				else{
+					for (x in myObj) {
+						txt += "<div class=\"col-md-4\">";
+						txt += "<div class=\"col-md-6\">";
+						txt += "<a href=\"/music/" + myObj[x].musicId + "\">"+myObj[x].musicname+"</a>";
+						txt += "</div>";
+						txt += "<div class=\"col-md-6\">";
+						txt += "<p>"+myObj[x].uploader+"</p>";
+						txt += "</div>";
+						txt += "</div>";
+					}
+				}
+				document.getElementById("all_music").innerHTML = txt;
+			}
+		};
+		xmlhttp.open("POST", "/send-music", true);
+		xmlhttp.send();
+	</script>
+
 	<!--Toggle Like and Unlike; Send changes to backend-->
 	<script>
 		function like(id){
@@ -299,23 +347,7 @@
 								<input id="search" type="search" class="form-control" name="search" onkeyup="filterSearch()" placeholder="Search...">
 							</div>
 						</div>
-						<script>
-                            function filterSearch() {
-                                var input, filter, section, colmd4, colmd6, a, i;
-                                input = document.getElementById("search");
-                                filter = input.value.toUpperCase();
-                                section = document.getElementById("all_music");
-                                colmd4 = section.getElementsByClassName("col-md-4");
-                                for (i = 0; i < colmd4.length; i++) {
-                                    a = colmd4[i].getElementsByTagName("a")[0];
-                                    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                                        colmd4[i].style.display = "";
-                                    } else {
-                                        colmd4[i].style.display = "none";
-                                    }
-                                }
-                            }
-						</script>
+
 						<br>
 						<!--<p><a href="#" class="btn btn-primary btn-outline">Search</a></p>-->
 						<div>
@@ -405,35 +437,6 @@
 							</div>
 
 						</section>
-
-						<script>
-                            var xmlhttp, myObj, x, txt = "";
-                            xmlhttp = new XMLHttpRequest();
-                            xmlhttp.onreadystatechange = function() {
-                                if (this.readyState == 4 && this.status == 200) {
-                                    myObj = JSON.parse(this.responseText);
-                                    if(myObj == null){
-                                        txt += "No musics yet!"
-                                    }
-                                    else{
-                                        for (x in myObj) {
-                                            txt += "<div class=\"col-md-4\">";
-                                            txt += "<div class=\"col-md-6\">";
-                                            txt += "<a href=\"/music/" + myObj[x].musicId + "\">"+myObj[x].musicname+"</a>";
-                                            txt += "</div>";
-                                            txt += "<div class=\"col-md-6\">";
-                                            txt += "<p>"+myObj[x].uploader+"</p>";
-                                            txt += "</div>";
-                                            txt += "</div>";
-                                        }
-                                    }
-                                    document.getElementById("all_music").innerHTML = txt;
-                                }
-                            };
-                            xmlhttp.open("POST", "/send-music", true);
-                            xmlhttp.send();
-						</script>
-
 					</div>
 
 				</div>

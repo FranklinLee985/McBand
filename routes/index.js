@@ -67,14 +67,16 @@ router.get('/musiclibrary.html', function(req, res, next) {
 	var topTen = [];
 	var status = [];
 	mdb.connect(function(){
-		mdb.topTen(topTen,email,function(){
+		console.log("mdb connected!");
+		mdb.topTen(topTen,function(){
+			console.log("top ten:" + topTen);
 			mdb.disconnect(); 
 			//console.log(topTen);
-			coldb.connect(function(){
-				coldb.topStatus(topTen,email,status,function(){
-					res.render('musiclibrary',{ musicInfo: topTen ,musicStatus:status});
-				})
-			})
+			coldb.topStatus(topTen,email,status,function(){
+				console.log("status"+status);
+				coldb.disconnect();
+				res.render('musiclibrary',{ musicInfo: topTen ,musicStatus:status});
+			});
 		});
 	});
 });

@@ -102,19 +102,20 @@ exports.topTen = function(infos,callback){
 		coverPath: '/resources/upload/music/default.png',
 		likeCount: 0,
 		musicId:''
-	}
+	};
 	musicInfo.find({}).sort('-likeCount').exec(function(err,docs){
 		if(err)console.log(err);
 		else{
 			for(var i = 0;i<10;i++){
 				if(docs[i] != null)infos[i] = docs[i];
-				else infos[i] = defaultValue;
+				else {
+					infos[i] = defaultValue;
+				}
 
 			}
 		    callback();
 		}
-	})
+	});
 }
-
 
 

@@ -35,10 +35,10 @@ exports.delete = function(infos,callback){
 				mdb.likeChange(-1,infos.musicId,function(){
 					mdb.disconnect();
 					callback();
-				})
+				});
 			});
 		}
-	})
+	});
 };
 
 
@@ -53,7 +53,7 @@ exports.showAll = function(userName,result,callback){
 			callback();
 		}
 	});
-}
+};
 
 exports.add = function(infos, callback) {
 	
@@ -79,14 +79,14 @@ exports.add = function(infos, callback) {
 							mdb.likeChange(1,infos.musicId,function(){
 								mdb.disconnect();
 								callback();
-							})
-						})
+							});
+						});
 					}
-				})
+				});
 			}
 		}
-	})
-}
+	});
+};
 
 exports.isLiked = function(infos,callback){
 	collectInfo.find({email:infos.email,musicId:infos.musicId},function(err,docs){
@@ -101,22 +101,26 @@ exports.isLiked = function(infos,callback){
 				callback();
 			}
 		}
-	})
-}
+	});
+};
 
 exports.topStatus = function(list,userEmail,result,callback){
-	for(var i = 0;i<8;i++){
+	var arr = [1,1,1,1,1,1,1,1];
+	arr.forEach(function(){
 		collectInfo.find({email:userEmail,musicId:list.musicId},function(err,docs){
 			if(err)console.log(err);
 			else{
+
 				if(docs.length > 0){
-					result[i]="Unlike";
+					result.push('Unlike');
 				}
 				else{
-					result[i]="Like";
+					result.push('Like');
 				}
+				console.log("result:"+result);
 			}
 		});
-	}
+	})
+
 	callback();
 };

@@ -9,7 +9,7 @@ var eventSchema = new Schema({
     venue: String,
     date: String,
     basicinfo: String,
-    eventpicture: Schema.Types.Mixed
+    eventpicture: String 
 });
 
 var eventInfo = mongoose.model('EventDB', eventSchema);

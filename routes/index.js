@@ -108,30 +108,70 @@ router.post('/login_process', function(req,res){
 	})
 })
 
-
+router.post('/event_upload', checkLogin);
 router.post('/event_upload', function(req,res){
-	var response = {
-		"username":req.session.logInfo.name,
-		"eventname": req.body.eventname,
-		"venue": req.body.venue,
-		"date": req.body.time,
-		"basicinfo": req.body.eventinfo,
-		"eventpicture": req.body.event_pic
-	};
-	console.log(response);
-	//Up to here, it is correct
-	edb.connect(function(){
-		edb.add(response,function(){
-			edb.disconnect();
-			if(edb.errMsg === ''){
-				res.redirect('/event.html');
-			}
-			else{
-				res.redirect('/event.html');
-				console.log(edb.errMsg);
-			}
-		})
-	})
+    var form = new formidable.IncomingForm();
+    form.encoding = 'utf-8';
+    form.maxFilesSize = 10*1024*1024;
+    form.keepExtensions = true;
+    form.multiples = true;
+    var targetDir = path.join(__dirname, eventUploadDir);
+    fs.access(targetDir, function(err){
+        if(err){
+            fs.mkdirSync(targetDir);
+        }
+        _fileParse();
+    });
+
+    function _fileParse() {
+        var response = {
+		    "username":req.session.logInfo.name,
+		    "eventname": req.body.eventname,
+		    "venue": req.body.venue,
+		    "date": req.body.time,
+		    "basicinfo": req.body.eventinfo,
+		    "eventpicture": ''
+        };
+        form.parse(req, function(err, fields, files){
+            if(err) throw err;
+                var filesUrl = [];
+                var errCount = 0;
+                var keys = Object.keys(files);
+
+                response.eventcname = fields[Object.keys(fields)[0]];
+                keys.forEach(function(key){
+                    console.log(key);
+                    var filePath = files[key].path;
+                    var fileExt = filePath.substring(filePath.lastIndexOf('.'));
+                    var fileName = key + "_"+ new Date().getTime() + fileExt;
+                    var targetFile = path.join(targetDir, fileName);
+                    console.log(targetDir)
+                    fs.renameSync(filePath, targetFile);
+                    filesUrl.push('/music/'+fileName);
+                    console.log("Here is the path");
+                    console.log(filesUrl);
+                 
+                    if(key == 'event_pic') response.eventpicture = path.join('/resources/upload/event/', fileName);
+                    //You should self-create a folder at the upload path
+
+                });
+                console.log(response);
+                // add to DB
+                edb.connect(function(){
+                    edb.add(response, function(){
+                        edb.disconnect();
+                        if(edb.errMsg == ''){
+                            //Successfully upload the event, redirect to event interface
+                            res.redirect('/event.html');
+                        }
+                        else{
+                            res.redirect('/event.html');
+                            console.log(edb.errMsg);
+                        }
+                    })
+                });
+        });
+    }
 })
 
 

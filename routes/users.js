@@ -40,17 +40,21 @@ router.get('/users/:name',checkLogin,function(req, res, next) {
 	db.connect(function(){
 		db.getPortrait(name,ptr,function(){
 			db.disconnect();
-			cdb.connect(function(){
-				cdb.showAll(name,collection,function(){
-					cdb.disconnect();
-					console.log("collection:"+collection);
-					res.render('account',{portrait:ptr.por,collec:collection});
-				})
-			})
+			res.render('account',{portrait:ptr.por});
 		});
 	});  
 });
 
+router.post('/get_collection',checkLogin,function(req,res){
+	userEmail = res.locals.logInfo.email;
+	var result = [];
+	cdb.connect(function(){
+		cdb.showAll(userEmail,result,function(){
+			console.log(result);
+			res.send(JSON.strigify(result));
+		})
+	})
+})
 
 
 router.post('/icon_upload',checkLogin,function(req,res,next){

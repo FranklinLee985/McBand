@@ -492,10 +492,10 @@
 			<div class="container">
 				<div class="row" style="margin-top: -10px;">
 					<div class="col-md-12 fh5co-heading animate-box">
-						<h2>My Events</h2>
+						<h2>All Events</h2>
 						<div class="row">
 							<div class="col-md-6">
-								<p>Here are some events you created, enrolled for, or those you want to attend.</p>
+								<p>Here are all interesting events created on McBand!</p>
 							</div>
 						</div>
 					</div>
@@ -703,18 +703,18 @@ function showSlides(n) {
                     if (this.readyState == 4 && this.status == 200) {
                         myObj = JSON.parse(this.responseText);
                         if(myObj == null){
-                            txt += "Go to search for some interesting events now!";
+                            txt += "No events for now. Create your own!";
                         }
                         else{
-                            txt += "<div class=\"section-heading\">";
-                            txt += "<div id=\"fh5co-timeline\" class=\"col-sm-1\">";
+                            // txt += "<div class=\"section-heading\">";
+                            // txt += "<div id=\"fh5co-timeline\" class=\"col-sm-1\">";
                             txt += "<div class=\"container\">";
                             txt += "<div class=\"row\">";
                             txt += "<div class=\"col-md-offset-0\">";
                             txt += "<ul class=\"timeline animate-box\">";
 
                             txt += "<li class=\"timeline-heading text-center animate-box\">";
-                            txt += "<div><h3>My event</h3></div>";
+                            txt += "<div><h3>Recent event</h3></div>";
                             txt += "</li>";
 
                             for (x in myObj) {
@@ -727,10 +727,10 @@ function showSlides(n) {
                                 txt += "<div class=\"timeline-badge\"><i class=\"icon-genius\"></i></div>";
                                 txt += "<div class=\"timeline-panel\">";
                                 txt += "<div class=\"timeline-heading\">";
-                                txt += "<h3 class=\"timeline-title\">"+myObj[x].eventTitle+"</h3>";
+                                txt += "<h3 class=\"timeline-title\">"+myObj[x].eventname+"</h3>";
                                 txt += "</div>";
                                 txt += "<div class=\"timeline-body\">";
-                                txt += "<p>"+myObj[x].eventTime+myObj[x].eventLocation+"</p>";
+                                txt += "<p>"+myObj[x].date+myObj[x].venue+"</p>";
                                 txt += "</div>";
                                 txt += "</div>";
                                 txt += "</li>";
@@ -739,14 +739,15 @@ function showSlides(n) {
                             txt += "</div>";
                             txt += "</div>";
                             txt += "</div>";
-                            txt += "</div>";
-                            txt += "</div>";
+                            // txt += "</div>";
+                            // txt += "</div>";
 
                         }
-                        document.getElementById("event_list").innerHTML = txt;
+                        console.log("txt is"+txt);
+                        document.getElementById("event-list").innerHTML = txt;
                     }
                 };
-                xmlhttp.open("POST", "http://127.0.0.1:8888/get_my_event_list", true);
+                xmlhttp.open("POST", "/send-event", true);
                 xmlhttp.send();
 			</script>
 

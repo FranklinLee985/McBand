@@ -140,7 +140,7 @@
 						                </div>
 
 										<script>
-                                            var xmlhttp, myObj, x, txt, hasMatch= "";
+                                            var xmlhttp, x, txt, hasMatch= "";
                                             hasMatch = false;
                                             function showResult(str) {
                                                 if (str.length==0) {
@@ -156,18 +156,18 @@
                                                 }
                                                 xmlhttp.onreadystatechange=function() {
                                                     if (this.readyState==4 && this.status==200) {
-                                                        myObj = JSON.parse(this.responseText);
+                                                        var myObj = JSON.parse(this.responseText);
                                                         if(myObj == null){
-                                                            txt += "No musics yet!"
+                                                            txt += "No musics yet!";
                                                         }
                                                         else{
                                                             for (x in myObj) {
                                                                 if(myObj[x].musicName.toString.indexOf(str) > -1){
                                                                     txt += "<div class=\"col-md-12\">";
                                                                     txt += "<div class=\"col-md-6\">";
-                                                                    txt += "<a href=\"musicinfo.html\:musicName\"><%= myObj[x].musicName</a>";
+                                                                    txt += "<a href=\"/music/" + myObj[x].musicId + "\">"+myObj[x].musicname+"</a>";
                                                                     txt += "<div class=\"col-md-6\">";
-                                                                    txt += "<p><%= myObj[x].publisher %></p>";
+                                                                    txt += "<p>"+myObj[x].uploader+"</p>";
                                                                     txt += "</div>";
                                                                     txt += "</div>";
                                                                     hasMatch = true;
@@ -180,10 +180,10 @@
                                                             }
                                                         }
                                                         document.getElementById("livesearch").innerHTML = txt;
-                                                        document.getElementById("livesearch").class="form-control";
+                                                        document.getElementById("livesearch").className = "form-control";
                                                     }
-                                                }
-                                                xmlhttp.open("POST", "getAllMusic.txt", true);
+                                                };
+                                                xmlhttp.open("POST", "/send-music", true);
                                                 xmlhttp.send();
                                             }
 										</script>

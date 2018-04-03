@@ -47,8 +47,6 @@ router.get('/users/:name',checkLogin,function(req, res, next) {
 					res.render('account',{portrait:ptr.por,collec:collection});
 				})
 			})
-			
-			
 		});
 	});  
 });

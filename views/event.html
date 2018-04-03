@@ -331,13 +331,14 @@
                                             myObj = JSON.parse(this.responseText);
                                             for (x in myObj) {
                                                 txt += "<div class= \"individual\">";
-                                                txt += "<img src=\"myObj[x].eventpicture\" alt=\"myObj[x].eventname\">";
+                                                txt += "<img src="+myObj[x].eventpicture+" alt="+myObj[x].eventname+">";
                                                 txt += "<div class=\"middle\">";
                                                 txt += "<a href=\"#eventinfo\" class=\"btn btn-primary btn-outline btn-lg\" role=\"button\" onclick=\"myMap()\">Details</a>";
                                                 txt += "</div>";
                                                 txt += "<br><br>";
                                                 txt += "<h3>"+myObj[x].eventname+"</h3>";
                                                 txt += "<p>"+myObj[x].date+"</p>"
+												txt += "</div>";
                                             }
 
                                         }

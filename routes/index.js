@@ -71,7 +71,7 @@ router.post("/send-music", function(req, res){
 	mdb.connect(function(){
 		mdb.getAll(function(){
 			mdb.disconnect();
-			console.log("request get:" + mdb.musicList);  
+			//console.log("request get:" + mdb.musicList);  
 			res.send(JSON.stringify(mdb.musicList));
 		});
 	});

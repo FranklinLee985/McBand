@@ -87,7 +87,7 @@ exports.getAll = function(callback){
 	musicInfo.find({},function(err,docs){
 		if(err)console.log(err);
 		else{
-			console.log("docs:" + docs);
+			//console.log("docs:" + docs);
 			exports.musicList = docs;
 			callback();
 		}

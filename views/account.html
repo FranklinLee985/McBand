@@ -150,6 +150,28 @@
 			top: -30%;
 		}
 
+		.modal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto;
+			background-color: rgb(26,26,26);
+			background-color: rgba(26,26,26,0.4);
+			padding-top: 150px;
+		}
+
+		/* Modal Content/Box */
+		.modal-content {
+			background-color: rgb(26, 26, 26);
+			margin: 100px auto 500px auto;
+			border: 4px solid rgba(255, 255, 255, 0.04);
+			width: 50%;
+		}
+
 
 	</style>
 
@@ -308,12 +330,43 @@
 						<div class="containericon">
 							<img src="<%=portrait%>" alt="Icon" style="width: 30%; border-radius: 50%;">
 							<button onclick="document.getElementById('id01').style.display='block'" class="button overlayll"><i class="icon-wrench"></i></button>
-							<div id="id01" class="modal">
-								<div class="modal-content">
-									<label>Update your icon</label>
-									<form action="/icon_upload" class="dropzone" id="icon_upload" name="iconPath" method="post" enctype="multipart/form-data"></form>
+
+
+						<div id="id01" class="modal">
+							<form class="modal-content zoom" action="#" method="post" enctype="multipart/form-data">
+								<div>
+									<div class="container">
+										<div class="row form-group">
+											<div class="col-md-12 col-sm-12">
+												<br>
+												<div class="col-md-4 col-sm-4">
+													<label for="coverpic">Icon</label>
+													<input type="file" class="form-control" name="coverpic" accept="image/*" required/>
+												</div>
+											</div>
+											<div class="col-md-12 col-sm-12" style="left: 15px">
+												<br>
+												<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Save">
+											</div>
+										</div>
+									</div>
+									<br>
 								</div>
-							</div>
+							</form>
+						</div>
+
+
+				<script>
+                    // Get the modal
+                    var modal = document.getElementById('id01');
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+				</script>
 						</div>
 						<!--User Name-->
 						<br><br>

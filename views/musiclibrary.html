@@ -93,16 +93,52 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+	<!--Toggle Like and Unlike; Send changes to backend-->
 	<script>
 		function like(id){
-            id.value.toggle("Unlike");
-            if(id.value === "Unlike"){
-
-			}
-			if(id.value === "Like"){
-
-			}
+            var xmlhttp, text;
+            text={"musicId": id.name};
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            } else {  // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function() {
+                if (this.readyState==4 && this.status==200) {
+                    id.value=xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("POST", "http://127.0.0.1:8888/like.js", true);
+            xmlhttp.setRequestHeader("Content-type", "application/json");
+            xmlhttp.send(JSON.stringify(text));
+            console.log(JSON.stringify(text));
+            console.log(typeof JSON.stringify(text));
         }
+	</script>
+
+    <!--display Like or Unlike in the like button-->
+	<script>
+        var xmlhttp, text, middle, input;
+        middle = document.getElementsByClassName("middle");
+        input = middle.getElementsByTagName("input");
+        text={"musicId": input.name};
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        } else {  // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function() {
+            if (this.readyState==4 && this.status==200) {
+                input.value=xmlhttp.responseText;
+            }
+        };
+        xmlhttp.open("POST", "http://127.0.0.1:8888/like.js", true);
+        xmlhttp.setRequestHeader("Content-type", "application/json");
+        xmlhttp.send(JSON.stringify(text));
+        console.log(JSON.stringify(text));
+        console.log(typeof JSON.stringify(text));
 	</script>
 
 	</head>
@@ -134,7 +170,12 @@
 						</div>
 					</div>
 				</div>
+			<% if (locals.logInfo == null) { %>
 				<a href="sign.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;"><i class="icon-user2">   Login</i></a>
+			<% } else { %>
+				<form action="http://127.0.0.1:8888/logout" method="GET"><a style="float:right; margin-top: -30px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>! <input type="submit" style="border:0 none; background: transparent;" value="Logout"/></a></form>
+			<% } %>
+			
 			</div>
 		</nav>
 
@@ -162,8 +203,7 @@
 						<img src="<%=musicInfo[0].coverPath %>" class="img-responsive" alt="First">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[0].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<form action="/like">
-								<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[0].musicname %>" value="Like">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[0].musicId %>" value="Like">
 						</div>
 						<h3><%=musicInfo[0].musicname %></h3>
 						<p>Author: <%=musicInfo[0].uploader %></p>
@@ -172,7 +212,7 @@
 						<img src="<%=musicInfo[1].coverPath %>" class="img-responsive" alt="Remember Me">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[1].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[1].musicname %>" value="Like">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[1].musicId %>" value="Like">
 						</div>
 						<h3><%=musicInfo[1].musicname %></h3>
 						<p>Author: <%=musicInfo[1].uploader %></p>
@@ -183,7 +223,7 @@
 						<img src="<%=musicInfo[2].coverPath %>" class="img-responsive" alt="Divide">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[2].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[2].musicname %>" value="Like">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[2].musicId %>" value="Like">
 						</div>
 						<h3><%=musicInfo[2].musicname %></h3>
 						<p>Author: <%=musicInfo[2].uploader %></p>
@@ -192,7 +232,7 @@
 						<img src="<%=musicInfo[3].coverPath %>" class="img-responsive" alt="All of Me">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[3].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[3].musicname %>" value="Like">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[3].musicId %>" value="Like">
 						</div>
 						<h3><%=musicInfo[3].musicname %></h3>
 						<p>Author: <%=musicInfo[3].uploader %></p>
@@ -204,7 +244,7 @@
 						<img src="<%=musicInfo[4].coverPath %>" class="img-responsive" alt="Havana">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[4].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[4].musicname %>" value="Like">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[4].musicId %>" value="Like">
 						</div>
 						<h3><%=musicInfo[4].musicname %></h3>
 						<p>Author: <%=musicInfo[4].uploader %></p>
@@ -213,7 +253,7 @@
 						<img src="<%=musicInfo[5].coverPath %>" class="img-responsive" alt="Mystery of Love">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[5].musicId%>"" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[5].musicname %>" value="Like">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[5].musicId %>" value="Like">
 						</div>
 						<h3><%=musicInfo[5].musicname %></h3>
 						<p>Author: <%=musicInfo[5].uploader %></p>
@@ -224,7 +264,7 @@
 						<img src="<%=musicInfo[6].coverPath %>" class="img-responsive" alt="A Million Dreams">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[6].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[6].musicname %>" value="Like">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[6].musicId %>" value="Like">
 						</div>
 						<h3><%=musicInfo[6].musicname %></h3>
 						<p>Author: <%=musicInfo[6].uploader %></p>
@@ -233,7 +273,7 @@
 						<img src="<%=musicInfo[7].coverPath %>" class="img-responsive" alt="To Make You Feel My Love">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[7].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[7].musicname %>" value="Like">
+							<input type="submit" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[7].musicId %>" value="Like">
 						</div>
 						<h3><%=musicInfo[7].musicname %></h3>
 						<p>Author: <%=musicInfo[7].uploader %></p>

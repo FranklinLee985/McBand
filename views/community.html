@@ -95,12 +95,12 @@
 				</div>
 				
 			</div>
-		<% if (1) { %>
-			<a href="sign.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;"><i class="icon-user2">   Login</i></a>
-				
+			<% if (locals.logInfo == null) { %>
+				<a href="sign.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;"><i class="icon-user2">   Login</i></a>
 			<% } else { %>
-				<a href="index.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>  <i class="icon-log-out">   Logout</i></a>
+				<form action="http://127.0.0.1:8888/logout" method="GET"><a style="float:right; margin-top: -30px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>! <input type="submit" style="border:0 none; background: transparent;" value="Logout"/></a></form>
 			<% } %>
+		
 		<!-- </div> -->
 	</nav>
 

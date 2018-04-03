@@ -74,11 +74,12 @@
 
 		<!-- live search -->
 		<script>
-            var xmlhttp, myObj, x, txt, str, hasMatch= "";
+            var xmlhttp, myObj, x, txt, input,filter, hasMatch= "";
             hasMatch = 0;
             function showResult() {
-                str = document.getElementById("musicname").value;
-                if (str.length==0) {
+                input = document.getElementById("musicname");
+                filter = input.value.toUpperCase();
+                if (filter.length==0) {
                     document.getElementById("livesearch").innerHTML="";
                     document.getElementById("livesearch").class="";
                     return;
@@ -99,7 +100,7 @@
                         else{
                             console.log("hasMatch =" + hasMatch);
                             for (x in myObj) {
-                                if(myObj[x].musicName.toString.indexOf(str) > -1){
+                                if(myObj[x].musicName.toString.toUpperCase().indexOf(filter) > -1){
                                     txt += "<div class=\"col-md-12\">";
                                     txt += "<div class=\"col-md-6\">";
                                     txt += "<a href=\"/music/" + myObj[x].musicId + "\">"+myObj[x].musicname+"</a>";

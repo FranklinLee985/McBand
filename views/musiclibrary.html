@@ -307,13 +307,11 @@
                                 section = document.getElementById("all_music");
                                 colmd4 = section.getElementsByClassName("col-md-4");
                                 for (i = 0; i < colmd4.length; i++) {
-                                   
                                     a = colmd4[i].getElementsByTagName("a")[0];
                                     if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
                                         colmd4[i].style.display = "";
                                     } else {
                                         colmd4[i].style.display = "none";
-
                                     }
                                 }
                             }

@@ -185,9 +185,9 @@
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
 							<!-- Music Name -->
-							<h1>Perfect</h1> 
+							<h1><%=musicInfo.musicname%></h1> 
 							<!-- Author Name-->
-							<p><em>Ed Sheeran</em></p> 
+							<p><em><%=musicInfo.uploader%></em></p> 
 						</div>
 					</div>
 				</div>
@@ -210,6 +210,7 @@
 						<div class="row form-group">
 							<div class="col-md-12">
 								<h3>Music Information</h3>
+
 								<label>Music Name</label>
 								<p><%= musicInfo.musicname %></p>
 								<label>Uploader</label>

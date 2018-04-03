@@ -324,12 +324,7 @@
 						</div>
 					</section>
 					<!--<script>
-                        var xmlhttp, myObj, x, txt = "";
-                        xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                myObj = JSON.parse(this.responseText);
-                                if(myObj == null){
+                        if(collectionarray == null){
                                     txt += "You don't have any liked music!";
 								}
 								else{
@@ -345,11 +340,6 @@
                                     }
 								}
                                 document.getElementById("album_list").innerHTML = txt;
-                            }
-                        };
-                        xmlhttp.open("POST", "getalbumlist.txt", true);
-                        xmlhttp.send();
-
 					</script>-->
 				</div>
 			</div>

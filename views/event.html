@@ -331,22 +331,21 @@
                                             myObj = JSON.parse(this.responseText);
                                             for (x in myObj) {
                                                 txt += "<div class= \"individual\">";
-                                                txt += "<img src=\"myObj[x].eventPic\" alt=\"myObj[x].eventName\">";
+                                                txt += "<img src="+myObj[x].eventpicture+" alt="+myObj[x].eventname+">";
                                                 txt += "<div class=\"middle\">";
                                                 txt += "<a href=\"#eventinfo\" class=\"btn btn-primary btn-outline btn-lg\" role=\"button\" onclick=\"myMap()\">Details</a>";
-                                                txt += "<button type=\"submit\" class=\"btn btn-primary btn-outline btn-lg\"><i class=\"icon-heart\"></i></button>";
                                                 txt += "</div>";
                                                 txt += "<br><br>";
-                                                txt += "<h3>"+myObj[x].eventName</h3>";
-                                                txt += "<p>"+myObj[x].eventDate+"</p>"
+                                                txt += "<h3>"+myObj[x].eventname+"</h3>";
+                                                txt += "<p>"+myObj[x].date+"</p>"
+												txt += "</div>";
                                             }
 
                                         }
                                         document.getElementById("all_event_list").innerHTML = txt;
                                     };
-                                    xmlhttp.open("POST", "http://127.0.0.1:8888/get_all_user", true);
+                                    xmlhttp.open("POST", "/send-event", true);
                                     xmlhttp.send();
-
 								</script>
 
 							</div>

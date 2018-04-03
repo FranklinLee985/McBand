@@ -191,6 +191,41 @@
         console.log(typeof JSON.stringify(text));
 	</script>
 
+	<!-- Get comment -->
+	<script>
+        var xmlhttp, myObj, x, txt= "";
+        var text={"musicId": "<%=musicInfo.musicId%>"};
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                myObj = JSON.parse(this.responseText);
+                if(myObj == null){
+                    txt += "No comments yet!"
+                }
+                else{
+                    for (x in myObj) {
+                        txt += "<div class=\"row comment\">";
+                        txt += "<div class=\"col-md-1 comment_icon\">";
+                        txt += "<img src=\"myObj[x].icon\" alt=\"Icon\">";
+                        txt += "</div>";
+                        txt += "<div class=\"col-md-2 comment_username\">";
+                        txt += "<p>"+myObj[x].userName+"</p>";
+                        txt += "</div>";
+                        txt += "<div class=\"col-md-6 comment_text\">";
+                        txt += "<p>"+myObj[x].commentText+"</p>";
+                        txt += "</div>";
+                        txt += "</div>";
+                    }
+                }
+                document.getElementById("comment_list").innerHTML = txt;
+            }
+        };
+        xmlhttp.open("POST", "http:127.0.0.1:8888/comment.js", true);
+        xmlhttp.setRequestHeader("Content-type", "application/json");
+        xmlhttp.send(JSON.stringify(text));
+        console.log(JSON.stringify(text));
+        console.log(typeof JSON.stringify(text));
+	</script>
 
 </head>
 
@@ -320,9 +355,7 @@
 							</div>
 						</div>
 					</div>
-
 					<br>
-
 
 					<form action="/postcomment" id="form-wrap">
 						<div class="row form-group">

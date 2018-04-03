@@ -134,15 +134,16 @@
 
 						                <div class="row form-group">
 							                <div class="col-md-12">
-								                <input type="text" class="form-control" id="musicname" onkeyup="showResult()">
+								                <input type="text" class="form-control" id="musicname" onkeyup="showResult()" placeholder="Enter Music Name here">
 												<div id="livesearch"></div>
 							                </div>
 						                </div>
 
 										<script>
-                                            var xmlhttp, x, txt, hasMatch= "";
-                                            hasMatch = false;
-                                            function showResult(str) {
+                                            var xmlhttp, myObj, x, txt, str, hasMatch= "";
+                                            hasMatch = 0;
+                                            function showResult() {
+                                                str = document.getElementById("musicname").value;
                                                 if (str.length==0) {
                                                     document.getElementById("livesearch").innerHTML="";
                                                     document.getElementById("livesearch").class="";
@@ -156,7 +157,7 @@
                                                 }
                                                 xmlhttp.onreadystatechange=function() {
                                                     if (this.readyState==4 && this.status==200) {
-                                                        var myObj = JSON.parse(this.responseText);
+                                                        myObj = JSON.parse(this.responseText);
                                                         if(myObj == null){
                                                             txt += "No musics yet!";
                                                         }
@@ -170,10 +171,10 @@
                                                                     txt += "<p>"+myObj[x].uploader+"</p>";
                                                                     txt += "</div>";
                                                                     txt += "</div>";
-                                                                    hasMatch = true;
+                                                                    hasMatch = 1;
 																}
                                                             }
-                                                            if(hasMatch == false){
+                                                            if(hasMatch == 0){
                                                                 txt += txt += "<div class=\"col-md-12\">";
                                                                 txt += "<p>No match.</p>";
                                                                 txt += "</div>";

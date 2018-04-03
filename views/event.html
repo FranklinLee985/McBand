@@ -117,6 +117,14 @@
 
 }
 
+		/*.eventsinfo::-webkit-scrollbar{
+			width:5px;
+		}*/
+		.eventsinfo::-webkit-scrollbar{
+			border-radius: 5px;
+			background:rgba(255,255,255,.1);
+		}
+
 
 		</style>
 
@@ -249,7 +257,7 @@
 											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/musicparty.jpg);"></div>
 											<!--<img src="images/musicparty.jpg" class="img-responsive" alt="Music Party">-->
 											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
 												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
 											</div>
 											<h3>Music Party</h3>
@@ -263,7 +271,7 @@
 											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/jazz.jpg);" ></div>
 											<!--<img src="images/jazz.jpg" class="img-responsive" alt="Jazz Marathon">-->
 											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
 												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
 											</div>
 											<h3>Jazz Marathon</h3>
@@ -276,7 +284,7 @@
 											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/pop.jpg);" ></div>
 											<!--<img src="images/pop.jpg" class="img-responsive" alt="Pop Music">-->
 											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
 												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
 											</div>
 											<h3>Hey Summer!</h3><!--might have bug-->
@@ -290,7 +298,7 @@
 											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/beach.jpg);" ></div>
 											<!--<img src="images/beach.jpg" class="img-responsive" alt="beach party">-->
 											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" style="padding: 3px;">Details</a>
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" style="padding: 3px;" onclick="myMap()">Details</a>
 												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
 											</div>
 											<h3>Beach Concert</h3>
@@ -305,7 +313,7 @@
 											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/musicparty.jpg);" ></div>
 											<!--<img src="images/musicparty.jpg" class="img-responsive" alt="Music Party">-->
 											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
 												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
 											</div>
 											<h3>Music Party</h3>
@@ -319,7 +327,7 @@
 											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/jazz.jpg);" ></div>
 											<!--<img src="images/jazz.jpg" class="img-responsive" alt="Jazz Marathon">-->
 											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
 												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
 											</div>
 											<h3>Jazz Marathon</h3>
@@ -332,7 +340,7 @@
 											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/jazz.jpg);" ></div>
 											<!--<img src="images/jazz.jpg" class="img-responsive" alt="Jazz Marathon">-->
 											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
 												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
 											</div>
 											<h3>Jazz Marathoneeeeeeeeeee</h3>
@@ -346,7 +354,7 @@
 											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/jazz.jpg);" ></div>
 											<!--<img src="images/jazz.jpg" class="img-responsive" alt="Jazz Marathon">-->
 											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">Details</a>
+												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
 												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
 											</div>
 											<h3>Jazz Marathon</h3>
@@ -377,25 +385,60 @@
 				<div id="eventinfo" class="col-md-6" style="width:100%;height:600px;margin-top: -300px;">
 					<div id="googleMap" style="width:60%;height:600px;"></div>
 					<script>
-					function myMap() {
- 					 //map options
-  					var mapOptions = {
-  					  center: new google.maps.LatLng(22.38333,114.18333),
- 					   zoom:15,
- 					 };
+						function mapInitiate(){
+							//map options
+  							var mapOptions = {
+  						   		center: new google.maps.LatLng(22.38333,114.18333),
+ 						   		zoom:15,
+ 							};
 
- 					 //new map
- 					 var map = new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+ 						 	//new map
+ 							var map = new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+						}
+						function myMap() {
+							var geocoder = new google.maps.Geocoder();
+							var address = document.getElementById('eventaddress').textContent;
+ 						 	//map options
+  							var mapOptions = {
+  						   		center: new google.maps.LatLng(22.38333,114.18333),
+ 						   		zoom:15,
+ 							};
 
-  					//add marker
-  					var marker = new google.maps.Marker({
-  						position:{lat:22.38333,lng:114.18333},
-  						map:map
-  						//icon:'a link here'    to change the marker
- 					 });
-					}
+ 						 	//new map
+ 							var map = new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+	  						//decoder: give a address name and show it on the map
+	  						if (geocoder) {
+	     						geocoder.geocode( { 'address': address}, function(results, status) {
+		        					if (status == google.maps.GeocoderStatus.OK) {
+		        					  	if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+		        					  		map.setCenter(results[0].geometry.location);
+							
+		        					    	var infowindow = new google.maps.InfoWindow({ 
+		        					    		content: '<b>'+address+'</b>',
+		                  						size: new google.maps.Size(150,50)
+	        					    	});
+							
+		            						var marker = new google.maps.Marker({
+		        					    	    position: results[0].geometry.location,
+		        					    	    map: map, 
+		        					    	    title:address
+		        					    	}); 
+		        					    	google.maps.event.addListener(marker, 'click', function() {
+		        					    	    infowindow.open(map,marker);
+		        					    	});
+					
+		        					  	} else {
+		        					  	    alert("No results found");
+		        					  	}
+		        					} else {
+		        						alert("Geocode was not successful for the following reason: " + status);
+		       						}
+	      						});
+	   						}
+						}
 					</script>
-					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEuDeEqud2hsG_zVQMqPwKYE2FifHFICo&callback=myMap"></script>	
+					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEuDeEqud2hsG_zVQMqPwKYE2FifHFICo&callback=mapInitiate"></script>	
 				</div>
 
 				<!--info table-->
@@ -411,18 +454,27 @@
 								<i class="icon-clock3"></i>
 								<p>1st May 2018 - 3rd May 2018.</p>
 								<i class="icon-location3"></i>
-								<p>Causeway bay.</p>
+								<p id="eventaddress">Kowloon Park</p>
 							</div>
 						</div>
 								
-						<div class="row form-group">
+						<section class="row form-group eventsinfo" style="width: 107%; height: 240px; overflow: scroll;">
 							<div class="col-md-12">
-								<p>some intro about the event. </p>
-								<p>some intro about the event. </p>
+								<p>some intro about the event.blablablablablalablablablablalablablablablalablablablablalablablablablaaaaaaaaaaaaaaaaaa
+								hihihiihihihhihihi
+								ihihihhihihihihihiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+								wwwwwwwwwwwwwwwwwwwww
+								aaaaaaaaaaaaaa
+								aaaaaaaaaaaaaaaaaa
+								aaaaaaaaaaaaaaaaaaaaaaa
+								ffffffffffffffffff
+								ffffffffffffffff
+								ffffffffffffff
+							    </p>
 							</div>
-						</div>
+						</section>
 						<div class="row form-group">
-							<div class="col-md-12 large" style="margin-top: 100px;">
+							<div class="col-md-12 large">
 								<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button">I will join!</a>
 								<button type="submit" class="btn btn-primary btn-outline btn-lg">it is interesting!</button>
 							</div>

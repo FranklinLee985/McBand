@@ -71,12 +71,7 @@ router.get('/musiclibrary.html', function(req, res, next) {
 		mdb.topTen(topTen,function(){
 			console.log("top ten:" + topTen);
 			mdb.disconnect(); 
-			//console.log(topTen);
-			coldb.topStatus(topTen,email,status,function(){
-				console.log("status"+status);
-				coldb.disconnect();
-				res.render('musiclibrary',{ musicInfo: topTen ,musicStatus:status});
-			});
+			res.render('musiclibrary',{ musicInfo: topTen});
 		});
 	});
 });

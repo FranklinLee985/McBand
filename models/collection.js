@@ -105,22 +105,21 @@ exports.isLiked = function(infos,callback){
 };
 
 exports.topStatus = function(list,userEmail,result,callback){
-	var arr = [1,1,1,1,1,1,1,1];
-	arr.forEach(function(){
-		collectInfo.find({email:userEmail,musicId:list.musicId},function(err,docs){
+	var arr = [0,1,2,3,4,5,6,7,8];
+	arr.forEach(function(i){
+		collectInfo.find({email:userEmail,musicId:list[i].musicId},function(err,docs){
 			if(err)console.log(err);
 			else{
 
 				if(docs.length > 0){
-					result.push('Unlike');
+					result[i]='Unlike';
 				}
 				else{
-					result.push('Like');
+					result[i]='Like';
 				}
-				console.log("result:"+result);
+				console.log("result:"+result + i);
 			}
 		});
-	})
-
+	});
 	callback();
 };

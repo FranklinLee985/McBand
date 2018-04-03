@@ -141,54 +141,7 @@
 		xmlhttp.send();
 	</script>
 
-	<!--Toggle Like and Unlike; Send changes to backend-->
-	<script>
-		function like(id){
-            var xmlhttp, text;
-            text={"musicId": id.name};
-            if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp=new XMLHttpRequest();
-            } else {  // code for IE6, IE5
-                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange=function() {
-                if (this.readyState==4 && this.status==200) {
-                    id.value=xmlhttp.responseText;
-                }
-            };
-            xmlhttp.open("POST", "http://127.0.0.1:8888/like-change", true);
-            xmlhttp.setRequestHeader("Content-type", "application/json");
-            xmlhttp.send(JSON.stringify(text));
-            console.log(JSON.stringify(text));
-            console.log(typeof JSON.stringify(text));
-        }
-	</script>
-
-		<!--display Like or Unlike in the like button-->
-		<script>
-            function showlike(id){
-                var xmlhttp,like_button, text;
-                like_button = id.getElementsbyclassName("like");
-                text={"musicId": like_button.name};
-                if (window.XMLHttpRequest) {
-                    // code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp=new XMLHttpRequest();
-                } else {  // code for IE6, IE5
-                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange=function() {
-                    if (this.readyState==4 && this.status==200) {
-                        like_button.value=xmlhttp.responseText;
-                    }
-                };
-                xmlhttp.open("POST", "http://127.0.0.1:8888/like-check", true);
-                xmlhttp.setRequestHeader("Content-type", "application/json");
-                xmlhttp.send(JSON.stringify(text));
-                console.log(JSON.stringify(text));
-                console.log(typeof JSON.stringify(text));
-            }
-		</script>
+	
 
 	</head>
 	<body>
@@ -252,7 +205,7 @@
 						<img src="<%=musicInfo[0].coverPath %>" class="img-responsive" alt="First">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[0].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[0].musicId %>" value="<%= musicStatus[0] %>">
+							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[0].musicId %>" value="LIKE">
 						</div>
 						<h3><%=musicInfo[0].musicname %></h3>
 						<p>&hearts; <%=musicInfo[0].likeCount %></p>
@@ -261,7 +214,7 @@
 						<img src="<%=musicInfo[1].coverPath %>" class="img-responsive" alt="Remember Me">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[1].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[1].musicId %>" value="<%= musicStatus[1] %>">
+							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[1].musicId %>" value="LIKE">
 						</div>
 						<h3><%=musicInfo[1].musicname %></h3>
 						<p>&hearts; <%=musicInfo[1].likeCount %></p>
@@ -272,7 +225,7 @@
 						<img src="<%=musicInfo[2].coverPath %>" class="img-responsive" alt="Divide">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[2].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[2].musicId %>" value="<%= musicStatus[2] %>">
+							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[2].musicId %>" value="LIKE">
 						</div>
 						<h3><%=musicInfo[2].musicname %></h3>
 						<p>&hearts; <%=musicInfo[2].likeCount %></p>
@@ -281,7 +234,7 @@
 						<img src="<%=musicInfo[3].coverPath %>" class="img-responsive" alt="All of Me">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[3].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[3].musicId %>" value="<%= musicStatus[3] %>">
+							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[3].musicId %>" value="LIKE">
 						</div>
 						<h3><%=musicInfo[3].musicname %></h3>
 						<p>&hearts; <%=musicInfo[3].likeCount %></p>
@@ -293,7 +246,7 @@
 						<img src="<%=musicInfo[4].coverPath %>" class="img-responsive" alt="Havana">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[4].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[4].musicId %>" value="<%= musicStatus[4] %>">
+							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[4].musicId %>" value="LIKE">
 						</div>
 						<h3><%=musicInfo[4].musicname %></h3>
 						<p>&hearts; <%=musicInfo[4].likeCount %></p>
@@ -302,7 +255,7 @@
 						<img src="<%=musicInfo[5].coverPath %>" class="img-responsive" alt="Mystery of Love">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[5].musicId%>"" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[5].musicId %>" value="<%= musicStatus[5] %>">
+							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[5].musicId %>" value="LIKE">
 						</div>
 						<h3><%=musicInfo[5].musicname %></h3>
 						<p>&hearts; <%=musicInfo[5].likeCount %></p>
@@ -313,7 +266,7 @@
 						<img src="<%=musicInfo[6].coverPath %>" class="img-responsive" alt="A Million Dreams">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[6].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[6].musicId %>" value="<%= musicStatus[6] %>">
+							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[6].musicId %>" value="LIKE">
 						</div>
 						<h3><%=musicInfo[6].musicname %></h3>
 						<p>&hearts; <%=musicInfo[6].likeCount %></p>
@@ -322,7 +275,7 @@
 						<img src="<%=musicInfo[7].coverPath %>" class="img-responsive" alt="To Make You Feel My Love">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[7].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
-							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[7].musicId %>" value="<%= musicStatus[7] %>">
+							<input type="submit" class="like btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo[7].musicId %>" value="LIKE">
 						</div>
 						<h3><%=musicInfo[7].musicname %></h3>
 						<p>&hearts; <%=musicInfo[7].likeCount %></p>
@@ -540,35 +493,56 @@
 		<!-- Main -->
 		<script src="js/main.js"></script>
 
-	    <!--display Like or Unlike in the like button-->
+
+<!--Toggle Like and Unlike; Send changes to backend-->
+	<script>
+		function like(id){
+            var xmlhttp, text;
+            text={"musicId": id.name};
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            } else {  // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function() {
+                if (this.readyState==4 && this.status==200) {
+                    id.value=xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("POST", "http://127.0.0.1:8888/like-change", true);
+            xmlhttp.setRequestHeader("Content-type", "application/json");
+            xmlhttp.send(JSON.stringify(text));
+            console.log(JSON.stringify(text));
+            console.log(typeof JSON.stringify(text));
+        }
+	</script>
+
+		<!--display Like or Unlike in the like button-->
 		<script>
-	        var xmlhttp, text, array, input, i;
-	        //middle = document.getElementsByClassName("middle");
-	        //console.log(middle);
-	        input = document.getElementsByClassName("like");
-	        console.log(input);
-	        array =[];
-	        for(i = 0; i < input.length; i++){
-	            text = {"musicId": input[i].name};
-	            array.push(text);
-			}
-	        if (window.XMLHttpRequest) {
-	            // code for IE7+, Firefox, Chrome, Opera, Safari
-	            xmlhttp=new XMLHttpRequest();
-	        } else {  // code for IE6, IE5
-	            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	        }
-	        xmlhttp.onreadystatechange=function() {
-	            if (this.readyState==4 && this.status==200) {
-	                input.value=xmlhttp.responseText;
-	            }
-	        };
-	        xmlhttp.open("POST", "http://127.0.0.1:8888/like-check", true);
-	        xmlhttp.setRequestHeader("Content-type", "application/json");
-	        console.log(JSON.stringify(array));
-	        xmlhttp.send(JSON.stringify(array));
-	        console.log(typeof JSON.stringify(array));
+            function showlike(id){
+                var xmlhttp,like_button, text;
+                like_button = id.getElementsByClassName("like");
+                text={"musicId": like_button.name};
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp=new XMLHttpRequest();
+                } else {  // code for IE6, IE5
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange=function() {
+                    if (this.readyState==4 && this.status==200) {
+                        like_button.value=xmlhttp.responseText;
+                    }
+                };
+                xmlhttp.open("POST", "http://127.0.0.1:8888/like-check", true);
+                xmlhttp.setRequestHeader("Content-type", "application/json");
+                xmlhttp.send(JSON.stringify(text));
+                console.log(JSON.stringify(text));
+                console.log(typeof JSON.stringify(text));
+            }
 		</script>
+
 
 	</div>
 	</body>

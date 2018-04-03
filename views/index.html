@@ -103,11 +103,11 @@
                             for (x in myObj) {
                                 if(myObj[x].musicname.toUpperCase().indexOf(filter) > -1){
                                     txt += "<div class=\"col-md-12\">";
-                                    txt += "<div class=\"col-md-6\">";
+                                    txt += "<div class=\"col-md-4\">";
                                     txt += "<a href=\"/music/" + myObj[x].musicId + "\">"+myObj[x].musicname+"</a>";
-                                    txt += "<div class=\"col-md-6\">";
-                                    txt += "<p>"+myObj[x].uploader+"</p>";
                                     txt += "</div>";
+                                    txt += "<div class=\"col-md-4\">";
+                                    txt += "<p>"+myObj[x].uploader+"</p>";
                                     txt += "</div>";
                                     txt += "</div>";
                                     hasMatch = 1;
@@ -190,7 +190,7 @@
 								<form action="#" id="form-wrap">
 									<div class="row form-group">
 										<div class="col-md-12">
-											<input type="text" class="form-control" id="musicname" onkeyup="showResult()" placeholder="Enter Music Name here">
+											<input type="text" class="form-control" id="musicname" onkeyup="showResult()" autocomplete="off" placeholder="Enter Music Name here">
 											<div id="livesearch"></div>
 										</div>
 									</div>

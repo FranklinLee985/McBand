@@ -648,6 +648,7 @@ function showSlides(n) {
 </script>
 
 			<script>
+
                 var xmlhttp, myObj, x, txt = "";
                 xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
@@ -672,7 +673,7 @@ function showSlides(n) {
                     }
                 };
                 xmlhttp.open("POST", "http:127.0.0.1:8888/get_album_collection", true);
-                xmlhttp.send();
+
 			</script>
 
 			<!-- get user list -->

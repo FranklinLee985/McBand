@@ -99,13 +99,15 @@
                         }
                         else{
                             console.log("hasMatch =" + hasMatch);
+                            txt = "";
                             for (x in myObj) {
-                                if(myObj[x].musicName.toString.toUpperCase().indexOf(filter) > -1){
+                                if(myObj[x].musicname.toUpperCase().indexOf(filter) > -1){
                                     txt += "<div class=\"col-md-12\">";
                                     txt += "<div class=\"col-md-6\">";
                                     txt += "<a href=\"/music/" + myObj[x].musicId + "\">"+myObj[x].musicname+"</a>";
                                     txt += "<div class=\"col-md-6\">";
                                     txt += "<p>"+myObj[x].uploader+"</p>";
+                                    txt += "</div>";
                                     txt += "</div>";
                                     txt += "</div>";
                                     hasMatch = 1;

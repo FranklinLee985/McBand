@@ -27,47 +27,56 @@ function checkNotLogin(req,res,next){
 }
 
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log("To homepage");
-  res.redirect('/index.html');
+	console.log("To homepage");
+	res.redirect('/index.html');
 });
 
 router.get('/index.html', function(req, res, next) {
-  res.render('index');
+	res.render('index');
 });
 
 router.get('/sign.html',checkNotLogin, function(req, res, next) {
-  res.render('sign',{err:db.errMsg});
+	res.render('sign',{err:db.errMsg});
 });
 
 
 router.get('/event.html', checkLogin,function(req, res, next) {
-  res.render('event');
+	res.render('event');
 });
 
 router.get('/musiclibrary.html', function(req, res, next) {
-  var topTen = [];
-  mdb.connect(function(){
-	mdb.topTen(topTen,function(){
-	  db.disconnect();
-	  console.log(topTen);
-	  res.render('musiclibrary',{ musicInfo: topTen });
+	var topTen = [];
+	mdb.connect(function(){
+		mdb.topTen(topTen,function(){
+			db.disconnect();
+			//console.log(topTen);
+			res.render('musiclibrary',{ musicInfo: topTen });
+		})
 	})
-  })
-  
+	
+});
+
+router.post("/send-music", function(req, res){
+	mdb.connect(function(){
+		mdb.getAll(function(){
+			mdb.disconnect();
+			console.log("request get:" + mdb.musicList);  
+			res.send(JSON.stringify(mdb.musicList));
+		})
+	});
 });
 
 
-
-
 router.get('/dialog.html', function(req, res, next) {
-  res.render('dialog');
+	res.render('dialog');
 });
 
 router.get('/logout', function(req, res){
 	db.errMsg = '';
-  req.session.logInfo = null;
+	req.session.logInfo = null;
 	res.redirect('/sign');
 });
 
@@ -189,15 +198,15 @@ router.post('/music_upload',function(req,res,next){
 	var targetDir = path.join(__dirname, musicUploadDir);
 	fs.access(targetDir, function(err){
 		if(err){
-		  fs.mkdirSync(targetDir);
+			fs.mkdirSync(targetDir);
 		}
 		_fileParse();
-  });
+	});
 
 
 
 	 // 文件解析与保存
-  function _fileParse() {
+	function _fileParse() {
 	var music = {
 		"username":req.session.logInfo.name,
 		"musicname":'',
@@ -207,14 +216,14 @@ router.post('/music_upload',function(req,res,next){
 
 	}
 	form.parse(req, function (err, fields, files) {
-	  if (err) throw err;
-		  var filesUrl = [];
-		  var errCount = 0;
-		  var keys = Object.keys(files);
+		if (err) throw err;
+			var filesUrl = [];
+			var errCount = 0;
+			var keys = Object.keys(files);
 
-		  music.musicname = fields[Object.keys(fields)[0]];
+			music.musicname = fields[Object.keys(fields)[0]];
 
-	  keys.forEach(function(key){
+		keys.forEach(function(key){
 		console.log(key);
 		var filePath = files[key].path;
 		var fileExt = filePath.substring(filePath.lastIndexOf('.'));
@@ -231,14 +240,14 @@ router.post('/music_upload',function(req,res,next){
 		if(key == 'audiofile') music.musicPath = path.join('/resources/upload/music/', fileName);
 		if(key == 'coverpic') music.coverPath = path.join('/resources/upload/music/', fileName);
 		if(key == 'sheetmusic') music.sheetPath = path.join('/resources/upload/music/', fileName);
-	  });
-	  console.log(music);
+		});
+		console.log(music);
 
-	  // 返回上传信息
-	  //res.json({filesUrl:filesUrl, success:keys.length-errCount, error:errCount});
+		// 返回上传信息
+		//res.json({filesUrl:filesUrl, success:keys.length-errCount, error:errCount});
 
-	  //add to DB
-	  mdb.connect(function(){
+		//add to DB
+		mdb.connect(function(){
 		mdb.add(music,function(){
 			mdb.disconnect();
 			if (mdb.errMsg === ''){
@@ -253,8 +262,8 @@ router.post('/music_upload',function(req,res,next){
 	});
 
 	}); 
-  }
-  
+	}
+	
 })
 
 

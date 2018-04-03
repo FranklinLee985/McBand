@@ -371,10 +371,10 @@
                                         for (x in myObj) {
                                             txt += "<div class=\"col-md-4\">";
                                             txt += "<div class=\"col-md-6\">";
-                                            txt += "<a href=\"musicinfo.html\:musicName\"><%= myObj[x].musicName</a>";
+                                            txt += "<a href=\"/music/" + myObj[x].musicId + "\">"+myObj[x].musicname+"</a>";
                                             txt += "</div>";
                                             txt += "<div class=\"col-md-6\">";
-                                            txt += "<p><%= myObj[x].publisher %></p>";
+                                            txt += "<p>"+myObj[x].uploader+"</p>";
                                             txt += "</div>";
                                             txt += "</div>";
                                         }
@@ -382,7 +382,7 @@
                                     document.getElementById("all_music").innerHTML = txt;
                                 }
                             };
-                            xmlhttp.open("POST", "getAllMusic.txt", true);
+                            xmlhttp.open("POST", "/send-music", true);
                             xmlhttp.send();
 						</script>
 

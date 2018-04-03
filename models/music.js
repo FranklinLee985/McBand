@@ -82,6 +82,18 @@ exports.likeChange = function(para,mid,callback){
 
 	})
 }
+
+exports.getAll = function(callback){
+	musicInfo.find({},function(err,docs){
+		if(err)console.log(err);
+		else{
+			console.log("docs:" + docs);
+			exports.musicList = docs;
+			callback();
+		}
+	})
+}
+
 exports.topTen = function(infos,callback){
 	var defaultValue = {
 		uploader: 'None',

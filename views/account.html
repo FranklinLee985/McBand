@@ -324,20 +324,20 @@
 						</div>
 					</section>
 					<!--<script>
-                        if(collectionarray == null){
+                        if(<%=collec%> == null){
                                     txt += "You don't have any liked music!";
 								}
 								else{
-                                    for (x in myObj) {
-                                        txt += "<div class= \"individual\">";
-                                        txt += "<img src=\"myObj[x].coverPic\" alt=\"myObj[x].musicName\">";
+									<%=collec%>.forEach(function(x){
+										txt += "<div class= \"individual\">";
+                                        txt += "<img src=\"x.coverPath\" alt=\"x.musicname\">";
                                         txt += "<div class=\"middle\">";
-                                        txt += "<a href=\"musicinfo.html\" class=\"btn btn-primary btn-outline btn-lg\" role=\"button\">View</a>";
+                                        txt += "<a href=\"/music/x.musicId\" class=\"btn btn-primary btn-outline btn-lg\" role=\"button\">View</a>";
                                         txt += "</div>";
                                         txt += "<br><br>";
-                                        txt += "<p>myObj[x].musicName</p>";
+                                        txt += "<p>x.musicname</p>";
                                         txt += "</div>";
-                                    }
+									})
 								}
                                 document.getElementById("album_list").innerHTML = txt;
 					</script>-->

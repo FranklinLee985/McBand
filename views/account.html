@@ -678,7 +678,7 @@ function showSlides(n) {
 
 			</script>
 
-			<!-- get user list -->
+			<!-- get user list
 			<script>
                 var xmlhttp, myObj, x, txt = "";
                 xmlhttp = new XMLHttpRequest();
@@ -687,7 +687,7 @@ function showSlides(n) {
                         myObj = JSON.parse(this.responseText);
                         console.log("all user json is"+myObj);
                         for (x in myObj) {
-                            if(myobj[x].username === "<%=portrait%>"){
+                            if(myObj[x].username === "<%=portrait%>"){
                                 continue;
                             }
                         }
@@ -706,9 +706,9 @@ function showSlides(n) {
                 xmlhttp.open("POST", "http://127.0.0.1:8888/get_all_user", true);
                 xmlhttp.send();
 
-			</script>
+			</script>-->
 
-			<!-- get event timeline -->
+			<!-- get event timeline
 			<script>
                 var xmlhttp, myObj, x, txt = "";
                 xmlhttp = new XMLHttpRequest();
@@ -762,7 +762,7 @@ function showSlides(n) {
                 };
                 xmlhttp.open("POST", "/send-event", true);
                 xmlhttp.send();
-			</script>
+			</script>-->
 
 	
 	<!-- jQuery -->

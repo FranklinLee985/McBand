@@ -157,7 +157,7 @@
                     id.value=xmlhttp.responseText;
                 }
             };
-            xmlhttp.open("POST", "http://127.0.0.1:8888/like.js", true);
+            xmlhttp.open("POST", "http://127.0.0.1:8888/like-change", true);
             xmlhttp.setRequestHeader("Content-type", "application/json");
             xmlhttp.send(JSON.stringify(text));
             console.log(JSON.stringify(text));
@@ -165,29 +165,7 @@
         }
 	</script>
 
-    <!--display Like or Unlike in the like button-->
-	<script>
-        var xmlhttp, text, middle, input;
-        middle = document.getElementsByClassName("middle");
-        input = middle.getElementsByClassName("like");
-        text={"musicId": input.name};
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
-        } else {  // code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function() {
-            if (this.readyState==4 && this.status==200) {
-                input.value=xmlhttp.responseText;
-            }
-        };
-        xmlhttp.open("POST", "http://127.0.0.1:8888/like.js", true);
-        xmlhttp.setRequestHeader("Content-type", "application/json");
-        xmlhttp.send(JSON.stringify(text));
-        console.log(JSON.stringify(text));
-        console.log(typeof JSON.stringify(text));
-	</script>
+
 
 	</head>
 	<body>
@@ -538,6 +516,33 @@
 		<script src="js/jquery.flexslider-min.js"></script>
 		<!-- Main -->
 		<script src="js/main.js"></script>
+
+	    <!--display Like or Unlike in the like button-->
+		<script>
+	        var xmlhttp, text, middle, input;
+	        //middle = document.getElementsByClassName("middle");
+	        //console.log(middle);
+	        input = document.getElementsByClassName("like");
+	        console.log(input);
+	        text={"musicId": input.name};
+	        if (window.XMLHttpRequest) {
+	            // code for IE7+, Firefox, Chrome, Opera, Safari
+	            xmlhttp=new XMLHttpRequest();
+	        } else {  // code for IE6, IE5
+	            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	        }
+	        xmlhttp.onreadystatechange=function() {
+	            if (this.readyState==4 && this.status==200) {
+	                input.value=xmlhttp.responseText;
+	            }
+	        };
+	        xmlhttp.open("POST", "http://127.0.0.1:8888/like-check", true);
+	        xmlhttp.setRequestHeader("Content-type", "application/json");
+	        console.log(JSON.stringify(text));
+	        xmlhttp.send(JSON.stringify(text));
+	        console.log(typeof JSON.stringify(text));
+		</script>
+
 	</div>
 	</body>
 </html>

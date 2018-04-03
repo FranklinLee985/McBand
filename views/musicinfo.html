@@ -160,7 +160,7 @@
                     id.value=xmlhttp.responseText;
                 }
             };
-            xmlhttp.open("POST", "http://127.0.0.1:8888/like.js", true);
+            xmlhttp.open("POST", "http://127.0.0.1:8888/like-change", true);
             xmlhttp.setRequestHeader("Content-type", "application/json");
             xmlhttp.send(JSON.stringify(text));
             console.log(JSON.stringify(text));
@@ -184,7 +184,7 @@
                 id.value=xmlhttp.responseText;
             }
         };
-        xmlhttp.open("POST", "http://127.0.0.1:8888/like.js", true);
+        xmlhttp.open("POST", "http://127.0.0.1:8888/like-check", true);
         xmlhttp.setRequestHeader("Content-type", "application/json");
         xmlhttp.send(JSON.stringify(text));
         console.log(JSON.stringify(text));

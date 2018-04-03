@@ -8,7 +8,7 @@ router.get('/musicinfo.html', function(req, res, next) {
   res.redirect('/musiclibrary.html');
 });
 
-router.get('/musicinfo.html', function(req, res, next) {
+router.get('/music/', function(req, res, next) {
   res.redirect('back');
 });
 

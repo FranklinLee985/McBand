@@ -145,8 +145,8 @@ router.post('/event_upload', function(req,res){
 		"username":req.session.logInfo.name,
 		"eventname": req.body.eventname,
 		"venue": req.body.venue,
-		"date": req.body.time,
-		"basicinfo": req.body.eventinfo,
+		"time": req.body.time,
+		"eventinfo": req.body.eventinfo,
 		"eventpicture": ''
 		}
 		form.parse(req, function(err, fields, files){
@@ -155,7 +155,11 @@ router.post('/event_upload', function(req,res){
 			var errCount = 0;
 			var keys = Object.keys(files);
 
-			response.eventcname = fields[Object.keys(fields)[0]];
+			response.eventname = fields[Object.keys(fields)[0]];
+			response.venue = fields[Object.keys(fields)[1]];
+			response.time = fields[Object.keys(fields)[2]];
+			response.eventinfo = fields[Object.keys(fields)[3]];
+
 			keys.forEach(function(key){
 					console.log(key);
 					var filePath = files[key].path;
@@ -166,10 +170,9 @@ router.post('/event_upload', function(req,res){
 					fs.renameSync(filePath, targetFile);
 					filesUrl.push('/event/'+fileName);
 					console.log("Here is the path");
-					console.log(filesUrl);
-			 
-					if(key == 'event_pic') response.eventpicture = path.join('/resources/upload/event/', fileName);
+					//console.log(filesUrl);
 					//You should self-create a folder at the upload path
+                    if (key == 'event_pic') response.eventpicture = path.join('/resources/upload/event/', fileName);
 
 			});
 			console.log(response);

@@ -51,8 +51,8 @@ exports.add = function(eventpara, callback) {
         uploader: eventpara.username,
         eventname: eventpara.eventname,
         venue: eventpara.venue,
-        date: eventpara.date,
-        basicinfo: eventpara.basicinfo,
+        date: eventpara.time,
+        basicinfo: eventpara.eventinfo,
         eventpicture: eventpara.eventpicture
     });
 

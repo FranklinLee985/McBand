@@ -30,21 +30,21 @@ function checkNotLogin(req,res,next){
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
 	console.log("To homepage");
 	res.redirect('/index.html');
 });
 
-router.get('/index.html', function(req, res, next) {
+router.get('/index.html', function(req, res) {
 	res.render('index');
 });
 
-router.get('/sign.html',checkNotLogin, function(req, res, next) {
+router.get('/sign.html',checkNotLogin, function(req, res) {
 	res.render('sign',{err:db.errMsg});
 });
 
 
-router.get('/event.html', checkLogin,function(req, res, next) {
+router.get('/event.html', checkLogin,function(req, res) {
 
 	var infos = [];
 	edb.connect(function(){
@@ -52,19 +52,19 @@ router.get('/event.html', checkLogin,function(req, res, next) {
 				edb.disconnect();
 				console.log(infos);
 				res.render('event', {eventInfo: infos});
-		})
-	})
+		});
+	});
 });
 
 router.get('/musiclibrary.html', function(req, res, next) {
-	var topTen = [];
-	mdb.connect(function(){
-	mdb.topTen(topTen,function(){
-		mdb.disconnect(); 
-		//console.log(topTen);
-		res.render('musiclibrary',{ musicInfo: topTen });
-	})
-	
+		var topTen = [];
+		mdb.connect(function(){
+		mdb.topTen(topTen,function(){
+			mdb.disconnect(); 
+			//console.log(topTen);
+			res.render('musiclibrary',{ musicInfo: topTen });
+		});
+	});
 });
 
 router.post("/send-music", function(req, res){
@@ -73,7 +73,7 @@ router.post("/send-music", function(req, res){
 			mdb.disconnect();
 			console.log("request get:" + mdb.musicList);  
 			res.send(JSON.stringify(mdb.musicList));
-		})
+		});
 	});
 });
 
@@ -118,22 +118,22 @@ router.post('/login_process', function(req,res){
 	})
 })
 
-/*
+
 router.post('/event_upload', checkLogin);
 router.post('/event_upload', function(req,res){
 
-		var form = new formidable.IncomingForm();
-		form.encoding = 'utf-8';
-		form.maxFilesSize = 10*1024*1024;
-		form.keepExtensions = true;
-		form.multiples = true;
-		var targetDir = path.join(__dirname, eventUploadDir);
-		fs.access(targetDir, function(err){
-				if(err){
-						fs.mkdirSync(targetDir);
-				}
-				_fileParse();
-		});
+	var form = new formidable.IncomingForm();
+	form.encoding = 'utf-8';
+	form.maxFilesSize = 10*1024*1024;
+	form.keepExtensions = true;
+	form.multiples = true;
+	var targetDir = path.join(__dirname, eventUploadDir);
+	fs.access(targetDir, function(err){
+			if(err){
+					fs.mkdirSync(targetDir);
+			}
+			_fileParse();
+	});
 
 	function _fileParse() {
 		var response = {
@@ -180,12 +180,13 @@ router.post('/event_upload', function(req,res){
 							res.redirect('/event.html');
 							console.log(edb.errMsg);
 					}
-				})
+				});
 			});
 		});
 	}
+
 })
-*/
+
 
 
 router.post('/register_process', function(req,res){
@@ -314,7 +315,7 @@ router.post('/music_upload',function(req,res,next){
 		}); 
 	}
 	
-})
+});
 
 
 

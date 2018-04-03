@@ -144,6 +144,53 @@
 	<!-- Modernizr JS -->
 	<script src="/js/modernizr-2.6.2.min.js"></script>
 
+	<!--Toggle Like and Unlike; Send changes to backend-->
+	<script>
+        function like(id){
+            var xmlhttp, text;
+            text={"musicId": id.name};
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            } else {  // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function() {
+                if (this.readyState==4 && this.status==200) {
+                    id.value=xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("POST", "http://127.0.0.1:8888/like.js", true);
+            xmlhttp.setRequestHeader("Content-type", "application/json");
+            xmlhttp.send(JSON.stringify(text));
+            console.log(JSON.stringify(text));
+            console.log(typeof JSON.stringify(text));
+        }
+	</script>
+
+	<!--display Like or Unlike in the like button-->
+	<script>
+        var xmlhttp, text, id;
+        id = document.getElementsById("like_button");
+        text={"musicId": id.name};
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        } else {  // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function() {
+            if (this.readyState==4 && this.status==200) {
+                id.value=xmlhttp.responseText;
+            }
+        };
+        xmlhttp.open("POST", "http://127.0.0.1:8888/like.js", true);
+        xmlhttp.setRequestHeader("Content-type", "application/json");
+        xmlhttp.send(JSON.stringify(text));
+        console.log(JSON.stringify(text));
+        console.log(typeof JSON.stringify(text));
+	</script>
+
 
 </head>
 
@@ -221,8 +268,7 @@
 									Your browser does not support the audio element.
 								</audio>
 								<br><br>
-								<input type="submit" class="btn btn-primary btn-outline btn-lg" value="DOWNLOAD">
-								<input type="button" class="btn btn-primary btn-outline btn-lg" value="LIKE">
+								<input type="button" id="like_button" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="musicInfo.musicId" value="LIKE">
 							</div>
 						</div>
 					</form>

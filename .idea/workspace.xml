@@ -58,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="musiclibrary.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="musiclibrary.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/musiclibrary.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1395">
-              <caret line="133" column="40" lean-forward="true" selection-start-line="133" selection-start-column="40" selection-end-line="133" selection-end-column="40" />
+            <state relative-caret-position="-2214">
+              <caret line="248" column="28" selection-start-line="248" selection-start-column="28" selection-end-line="248" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#form#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -101,13 +101,14 @@
       <file leaf-file-name="account.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/account.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="120" column="4" selection-start-line="120" selection-start-column="4" selection-end-line="150" selection-end-column="9" />
+            <state relative-caret-position="1706">
+              <caret line="480" selection-start-line="480" selection-end-line="480" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#section#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#section#0;n#div#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#section#0;n#div#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -128,11 +129,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="event.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="event.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/event.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="333" column="67" selection-start-line="333" selection-start-column="67" selection-end-line="333" selection-end-column="67" />
+            <state relative-caret-position="232">
+              <caret line="276" selection-start-line="276" selection-end-line="276" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#form#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -360,16 +361,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="945" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.498998" visible="true" weight="0.159132" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.498998" visible="true" weight="0.159132" />
       <window_info anchor="bottom" id="TODO" order="10" sideWeight="0.49940476" weight="0.3296593" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5005952" side_tool="true" weight="0.3296593" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.3296593" />
       <window_info id="Structure" order="2" sideWeight="0.501002" side_tool="true" weight="0.15952381" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.28537735" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.28537735" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.3985849" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -398,6 +398,29 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/views/musiclibrary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="248" column="28" selection-start-line="248" selection-start-column="28" selection-end-line="248" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#form#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#a#0;n#form#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#6550#6558#0" expanded="true" />
+            <element signature="e#7117#7125#0" expanded="true" />
+            <element signature="e#7773#7781#0" expanded="true" />
+            <element signature="e#8338#8346#0" expanded="true" />
+            <element signature="e#9050#9058#0" expanded="true" />
+            <element signature="e#9622#9630#0" expanded="true" />
+            <element signature="e#10288#10296#0" expanded="true" />
+            <element signature="e#10868#10876#0" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#form#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front-end/tasty-master/images/bg.jpg" />
     <entry file="file://$PROJECT_DIR$/front-end/tasty-master/images/broken_noise_@2X.png" />
     <entry file="file://$PROJECT_DIR$/front-end/tasty-master/images/gallery_1.jpeg" />
@@ -457,9 +480,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/music_index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-361" />
@@ -502,13 +522,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/account.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="120" column="4" selection-start-line="120" selection-start-column="4" selection-end-line="150" selection-end-column="9" />
+        <state relative-caret-position="1706">
+          <caret line="480" selection-start-line="480" selection-end-line="480" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#section#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#section#0;n#div#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#img#0;n#div#0;n#section#0;n#div#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -563,8 +584,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/musiclibrary.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1395">
-          <caret line="133" column="40" lean-forward="true" selection-start-line="133" selection-start-column="40" selection-end-line="133" selection-end-column="40" />
+        <state relative-caret-position="-2214">
+          <caret line="248" column="28" selection-start-line="248" selection-start-column="28" selection-end-line="248" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#form#0;n#div#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -586,8 +607,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/event.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="333" column="67" selection-start-line="333" selection-start-column="67" selection-end-line="333" selection-end-column="67" />
+        <state relative-caret-position="232">
+          <caret line="276" selection-start-line="276" selection-end-line="276" />
           <folding>
             <element signature="n#style#0;n#a#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#form#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />

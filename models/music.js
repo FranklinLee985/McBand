@@ -71,7 +71,9 @@ exports.likeChange = function(para,mid,callback){
 	musicInfo.find({musicId:mid},function(err,docs){
 		if(err) console.log(err);
 		else{
-			var count = docs[0].likeCount + para;
+			console.log("para" + para + "docs[0]" + docs[0]);
+			var count;
+			count = docs[0].likeCount + para;
 			musicInfo.update({musicId:mid},{likeCount:count},{multi:false},function(err,rec){
 				if(err) console.log(err);
 				else{

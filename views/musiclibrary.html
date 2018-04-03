@@ -498,7 +498,6 @@
 	<script>
 		function like(id){
             var xmlhttp, text;
-            console.log(id);
             text={"musicId": id.name};
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -515,7 +514,7 @@
             xmlhttp.setRequestHeader("Content-type", "application/json");
             xmlhttp.send(JSON.stringify(text));
             console.log(JSON.stringify(text));
-            console.log(typeof JSON.stringify(text));
+           // console.log(typeof JSON.stringify(text));
         }
 	</script>
 
@@ -524,7 +523,7 @@
             function showlike(id){
                 var xmlhttp,like_button, text;
                 like_button = id.getElementsByClassName("like")[0];
-                console.log(like_button);
+                //console.log(like_button);
                 text={"musicId": like_button.name};
                 if (window.XMLHttpRequest) {
                     // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -540,7 +539,6 @@
                 xmlhttp.open("POST", "http://127.0.0.1:8888/like-check", true);
                 xmlhttp.setRequestHeader("Content-type", "application/json");
                 xmlhttp.send(JSON.stringify(text));
-                console.log(JSON.stringify(text));
             }
 		</script>
 

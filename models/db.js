@@ -48,8 +48,8 @@ exports.search = function(login, login_msg,callback){
 	});
 }
 
-exports.getPortrait = function(userEmail,ptr,callback){
-	userInfo.find({email:userEmail},function(err,docs){
+exports.getPortrait = function(userName,ptr,callback){
+	userInfo.find({username:userName},function(err,docs){
 		if(err) console.log(err);
 		else{
 			console.log('in DB:' + docs[0].portraitPath);

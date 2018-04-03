@@ -687,7 +687,7 @@ function showSlides(n) {
                         myObj = JSON.parse(this.responseText);
                         console.log("all user json is"+myObj);
                         for (x in myObj) {
-                            if(myobj[x].userName === "<%=portrait%>"){
+                            if(myobj[x].username === "<%=portrait%>"){
                                 continue;
                             }
                         }
@@ -719,8 +719,8 @@ function showSlides(n) {
                             txt += "No events for now. Create your own!";
                         }
                         else{
-                            // txt += "<div class=\"section-heading\">";
-                            // txt += "<div id=\"fh5co-timeline\" class=\"col-sm-1\">";
+                            txt += "<div class=\"section-heading\">";
+							txt += "<div id=\"fh5co-timeline\" class=\"col-sm-1\">";
                             txt += "<div class=\"container\">";
                             txt += "<div class=\"row\">";
                             txt += "<div class=\"col-md-offset-0\">";
@@ -752,8 +752,8 @@ function showSlides(n) {
                             txt += "</div>";
                             txt += "</div>";
                             txt += "</div>";
-                            // txt += "</div>";
-                            // txt += "</div>";
+							txt += "</div>";
+                            txt += "</div>";
 
                         }
                         console.log("all event section is"+txt);

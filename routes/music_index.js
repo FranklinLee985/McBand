@@ -12,6 +12,7 @@ router.get('/musicinfo.html', function(req, res, next) {
 });
 
 router.get('/music/:mid',function(req,res,next){
+	res.locals.logInfo = req.session.logInfo
 	var result = [];
 	var str = req.originalUrl;
 	var mid = str.substring(str.lastIndexOf("/")+1);

@@ -172,8 +172,8 @@
                         txt += "No events for now. Create your own!";
                     }
                     else{
-                        txt += "<div class=\"section-heading\">";
-                        txt += "<div id=\"fh5co-timeline\" class=\"col-sm-1\">";
+                        // txt += "<div class=\"section-heading\">";
+                        // txt += "<div id=\"fh5co-timeline\" class=\"col-sm-1\">";
                         txt += "<div class=\"container\">";
                         txt += "<div class=\"row\">";
                         txt += "<div class=\"col-md-offset-0\">";
@@ -193,10 +193,10 @@
                             txt += "<div class=\"timeline-badge\"><i class=\"icon-genius\"></i></div>";
                             txt += "<div class=\"timeline-panel\">";
                             txt += "<div class=\"timeline-heading\">";
-                            txt += "<h3 class=\"timeline-title\">myObj[x].eventTitle</h3>";
+                            txt += "<h3 class=\"timeline-title\">"+myObj[x].eventname+"</h3>";
                             txt += "</div>";
                             txt += "<div class=\"timeline-body\">";
-                            txt += "<p>myObj[x].eventTime myObj[x].eventLocation</p>";
+                            txt += "<p>"+myObj[x].date+myObj[x].venue+"</p>";
                             txt += "</div>";
                             txt += "</div>";
                             txt += "</li>";
@@ -205,14 +205,15 @@
                         txt += "</div>";
                         txt += "</div>";
                         txt += "</div>";
-                        txt += "</div>";
-                        txt += "</div>";
+                        // txt += "</div>";
+                        // txt += "</div>";
 
                     }
-                    document.getElementById("event_list").innerHTML = txt;
+                    console.log("txt is"+txt);
+                    document.getElementById("fh5co-timeline").innerHTML = txt;
                 }
             };
-            xmlhttp.open("POST", "geteventlist.txt", true);
+            xmlhttp.open("POST", "/send-event", true);
             xmlhttp.send();
 		</script>
 
@@ -429,31 +430,22 @@
 				<form id="form-wrap" style="width:40%;height:600px;float: right; margin-top: -600px;">
 						<div class="row form-group text-center">
 							<div class="col-md-12">
-								<p style="font-size: 35px;">Jazz Marathon</p>
+								<p style="font-size: 35px;"><%=eventInfo[0].eventname %></p>
 								
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-md-12">
 								<i class="icon-clock3"></i>
-								<p>1st May 2018 - 3rd May 2018.</p>
+								<p><%=eventInfo[0].date %></p>
 								<i class="icon-location3"></i>
-								<p id="eventaddress">Kowloon Park</p>
+								<p id="eventaddress"><%=eventInfo[0].venue %></p>
 							</div>
 						</div>
 								
 						<section class="row form-group eventsinfo" style="width: 107%; height: 240px; overflow: scroll;">
 							<div class="col-md-12">
-								<p>some intro about the event.blablablablablalablablablablalablablablablalablablablablalablablablablaaaaaaaaaaaaaaaaaa
-								hihihiihihihhihihi
-								ihihihhihihihihihiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-								wwwwwwwwwwwwwwwwwwwww
-								aaaaaaaaaaaaaa
-								aaaaaaaaaaaaaaaaaa
-								aaaaaaaaaaaaaaaaaaaaaaa
-								ffffffffffffffffff
-								ffffffffffffffff
-								ffffffffffffff
+								<p><%=eventInfo[0].basicinfo %>
 							    </p>
 							</div>
 						</section>
@@ -466,8 +458,17 @@
 					</form>
 
 
-
-				<div id="event_list" class="col-md-12 col-md-push-0 animate-box" style="left:0px;"><!--3-->
+				<div id="fh5co-featured-testimony" class="fh5co-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 fh5co-heading animate-box">
+					<br><br>
+					<h2>More Event Here</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+				<div class="col-md-12 col-md-push-0 animate-box" style="left:0px; margin-top: -350px;"><!--3-->
 					<div class="section-heading">
 						<div id="fh5co-timeline" class="col-sm-1">
 							<div class="container">
@@ -514,7 +515,7 @@
 														<h3 class="timeline-title">Let's Rock'N Roll</h3>
 													</div>
 													<div class="timeline-body">
-														<p><%=eventInfo[0].eventname %>2nd May 2018 19:00 - 24:00. Lan Kwai Fong.</p>
+														<p>2nd May 2018 19:00 - 24:00. Lan Kwai Fong.</p>
 													</div>
 												</div>
 											</li>
@@ -563,8 +564,6 @@
 													</div>
 												</div>
 											</li>
-
-
 			    						</ul>
 									</div>
 								</div>
@@ -692,7 +691,7 @@
 				</div>
 
 	<script>
-		Zoomerang
+	Zoomerang
       .config({
         maxHeight: 600,
         maxWidth: 900,
@@ -719,17 +718,12 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
   if (n > slides.length) {slideIndex = 1}    
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";  
   }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
   slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
 }
 </script>
 

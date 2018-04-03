@@ -24,15 +24,7 @@ router.get('/music/:mid',function(req,res,next){
 			if(result[0] == null) res.redirect('back');
 			else{
 				mdb.disconnect();
-				cdb.connect(function(){
-					cdb.isLiked({email:userEmail,musicId:text.musicId},function(){
-						cdb.disconnect();
-						var status = '';
-						if(cdb.liked) status = "Unlike";
-						else status = "Like";
-						res.render('musicinfo',{musicInfo:result[0]},{likeStatus:status});
-					});
-				});
+				res.render('musicinfo',{musicInfo:result[0]});
 			}
 		})
 	})
@@ -50,6 +42,7 @@ router.post('/like-check',function(req,res){
 		});
 	});
 });
+
 
 router.post('/like-change',function(req,res){
 	var userEmail = req.session.logInfo.email;

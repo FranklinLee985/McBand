@@ -117,6 +117,38 @@
 
 }
 
+			.scroll {
+				width: 100%;
+				height: 100%;
+				background-color: transparent;
+				overflow: auto;
+				white-space: nowrap;
+			}
+			.scroll .individual{
+				display: inline-block;
+				text-align: center;
+				margin-left: 10px;
+				margin-right: 10px;
+			}
+			.scroll .individual p{
+				margin-top: -50px;
+				color: #ffffff;
+			}
+			.scroll .individual img{
+				height: 180px;
+				width:auto;/*maintain aspect ratio*/
+				max-width:300px;
+			}
+
+			.individual:hover img{
+				opacity: 0.3;
+			}
+
+			.individual:hover .middle{
+				opacity: 1.0;
+				top: -30%;
+			}
+
 		/*.eventsinfo::-webkit-scrollbar{
 			width:5px;
 		}*/
@@ -250,122 +282,74 @@
 						</div>
                         <!--highlight event-->
 						<div id="fh5co-featured-menu" class="fh5co-section">
-							<div class="container ">
-								<div class="row mySlides">
-				
-									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-										<div class="fh5co-item">
-											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/musicparty.jpg);"></div>
-											<!--<img src="images/musicparty.jpg" class="img-responsive" alt="Music Party">-->
-											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
-												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
-											</div>
-											<h3>Music Party</h3>
-											<p>7th April</p>
+							<div class="container">
+
+								<section id="all_event_list" class="scroll container animate-box"  style="margin-top: -100px;">
+
+									<div class="individual">
+										<!--Event Image-->
+										<img src="images/event_pics/musicparty.jpg" alt="musicparty">
+										<div class="middle">
+											<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
+											<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
 										</div>
+										<br><br>
+										<h3>Music Party</h3>
+										<p>7th April</p>
 									</div>
 
-
-									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-										<div class="fh5co-item">
-											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/jazz.jpg);" ></div>
-											<!--<img src="images/jazz.jpg" class="img-responsive" alt="Jazz Marathon">-->
-											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
-												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
-											</div>
-											<h3>Jazz Marathon</h3>
-											<p>1st May</p>
+									<div class="individual">
+										<!--Event Image-->
+										<img src="images/event_pics/musicparty.jpg" alt="musicparty">
+										<div class="middle">
+											<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
+											<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
 										</div>
+										<br><br>
+										<h3>Music Party</h3>
+										<p>7th April</p>
+									</div>
+									<div class="individual">
+										<!--Event Image-->
+										<img src="images/event_pics/musicparty.jpg" alt="musicparty">
+										<div class="middle">
+											<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
+											<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+										</div>
+										<br><br>
+										<h3>Music Party</h3>
+										<p>7th April</p>
 									</div>
 
-									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-										<div class="fh5co-item">						
-											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/pop.jpg);" ></div>
-											<!--<img src="images/pop.jpg" class="img-responsive" alt="Pop Music">-->
-											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
-												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
-											</div>
-											<h3>Hey Summer!</h3><!--might have bug-->
-											<p>20th May</p>
-										</div>
-									</div>
+								</section>
+								<!-- get all events -->
+								<script>
+                                    var xmlhttp, myObj, x, txt = "";
+                                    xmlhttp = new XMLHttpRequest();
+                                    xmlhttp.onreadystatechange = function() {
+                                        if (this.readyState == 4 && this.status == 200) {
+                                            myObj = JSON.parse(this.responseText);
+                                            for (x in myObj) {
+                                                txt += "<div class= \"individual\">";
+                                                txt += "<img src=\"myObj[x].eventPic\" alt=\"myObj[x].eventName\">";
+                                                txt += "<div class=\"middle\">";
+                                                txt += "<a href=\"#eventinfo\" class=\"btn btn-primary btn-outline btn-lg\" role=\"button\" onclick=\"myMap()\">Details</a>";
+                                                txt += "<button type=\"submit\" class=\"btn btn-primary btn-outline btn-lg\"><i class=\"icon-heart\"></i></button>";
+                                                txt += "</div>";
+                                                txt += "<br><br>";
+                                                txt += "<h3>"+myObj[x].eventName</h3>";
+                                                txt += "<p>"+myObj[x].eventDate+"</p>"
+                                            }
 
+                                        }
+                                        document.getElementById("all_event_list").innerHTML = txt;
+                                    };
+                                    xmlhttp.open("POST", "http://127.0.0.1:8888/get_all_user", true);
+                                    xmlhttp.send();
 
-									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-										<div class="fh5co-item ">
-											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/beach.jpg);" ></div>
-											<!--<img src="images/beach.jpg" class="img-responsive" alt="beach party">-->
-											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" style="padding: 3px;" onclick="myMap()">Details</a>
-												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
-											</div>
-											<h3>Beach Concert</h3>
-											<p>22th June</p>
-										</div>
-									</div>		
-								</div>
-								<div class="row mySlides">
-				
-									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-										<div class="fh5co-item">
-											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/musicparty.jpg);" ></div>
-											<!--<img src="images/musicparty.jpg" class="img-responsive" alt="Music Party">-->
-											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
-												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
-											</div>
-											<h3>Music Party</h3>
-											<p>7th April</p>
-										</div>
-									</div>
+								</script>
 
-
-									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-										<div class="fh5co-item">
-											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/jazz.jpg);" ></div>
-											<!--<img src="images/jazz.jpg" class="img-responsive" alt="Jazz Marathon">-->
-											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
-												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
-											</div>
-											<h3>Jazz Marathon</h3>
-											<p>1st May</p>
-										</div>
-									</div>
-
-									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-										<div class="fh5co-item">
-											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/jazz.jpg);" ></div>
-											<!--<img src="images/jazz.jpg" class="img-responsive" alt="Jazz Marathon">-->
-											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
-												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
-											</div>
-											<h3>Jazz Marathoneeeeeeeeeee</h3>
-											<p>1st May</p>
-										</div>
-									</div>
-
-
-									<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-										<div class="fh5co-item">
-											<div class="fh5co-bg-img img-responsive" style="background-image: url(images/event_pics/jazz.jpg);" ></div>
-											<!--<img src="images/jazz.jpg" class="img-responsive" alt="Jazz Marathon">-->
-											<div class="middle">
-												<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
-												<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
-											</div>
-											<h3>Jazz Marathon</h3>
-											<p>1st May</p>
-										</div>
-									</div>
-								</div>
 							</div>
-							<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-							<a class="next" onclick="plusSlides(1)">&#10095;</a>
 						</div>
 
 

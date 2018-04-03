@@ -90,7 +90,7 @@ router.get('/dialog.html', function(req, res, next) {
 router.get('/logout', function(req, res){
 	db.errMsg = '';
 	req.session.logInfo = null;
-	res.redirect('/sign');
+	res.redirect('/sign.html');
 });
 
 router.post('/login_process', function(req,res){

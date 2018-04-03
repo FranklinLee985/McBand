@@ -32,14 +32,17 @@ function checkNotLogin(req,res,next){
 /* GET home page. */
 router.get('/', function(req, res) {
 	console.log("To homepage");
+	res.locals.logInfo = req.session.logInfo
 	res.redirect('/index.html');
 });
 
 router.get('/index.html', function(req, res) {
+	res.locals.logInfo = req.session.logInfo
 	res.render('index');
 });
 
 router.get('/sign.html',checkNotLogin, function(req, res) {
+	res.locals.logInfo = req.session.logInfo
 	res.render('sign',{err:db.errMsg});
 });
 
@@ -57,8 +60,9 @@ router.get('/event.html', checkLogin,function(req, res) {
 });
 
 router.get('/musiclibrary.html', function(req, res, next) {
-		var topTen = [];
-		mdb.connect(function(){
+	res.locals.logInfo = req.session.logInfo
+	var topTen = [];
+	mdb.connect(function(){
 		mdb.topTen(topTen,function(){
 			mdb.disconnect(); 
 			//console.log(topTen);
@@ -79,6 +83,7 @@ router.post("/send-music", function(req, res){
 
 
 router.get('/dialog.html', function(req, res, next) {
+	res.locals.logInfo = req.session.logInfo
 	res.render('dialog');
 });
 

@@ -62,12 +62,16 @@ exports.getPortrait = function(userName,ptr,callback){
 }
 
 exports.updatePortrait = function(infos,callback){
-	userInfo.find({username:infos.username},function(err,docs){
+
+	userInfo.find({email:infos.useremail},function(err,docs){
 		if(err) console.log(err);
 		else{
-			musicInfo.update({username:infos.username},{portraitPath:infos.portraitPath},{multi:false},function(err,rec){
+			console.log("bbbbbbbbbb"+infos.useremail);
+			console.log("aaaaaaaaaaaaaaaaaaa"+docs[0]);
+			userInfo.update({email:infos.useremail},{portraitPath:infos.portraitPath},{multi:false},function(err,rec){
 				if(err) console.log(err);
 				else{
+					console.log("aaaaaaaaaaaaaaaaaaa"+rec.email);
 					console.log("update success! "+rec);
 					callback();
 				}

@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models/db');
-var cdb = require('../models/collection')
+var cdb = require('../models/collection');
+var fs=require('fs');
+var formidable = require('formidable');
+var path=require('path');
 
 var iconUploadDir = '../public/resources/upload/portraits/';
 
@@ -61,23 +64,28 @@ router.post('/icon_upload',checkLogin,function(req,res,next){
 	var targetDir = path.join(__dirname, iconUploadDir);
 	fs.access(targetDir, function(err){
 		if(err){
+			console.log("error in icon upload!!!!!!!!!!!!!!!!!!11!");
 			fs.mkdirSync(targetDir);
 		}
+		console.log("hahahahahahahahalol");
 		_fileParse();
+		console.log("after _fileParsehahahahahaha");
 	});
 
 
 	function _fileParse() {
+		console.log("into _fileParse aaaaaaaaaaaaaa");
 		var icon = {
-			"username":req.session.logInfo.email,
+			"useremail":req.session.logInfo.email,
 			"portraitPath":'/resources/upload/portraits/default.png'
 		}
 		form.parse(req, function (err, fields, files) {
-			if (err) throw err;
-				var filesUrl = [];
-				var errCount = 0;
-				var keys = Object.keys(files);
 
+			if (err) throw err;
+			var filesUrl = [];
+			var errCount = 0;
+			var keys = Object.keys(files);
+			console.log("keys:"+keys);
 			keys.forEach(function(key){
 			console.log("key:"+key);
 			var filePath = files[key].path;
@@ -92,10 +100,10 @@ router.post('/icon_upload',checkLogin,function(req,res,next){
 			console.log("Here is the path!");
 			console.log(filesUrl);
 
-			if(key == 'iconPath') icon.portraitPath = path.join('/resources/upload/portraits/', fileName);
+			icon.portraitPath = path.join('/resources/upload/portraits/', fileName);
 
 			});
-			console.log("portraitPath" + portraitPath);
+			console.log("portraitPath" + icon);
 
 			// 返回上传信息
 			//res.json({filesUrl:filesUrl, success:keys.length-errCount, error:errCount});

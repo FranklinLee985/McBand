@@ -53,7 +53,7 @@ router.get('/event.html', checkLogin,function(req, res) {
 	edb.connect(function(){
 		edb.passevent(infos,function(){
 				edb.disconnect();
-				console.log(infos);
+				console.log("hello nih ao"+infos);
 				res.render('event', {eventInfo: infos});
 		});
 	});

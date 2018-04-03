@@ -78,7 +78,8 @@ exports.passevent = function(infos, callback){
     eventInfo.find({}).exec(function(err,docs){
         if(err) console.log(err);
         else{
-            for(var i=0;i<eventInfo.count();i++){
+            console.log(docs.length);
+            for(var i=0;i<docs.length;i++){
                 if(docs[i] != null)infos[i] = docs[i];
                 else infos[i] = defaultValue;
             }

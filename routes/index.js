@@ -31,7 +31,7 @@ function checkNotLogin(req,res,next){
 
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', function(req, res) {:
 	console.log("To homepage");
 	res.locals.logInfo = req.session.logInfo
 	res.redirect('/index.html');

@@ -652,6 +652,7 @@ function showSlides(n) {
                 var xmlhttp, myObj, x, txt = "";
                 xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
+                	console.log("Hello" + this.responseText);
                     if (this.readyState == 4 && this.status == 200) {
                         myObj = JSON.parse(this.responseText);
                         console.log("collection json is"+myObj);
@@ -674,11 +675,11 @@ function showSlides(n) {
                         document.getElementById("album_list").innerHTML = txt;
                     }
                 };
-                xmlhttp.open("POST", "http:127.0.0.1:8888/get_album_collection", true);
+                xmlhttp.open("POST", "http:127.0.0.1:8888/get_collection", true);
 
 			</script>
 
-			<!-- get user list -->
+			<!-- get user list
 			<script>
                 var xmlhttp, myObj, x, txt = "";
                 xmlhttp = new XMLHttpRequest();
@@ -687,7 +688,7 @@ function showSlides(n) {
                         myObj = JSON.parse(this.responseText);
                         console.log("all user json is"+myObj);
                         for (x in myObj) {
-                            if(myobj[x].userName === "<%=portrait%>"){
+                            if(myObj[x].username === "<%=portrait%>"){
                                 continue;
                             }
                         }
@@ -706,9 +707,9 @@ function showSlides(n) {
                 xmlhttp.open("POST", "http://127.0.0.1:8888/get_all_user", true);
                 xmlhttp.send();
 
-			</script>
+			</script>-->
 
-			<!-- get event timeline -->
+			<!-- get event timeline
 			<script>
                 var xmlhttp, myObj, x, txt = "";
                 xmlhttp = new XMLHttpRequest();
@@ -719,8 +720,8 @@ function showSlides(n) {
                             txt += "No events for now. Create your own!";
                         }
                         else{
-                            // txt += "<div class=\"section-heading\">";
-                            // txt += "<div id=\"fh5co-timeline\" class=\"col-sm-1\">";
+                            txt += "<div class=\"section-heading\">";
+							txt += "<div id=\"fh5co-timeline\" class=\"col-sm-1\">";
                             txt += "<div class=\"container\">";
                             txt += "<div class=\"row\">";
                             txt += "<div class=\"col-md-offset-0\">";
@@ -752,8 +753,8 @@ function showSlides(n) {
                             txt += "</div>";
                             txt += "</div>";
                             txt += "</div>";
-                            // txt += "</div>";
-                            // txt += "</div>";
+							txt += "</div>";
+                            txt += "</div>";
 
                         }
                         console.log("all event section is"+txt);
@@ -762,7 +763,7 @@ function showSlides(n) {
                 };
                 xmlhttp.open("POST", "/send-event", true);
                 xmlhttp.send();
-			</script>
+			</script>-->
 
 	
 	<!-- jQuery -->

@@ -53,11 +53,27 @@ exports.getPortrait = function(userName,ptr,callback){
 	userInfo.find({username:userName},function(err,docs){
 		if(err) console.log(err);
 		else{
-			console.log('in DB:' + docs[0].portraitPath);
+			//console.log('in DB:' + docs[0].portraitPath);
 			ptr.por = docs[0].portraitPath;
-			console.log('porPath:' + ptr.por);
+			//console.log('porPath:' + ptr.por);
 			callback();
 		}
+	})
+}
+
+exports.updatePortrait = function(infos,callback){
+	userInfo.find({username:infos.username},function(err,docs){
+		if(err) console.log(err);
+		else{
+			musicInfo.update({username:infos.username},{portraitPath:infos.portraitPath},{multi:false},function(err,rec){
+				if(err) console.log(err);
+				else{
+					console.log("update success! "+rec);
+					callback();
+				}
+			})
+		}
+
 	})
 }
 

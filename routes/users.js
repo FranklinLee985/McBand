@@ -43,13 +43,15 @@ router.get('/users/:name',checkLogin,function(req, res, next) {
 			cdb.connect(function(){
 				cdb.showAll(name,collection,function(){
 					cdb.disconnect();
-					//console.log(collection);
+					console.log("collection:"+collection);
 					res.render('account',{portrait:ptr.por,collec:collection});
 				})
 			})
 		});
 	});  
 });
+
+
 
 router.post('/icon_upload',checkLogin,function(req,res,next){
 	var form = new formidable.IncomingForm();

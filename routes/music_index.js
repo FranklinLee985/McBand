@@ -24,7 +24,15 @@ router.get('/music/:mid',function(req,res,next){
 			if(result[0] == null) res.redirect('back');
 			else{
 				mdb.disconnect();
-				res.render('musicinfo',{musicInfo:result[0]});
+				cdb.connect(function(){
+					cdb.isLiked({email:userEmail,musicId:text.musicId},function(){
+						cdb.disconnect();
+						var status = '';
+						if(cdb.liked) status = "Unlike";
+						else status = "Like";
+						res.render('musicinfo',{musicInfo:result[0]},{likeStatus:status});
+					});
+				});
 			}
 		})
 	})

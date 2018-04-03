@@ -3,6 +3,7 @@ var router = express.Router();
 var db = require('../models/db');
 var mdb = require('../models/music');
 var edb = require('../models/events');
+var coldb = require('../models/collection');
 var fs=require('fs');
 var formidable = require('formidable');
 var path=require('path');
@@ -60,13 +61,20 @@ router.get('/event.html', checkLogin,function(req, res) {
 });
 
 router.get('/musiclibrary.html', function(req, res, next) {
-	res.locals.logInfo = req.session.logInfo
+	res.locals.logInfo = req.session.logInfo;
+	var email = "";
+	if(req.session.logInfo)  email = req.session.logInfo.email;
 	var topTen = [];
+	var status = [];
 	mdb.connect(function(){
-		mdb.topTen(topTen,function(){
+		mdb.topTen(topTen,email,function(){
 			mdb.disconnect(); 
 			//console.log(topTen);
-			res.render('musiclibrary',{ musicInfo: topTen });
+			coldb.connect(function(){
+				coldb.topStatus(topTen,email,status,function(){
+					res.render('musiclibrary',{ musicInfo: topTen ,musicStatus:status});
+				})
+			})
 		});
 	});
 });

@@ -103,3 +103,20 @@ exports.isLiked = function(infos,callback){
 		}
 	})
 }
+
+exports.topStatus = function(list,userEmail,result,callback){
+	for(var i = 0;i<8;i++){
+		collectInfo.find({email:userEmail,musicId:list.musicId},function(err,docs){
+			if(err)console.log(err);
+			else{
+				if(docs.length > 0){
+					result[i]="Unlike";
+				}
+				else{
+					result[i]="Like";
+				}
+			}
+		});
+	}
+	callback();
+};

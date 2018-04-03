@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var mdb = require('music');
+var mdb = require('./music');
 
 var collectionSchema = new Schema({
 	email: String,

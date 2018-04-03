@@ -25,15 +25,50 @@ router.get('/music/:mid',function(req,res,next){
 			else{
 				mdb.disconnect();
 				cdb.connect(function(){
-					cdb.isLiked({email:req.session.logInfo.email,musicId:mid},function(){
-						console.log("result:" + result[0] + cdb.liked);
-						res.render('musicinfo',{musicInfo:result[0],isLike:cdb.liked});
-					})
-				})
+					cdb.isLiked({email:userEmail,musicId:text.musicId},function(){
+						cdb.disconnect();
+						var status = '';
+						if(cdb.liked) status = "Unlike";
+						else status = "Like";
+						res.render('musicinfo',{musicInfo:result[0]},{likeStatus:status});
+					});
+				});
 			}
 		})
 	})
 });
 
+router.post('/like-check',function(req,res){
+	var userEmail = req.session.logInfo.email;
+	var text = JSON.parse(req.body.text);
+	console.log("server received:" + text);
+	cdb.connect(function(){
+		cdb.isLiked({email:userEmail,musicId:text.musicId},function(){
+			cdb.disconnect();
+			if(cdb.liked) res.send("Unlike");
+			else res.send("Like");
+		});
+	});
+});
 
+router.post('/like-change',function(req,res){
+	var userEmail = req.session.logInfo.email;
+	var text = JSON.parse(req.body.text);
+	cdb.connect(function(){
+		cdb.isLiked({email:userEmail,musicId:text.musicId},function(){
+			if(cdb.liked){
+				cdb.delete({email:userEmail,musicId:text.musicId},function(){
+					cdb.disconnect();
+					res.send("Like");
+				})
+			}
+			else{
+					cdb.add({email:userEmail,musicId:text.musicId},function(){
+					cdb.disconnect();
+					res.send("Unlike");
+				})
+			}
+		})
+	})
+})
 module.exports = router;

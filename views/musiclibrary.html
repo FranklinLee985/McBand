@@ -165,7 +165,30 @@
         }
 	</script>
 
-
+		<!--display Like or Unlike in the like button-->
+		<script>
+            function showlike(id){
+                var xmlhttp,like_button, text;
+                like_button = id.getElementsbyclassName("like");
+                text={"musicId": like_button.name};
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp=new XMLHttpRequest();
+                } else {  // code for IE6, IE5
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange=function() {
+                    if (this.readyState==4 && this.status==200) {
+                        like_button.value=xmlhttp.responseText;
+                    }
+                };
+                xmlhttp.open("POST", "http://127.0.0.1:8888/like-change", true);
+                xmlhttp.setRequestHeader("Content-type", "application/json");
+                xmlhttp.send(JSON.stringify(text));
+                console.log(JSON.stringify(text));
+                console.log(typeof JSON.stringify(text));
+            }
+		</script>
 
 	</head>
 	<body>
@@ -225,7 +248,7 @@
 				
 				
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-					<div class="fh5co-item animate-box">
+					<div class="fh5co-item animate-box" onmouseover="showlike(this)">
 						<img src="<%=musicInfo[0].coverPath %>" class="img-responsive" alt="First">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[0].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
@@ -234,7 +257,7 @@
 						<h3><%=musicInfo[0].musicname %></h3>
 						<p>&hearts; <%=musicInfo[0].likeCount %></p>
 					</div>
-					<div class="fh5co-item animate-box">
+					<div class="fh5co-item animate-box" onmouseover="showlike(this)>
 						<img src="<%=musicInfo[1].coverPath %>" class="img-responsive" alt="Remember Me">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[1].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
@@ -245,7 +268,7 @@
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-					<div class="fh5co-item margin_top animate-box">
+					<div class="fh5co-item margin_top animate-box" onmouseover="showlike(this)>
 						<img src="<%=musicInfo[2].coverPath %>" class="img-responsive" alt="Divide">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[2].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
@@ -254,7 +277,7 @@
 						<h3><%=musicInfo[2].musicname %></h3>
 						<p>&hearts; <%=musicInfo[2].likeCount %></p>
 					</div>
-					<div class="fh5co-item animate-box">
+					<div class="fh5co-item animate-box" onmouseover="showlike(this)>
 						<img src="<%=musicInfo[3].coverPath %>" class="img-responsive" alt="All of Me">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[3].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
@@ -266,7 +289,7 @@
 				</div>
 				<div class="clearfix visible-sm-block visible-xs-block"></div>
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-					<div class="fh5co-item animate-box">
+					<div class="fh5co-item animate-box" onmouseover="showlike(this)>
 						<img src="<%=musicInfo[4].coverPath %>" class="img-responsive" alt="Havana">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[4].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
@@ -275,7 +298,7 @@
 						<h3><%=musicInfo[4].musicname %></h3>
 						<p>&hearts; <%=musicInfo[4].likeCount %></p>
 					</div>
-					<div class="fh5co-item animate-box">
+					<div class="fh5co-item animate-box" onmouseover="showlike(this)>
 						<img src="<%=musicInfo[5].coverPath %>" class="img-responsive" alt="Mystery of Love">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[5].musicId%>"" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
@@ -286,7 +309,7 @@
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-					<div class="fh5co-item margin_top animate-box">
+					<div class="fh5co-item margin_top animate-box" onmouseover="showlike(this)>
 						<img src="<%=musicInfo[6].coverPath %>" class="img-responsive" alt="A Million Dreams">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[6].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>
@@ -295,7 +318,7 @@
 						<h3><%=musicInfo[6].musicname %></h3>
 						<p>&hearts; <%=musicInfo[6].likeCount %></p>
 					</div>
-					<div class="fh5co-item animate-box">
+					<div class="fh5co-item animate-box" onmouseover="showlike(this)>
 						<img src="<%=musicInfo[7].coverPath %>" class="img-responsive" alt="To Make You Feel My Love">
 						<div class="middle">
 							<a href="/music/<%=musicInfo[7].musicId%>" class="btn btn-primary btn-outline btn-lg" role="button">View</a>

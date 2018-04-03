@@ -224,7 +224,7 @@
 
 
 						<div id="id01" class="modal">
-							<form class="modal-content zoom" action="#" method="post" enctype="multipart/form-data">
+							<form class="modal-content zoom" action="/update_account_icon" method="post" enctype="multipart/form-data">
 								<div>
 									<div class="container">
 										<div class="row form-group">
@@ -232,7 +232,7 @@
 												<br>
 												<div class="col-md-4 col-sm-4">
 													<label for="coverpic">Icon</label>
-													<input type="file" class="form-control" name="coverpic" accept="image/*" required/>
+													<input type="file" class="form-control" id="coverpic" accept="image/*" required/>
 												</div>
 											</div>
 											<div class="col-md-12 col-sm-12" style="left: 15px">
@@ -698,7 +698,7 @@ function showSlides(n) {
                     }
                     document.getElementById("user_list").innerHTML = txt;
                 };
-                xmlhttp.open("POST", "getuserlist.txt", true);
+                xmlhttp.open("POST", "http://127.0.0.1:8888/get_all_user", true);
                 xmlhttp.send();
 
 			</script>
@@ -754,7 +754,7 @@ function showSlides(n) {
                         document.getElementById("event_list").innerHTML = txt;
                     }
                 };
-                xmlhttp.open("POST", "geteventlist.txt", true);
+                xmlhttp.open("POST", "http://127.0.0.1:8888/get_my_event_list", true);
                 xmlhttp.send();
 			</script>
 

@@ -32,20 +32,18 @@ exports.delete = function(infos,callback){
 			console.log("Remove success!");
 			exports.errmsg = '';
 			mdb.connect(function(){
-				mdb.likeChange(-1,infos.musicId,function(err){
-					if(err)console.log(err);
-					else{
-						mdb.disconnect();
-						callback();
-					}
+				mdb.likeChange(-1,infos.musicId,function(){
+					mdb.disconnect();
+					callback();
 				})
 			});
 		}
 	})
 };
 
-exports.showAll = function(userEmail,result,callback){
-	collectInfo.find({email:userEmail},function(err,docs){
+
+exports.showAll = function(userName,result,callback){
+	collectInfo.find({username:userName},function(err,docs){
 		if(err)console.log(err);
 		else{
 			docs.forEach(function(doc){
@@ -63,7 +61,7 @@ exports.add = function(infos, callback) {
 		if(err)console.log(err);
 		else{
 			if(docs.length > 0){
-				exports.errMsg = "You've already like this music!";
+				exports.errMsg = "You've already liked this music!";
 				callback();
 			}
 			else{
@@ -78,12 +76,9 @@ exports.add = function(infos, callback) {
 					else{
 						exports.errmsg = '';
 						mdb.connect(function(){
-							mdb.likeChange(1,infos.musicId,function(err2){
-								if(err2)console.log(err2);
-								else{
-									mdb.disconnect();
-									callback();
-								}
+							mdb.likeChange(1,infos.musicId,function(){
+								mdb.disconnect();
+								callback();
 							})
 						})
 					}

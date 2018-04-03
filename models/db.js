@@ -61,7 +61,7 @@ exports.getPortrait = function(userName,ptr,callback){
 	})
 }
 
-exports.findAll = function(callback){
+/*exports.findAll = function(callback){
 	//Not sure what it is used for. Need to be checked
 	userInfo.find({}, {'username':1, '_id':0}, function(err, docs){
 		if(err){
@@ -71,7 +71,7 @@ exports.findAll = function(callback){
 			callback();
 		}
 	});
-}
+}*/
 
 exports.add = function(register, callback){
 	var PWfilter  = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/;

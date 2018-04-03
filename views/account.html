@@ -282,7 +282,7 @@
 						</div>
 					</div>
 
-					<!-- Album List -->:
+					<!-- Album List -->
 					<section id="album_list" class="scroll container animate-box"  style="margin-top: -100px;">
 						<div class="individual">
 
@@ -647,24 +647,32 @@ function showSlides(n) {
 }
 </script>
 
-			<!-- get album collection -->
 			<script>
-                if(<%=collec%> == null){
-                    txt += "You don't have any liked music!";
-                }
-                else{
-                <%=collec%>.forEach(function(x){
-                        txt += "<div class= \"individual\">";
-                        txt += "<img src=\"x.coverPath\" alt=\"x.musicname\">";
-                        txt += "<div class=\"middle\">";
-                        txt += "<a href=\"/music/x.musicId\" class=\"btn btn-primary btn-outline btn-lg\" role=\"button\">View</a>";
-                        txt += "</div>";
-                        txt += "<br><br>";
-                        txt += "<p>x.musicname</p>";
-                        txt += "</div>";
-                    })
-                }
-                document.getElementById("album_list").innerHTML = txt;
+                var xmlhttp, myObj, x, txt = "";
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myObj = JSON.parse(this.responseText);
+                        if(myObj == null){
+                            txt += "You don't have any liked music!";
+                        }
+                        else{
+                            for (x in myObj) {
+                                txt += "<div class= \"individual\">";
+                                txt += "<img src="+myObj[x].coverPath+" alt="+myObj[x].musicname+">";
+                                txt += "<div class=\"middle\">";
+                                txt += "<a href=\"musicinfo.html\" class=\"btn btn-primary btn-outline btn-lg\" role=\"button\">View</a>";
+                                txt += "</div>";
+                                txt += "<br><br>";
+                                txt += "<p>"+myObj[x].musicname+"</p>";
+                                txt += "</div>";
+                            }
+                        }
+                        document.getElementById("album_list").innerHTML = txt;
+                    }
+                };
+                xmlhttp.open("POST", "http:127.0.0.1:8888/get_album_collection", true);
+                xmlhttp.send();
 			</script>
 
 			<!-- get user list -->

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var mdb = require('../models/music');
+var mdb = require('./music');
 
 var commentSchema = new Schema({
 	email: String,

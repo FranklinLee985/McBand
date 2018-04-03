@@ -69,7 +69,7 @@ exports.add = function(infos, callback) {
 					email:infos.email,
 					musicId:infos.musicId
 				});
-				musicdata.save(function(err1){
+				collectdata.save(function(err1){
 					if(err1){
 						console.log(err1);
 					}
@@ -86,12 +86,20 @@ exports.add = function(infos, callback) {
 			}
 		}
 	})
-	musicdata.save(function(err3){
-		if(err3){
-			console.log('add error');
-		}else{
-			exports.errMsg = '';
-			callback();
+}
+
+exports.isLiked = function(infos,callback){
+	collectInfo.find({email:infos.email,musicId:infos.musicId},function(err,docs){
+		if(err)console.log(err);
+		else{
+			if(docs.length > 0){
+				exports.like = true;
+				callback();
+			}
+			else{
+				exports.liked = false;
+				callback();
+			}
 		}
 	})
 }

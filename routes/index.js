@@ -91,6 +91,14 @@ router.post("/send-music", function(req, res){
 	});
 });
 
+router.post("/send-event", function(req, res){
+    edb.connect(function(){
+        edb.getAll(function(){
+            edb.disconnect();
+            res.send(JSON.stringify(edb.eventList));
+        });
+    });
+});
 
 router.get('/dialog.html', function(req, res, next) {
 	res.locals.logInfo = req.session.logInfo

@@ -1914,3 +1914,47 @@ input[type="checkbox"]{
   display:none;
 }
 /*# sourceMappingURL=style.css.map */
+ #msg{
+        width:400px;
+        position: fixed;
+        z-index:999;
+        top: 15%;
+        margin-top:-80px;
+        right:9%;
+        margin-left:-133px;
+        background:#252525;              //background color
+        box-shadow:5px 5px 8px #999;
+        font-size:25px;
+        color:#fff;                   //info text color
+        border:1px solid #f8f8f8;
+        text-align: center;
+        line-height: 2rem;
+        display:inline-block;
+        padding-bottom:20px;
+        border-radius:2px;
+		opacity:0.8;
+    }
+    #msg_top{
+        background:#ea272d;               //top bar color
+        padding:5px 15px 5px 20px;
+        text-align:left;
+    }
+    #msg_top span{
+        font-size:22px;
+        float:right;
+        cursor:pointer;
+    }
+    #msg_cont{
+        padding:15px 20px 20px;
+        text-align:left;
+    }
+    #msg_clear{
+        display:inline-block;
+        color:#fff;                   //button text color
+        padding:1px 15px;
+        background:#252525;              //button background color
+        border-radius:2px;
+        float:right;
+        margin-right:15px;
+        cursor:pointer;
+    }

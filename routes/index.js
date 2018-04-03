@@ -60,16 +60,16 @@ router.get('/event.html', checkLogin,function(req, res) {
 	});
 });
 
-router.get('/musiclibrary.html', function(req, res, next) {
+router.get('/musiclibrary.html', checkLogin,function(req, res, next) {
 	res.locals.logInfo = req.session.logInfo;
 	var email = "";
 	if(req.session.logInfo)  email = req.session.logInfo.email;
 	var topTen = [];
 	var status = [];
 	mdb.connect(function(){
-		console.log("mdb connected!");
+		//console.log("mdb connected!");
 		mdb.topTen(topTen,function(){
-			console.log("top ten:" + topTen);
+			//console.log("top ten:" + topTen);
 			mdb.disconnect(); 
 			res.render('musiclibrary',{ musicInfo: topTen});
 		});

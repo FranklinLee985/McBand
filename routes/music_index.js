@@ -31,9 +31,12 @@ router.get('/music/:mid',function(req,res,next){
 });
 
 router.post('/like-check',function(req,res){
-	var userEmail = req.session.logInfo.email;
-	var text = JSON.parse(req.body.text);
-	console.log("server received:" + text);
+	//console.log(req.body);
+	var text = req.body;
+	//console.log(test);
+	var userEmail = "";
+	if(req.session.logInfo) userEmail= req.session.logInfo.email;
+	
 	cdb.connect(function(){
 		cdb.isLiked({email:userEmail,musicId:text.musicId},function(){
 			cdb.disconnect();
@@ -45,10 +48,13 @@ router.post('/like-check',function(req,res){
 
 
 router.post('/like-change',function(req,res){
-	var userEmail = req.session.logInfo.email;
-	var text = JSON.parse(req.body.text);
+	var userEmail = "";
+	if(req.session.logInfo) userEmail= req.session.logInfo.email;
+	var text = req.body;
+	console.log("server received:" + text);
 	cdb.connect(function(){
 		cdb.isLiked({email:userEmail,musicId:text.musicId},function(){
+			console.log("cdb.liked" + cdb.liked);
 			if(cdb.liked){
 				cdb.delete({email:userEmail,musicId:text.musicId},function(){
 					cdb.disconnect();

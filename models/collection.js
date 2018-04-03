@@ -93,7 +93,7 @@ exports.isLiked = function(infos,callback){
 		if(err)console.log(err);
 		else{
 			if(docs.length > 0){
-				exports.like = true;
+				exports.liked = true;
 				callback();
 			}
 			else{

@@ -43,14 +43,21 @@ router.get('/sign.html',checkNotLogin, function(req, res, next) {
 
 
 router.get('/event.html', checkLogin,function(req, res, next) {
-  res.render('event');
+  var infos = [];
+  edb.connect(function(){
+    edb.passevent(infos,function(){
+        edb.disconnect();
+        console.log(infos);
+        res.render('event', {eventInfo: infos});
+    })
+  })
 });
 
 router.get('/musiclibrary.html', function(req, res, next) {
   var topTen = [];
   mdb.connect(function(){
 	mdb.topTen(topTen,function(){
-	  db.disconnect();
+	  mdb.disconnect(); 
 	  console.log(topTen);
 	  res.render('musiclibrary',{ musicInfo: topTen });
 	})

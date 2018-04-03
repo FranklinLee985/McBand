@@ -66,4 +66,24 @@ exports.add = function(eventpara, callback) {
     })
 }
 
+exports.passevent = function(infos, callback){
+    var defaultValue = {
+        uploader: 'None',
+        eventname: 'None',
+        venue: 'None',
+        date: 'None',
+        basicinfo: 'None',
+        eventpicture: 'None'
+    }
+    eventInfo.find({}).exec(function(err,docs){
+        if(err) console.log(err);
+        else{
+            for(var i=0;i<eventInfo.count();i++){
+                if(docs[i] != null)infos[i] = docs[i];
+                else infos[i] = defaultValue;
+            }
+            callback();
+        }
+    })
+}
 

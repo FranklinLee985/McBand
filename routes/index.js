@@ -9,6 +9,7 @@ var path=require('path');
 
 var musicUploadDir = '../public/resources/upload/music/';
 var tempDir = '../resources/upload/temp/';
+var eventUploadDir = '../public/resources/upload/event/';
 
 
 function checkLogin(req,res,next){
@@ -131,7 +132,8 @@ router.post('/event_upload', function(req,res){
 		    "date": req.body.time,
 		    "basicinfo": req.body.eventinfo,
 		    "eventpicture": ''
-        };
+        }
+        console.log(response);
         form.parse(req, function(err, fields, files){
             if(err) throw err;
                 var filesUrl = [];
@@ -147,7 +149,7 @@ router.post('/event_upload', function(req,res){
                     var targetFile = path.join(targetDir, fileName);
                     console.log(targetDir)
                     fs.renameSync(filePath, targetFile);
-                    filesUrl.push('/music/'+fileName);
+                    filesUrl.push('/event/'+fileName);
                     console.log("Here is the path");
                     console.log(filesUrl);
                  

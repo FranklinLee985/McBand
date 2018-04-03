@@ -149,6 +149,7 @@
         function like(id){
             var xmlhttp, text;
             text={"musicId": id.name};
+            console.log(id);
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp=new XMLHttpRequest();
@@ -173,6 +174,7 @@
         var xmlhttp, text, id;
         id = document.getElementsById("like_button");
         text={"musicId": id.name};
+        console.log(id);
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp=new XMLHttpRequest();
@@ -188,7 +190,6 @@
         xmlhttp.setRequestHeader("Content-type", "application/json");
         xmlhttp.send(JSON.stringify(text));
         console.log(JSON.stringify(text));
-        console.log(typeof JSON.stringify(text));
 	</script>
 
 	<!-- Get comment -->
@@ -235,6 +236,7 @@
 <!--page content-->
 <div id="page">
 
+
 	<!--navigator-->
 	<nav class="fh5co-nav" role="navigation">
 		<!-- <div class="top-menu"> -->
@@ -264,7 +266,7 @@
 	</nav>
 
 	<!--header-->
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url();" data-stellar-background-ratio="0.5">
+	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(/public/images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -308,7 +310,7 @@
 									Your browser does not support the audio element.
 								</audio>
 								<br><br>
-								<input type="button" id="like_button" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="musicInfo.musicId" value="<%=musicStatus%>">
+								<input type="button" id="like_button" class="btn btn-primary btn-outline btn-lg" onclick="like(this)" name="<%=musicInfo.musicId%>" value="LIKE">
 							</div>
 						</div>
 					</form>
@@ -317,7 +319,7 @@
 		</div>
 	</div>
 
-	<!--comment-->
+	<!--comment
 	<div id="fh5co-contact" class="fh5co-section animate-box">
 		<div class="container">
 			<div class="row">
@@ -380,9 +382,23 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 
 	<!--footer-->
+	<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>Join McBand</h2>
+					<p>Create an account to upload, comment, make friends and sign up for an event!</p>
+					<p><a href="sign.html" class="btn btn-primary btn-outline">Register Now</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 	<div class="col-md-12 text-center">
 		<p>
 			<small class="block"><a>McBand<span>.</span></a> Project for CSCI 3100 <a>Group 16</a></small>

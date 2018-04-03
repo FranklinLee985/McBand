@@ -40,7 +40,7 @@ router.post('/like-check',function(req,res){
 	cdb.connect(function(){
 		cdb.isLiked({email:userEmail,musicId:text.musicId},function(){
 			cdb.disconnect();
-			if(cdb.liked) res.send("Unlike");
+			if(cdb.liked) res.send("Undo");
 			else res.send("Like");
 		});
 	});
@@ -51,7 +51,7 @@ router.post('/like-change',function(req,res){
 	var userEmail = "";
 	if(req.session.logInfo) userEmail= req.session.logInfo.email;
 	var text = req.body;
-	console.log("server received:" + text);
+	console.log("server received:" + JSON.stringify(text));
 	cdb.connect(function(){
 		cdb.isLiked({email:userEmail,musicId:text.musicId},function(){
 			console.log("cdb.liked" + cdb.liked);
@@ -64,7 +64,7 @@ router.post('/like-change',function(req,res){
 			else{
 					cdb.add({email:userEmail,musicId:text.musicId},function(){
 					cdb.disconnect();
-					res.send("Unlike");
+					res.send("Undo");
 				})
 			}
 		})

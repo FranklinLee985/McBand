@@ -42,8 +42,8 @@ exports.delete = function(infos,callback){
 };
 
 
-exports.showAll = function(userName,result,callback){
-	collectInfo.find({username:userName},function(err,docs){
+exports.showAll = function(userEmail,result,callback){
+	collectInfo.find({email:userEmail},function(err,docs){
 		if(err)console.log(err);
 		else{
 			docs.forEach(function(doc){
@@ -102,24 +102,4 @@ exports.isLiked = function(infos,callback){
 			}
 		}
 	});
-};
-
-exports.topStatus = function(list,userEmail,result,callback){
-	var arr = [0,1,2,3,4,5,6,7,8];
-	arr.forEach(function(i){
-		collectInfo.find({email:userEmail,musicId:list[i].musicId},function(err,docs){
-			if(err)console.log(err);
-			else{
-
-				if(docs.length > 0){
-					result[i]='Unlike';
-				}
-				else{
-					result[i]='Like';
-				}
-				console.log("result:"+result + i);
-			}
-		});
-	});
-	callback();
 };

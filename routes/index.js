@@ -31,7 +31,7 @@ function checkNotLogin(req,res,next){
 
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', function(req, res) {:
 	console.log("To homepage");
 	res.locals.logInfo = req.session.logInfo
 	res.redirect('/index.html');
@@ -65,7 +65,6 @@ router.get('/musiclibrary.html', checkLogin,function(req, res, next) {
 	var email = "";
 	if(req.session.logInfo)  email = req.session.logInfo.email;
 	var topTen = [];
-	var status = [];
 	mdb.connect(function(){
 		//console.log("mdb connected!");
 		mdb.topTen(topTen,function(){

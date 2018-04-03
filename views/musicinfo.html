@@ -143,10 +143,7 @@
 
 	<!-- Modernizr JS -->
 	<script src="/js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="/js/respond.min.js"></script>
-	<![endif]-->
+
 
 </head>
 
@@ -180,17 +177,17 @@
 	</nav>
 
 	<!--header-->
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(/images/album_artwork/Divide.jpg);" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>                                                                       <!-- <%= musicInfo[].coverPath %> -->
+	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(<%= musicInfo.coverPath%>);" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>                                                                    
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
 							<!-- Music Name -->
-							<h1>Perfect</h1> <!--<h1><%= musicInfo[].musicname %></h1>-->
+							<h1>Perfect</h1> 
 							<!-- Author Name-->
-							<p><em>Ed Sheeran</em></p> <!--<p><em><%= musicInfo[].uploader %></em></p>-->
+							<p><em>Ed Sheeran</em></p> 
 						</div>
 					</div>
 				</div>
@@ -205,7 +202,7 @@
 				<div class="col-md-6 col-md-push-0 col-sm-6 col-sm-push-0">
 					<!-- sheet music-->
 					<!-- Slideshow container -->
-					<embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=<%= music_pdf %>">
+ 					<embed src="<%=musicInfo.sheetPath%>" type="application/pdf" width="100%" height="600px" />
 				</div>
 
 				<div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
@@ -214,12 +211,12 @@
 							<div class="col-md-12">
 								<h3>Music Information</h3>
 								<label>Music Name</label>
-								<p>Perfect</p><!--<p><%= musicInfo[].musicname %></p>-->
+								<p><%= musicInfo.musicname %></p>
 								<label>Uploader</label>
-								<p>Ed Sheeran</p><!--<p><%= musicInfo[].uploader %></p>-->
+								<p><%= musicInfo.uploader %></p>
 								<!-- audio player-->
 								<audio controls>
-									<source src="/audios/Ed_Sheeran_Perfect_Piano_Cover.mp3" type="audio/mpeg"><!-- <source src="musicInfo[].audio" type="audio/mpeg"> -->
+									<source src="<%= musicInfo.musicPath %>" type="audio/mpeg">
 									Your browser does not support the audio element.
 								</audio>
 								<br><br>
@@ -276,36 +273,7 @@
 							</div>
 						</div>
 					</div>
-					<!--<script>
-                        var xmlhttp, myObj, x, txt = "";
-                        xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                myObj = JSON.parse(this.responseText);
-                                if(myObj == null){
-                                    txt += "No comments yet!"
-								}
-								else{
-                                    for (x in myObj) {
-                                        txt += "<div class=\"row comment\">";
-                                        txt += "<div class=\"col-md-1 comment_icon\">";
-                                        txt += "<img src=\"myObj[x].icon\" alt=\"Icon\">";
-                                        txt += "</div>";
-                                        txt += "<div class=\"col-md-2 comment_username\">";
-                                        txt += "<p>myObj[x].userName</p>";
-                                        txt += "</div>";
-                                        txt += "<div class=\"col-md-6 comment_text\">";
-                                        txt += "<p>myObj[x].commentText</p>";
-                                        txt += "</div>";
-                                        txt += "</div>";
-                                    }
-								}
-                                document.getElementById("comment_list").innerHTML = txt;
-                            }
-                        };
-                        xmlhttp.open("POST", "getcommentlist.txt", true);
-                        xmlhttp.send();
-					</script>-->
+
 					<br>
 
 

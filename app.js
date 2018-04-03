@@ -61,7 +61,9 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  app.set('view engine', 'jade');
+  res.render('error', { error: err });
+  app.set('view engine', 'html');
 });
 
 

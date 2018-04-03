@@ -131,13 +131,17 @@
 				margin-right: 10px;
 			}
 			.scroll .individual p{
-				margin-top: -50px;
+				color: #ffffff;
+			}
+			.scroll .individual h3{
 				color: #ffffff;
 			}
 			.scroll .individual img{
 				height: 180px;
 				width:auto;/*maintain aspect ratio*/
 				max-width:300px;
+				padding-top: -600px:;
+				/*padding-bottom: 0px;*/
 			}
 
 			.individual:hover img{
@@ -274,17 +278,14 @@
 					<br><br>
 					<h2>Find Interesting Event</h2>
 					<div class="row">
-
-						<!--searching bar-->
-						<div class="col-md-12">
-							<input type="search" class="form-control" name="search" placeholder="Search..">
-							<button type="submit" class="searchicon"><i class="icon-search2"></i></button>
-						</div>
                         <!--highlight event-->
 						<div id="fh5co-featured-menu" class="fh5co-section">
-							<div class="container">
+							<div class="container" style="margin-top: -400px;">
 
-								<section id="all_event_list" class="scroll container animate-box"  style="margin-top: -100px;">
+								<section id="all_event_list" class="scroll container animate-box">
+
+
+
 
 									<div class="individual">
 										<!--Event Image-->
@@ -298,6 +299,53 @@
 										<p>7th April</p>
 									</div>
 
+
+
+
+									<div class="individual">
+										<!--Event Image-->
+										<img src="images/event_pics/musicparty.jpg" alt="musicparty">
+										<div class="middle">
+											<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
+											<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+										</div>
+										<br><br>
+										<h3>Music Party</h3>
+										<p>7th April</p>
+									</div>
+									<div class="individual">
+										<!--Event Image-->
+										<img src="images/event_pics/musicparty.jpg" alt="musicparty">
+										<div class="middle">
+											<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
+											<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+										</div>
+										<br><br>
+										<h3>Music Party</h3>
+										<p>7th April</p>
+									</div>
+									<div class="individual">
+										<!--Event Image-->
+										<img src="images/event_pics/musicparty.jpg" alt="musicparty">
+										<div class="middle">
+											<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
+											<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+										</div>
+										<br><br>
+										<h3>Music Party</h3>
+										<p>7th April</p>
+									</div>
+									<div class="individual">
+										<!--Event Image-->
+										<img src="images/event_pics/musicparty.jpg" alt="musicparty">
+										<div class="middle">
+											<a href="#eventinfo" class="btn btn-primary btn-outline btn-lg" role="button" onclick="myMap()">Details</a>
+											<button type="submit" class="btn btn-primary btn-outline btn-lg"><i class="icon-heart"></i></button>
+										</div>
+										<br><br>
+										<h3>Music Party</h3>
+										<p>7th April</p>
+									</div>
 									<div class="individual">
 										<!--Event Image-->
 										<img src="images/event_pics/musicparty.jpg" alt="musicparty">
@@ -334,18 +382,21 @@
                                                 txt += "<img src="+myObj[x].eventpicture+" alt="+myObj[x].eventname+">";
                                                 txt += "<div class=\"middle\">";
                                                 txt += "<a href=\"#eventinfo\" class=\"btn btn-primary btn-outline btn-lg\" role=\"button\" onclick=\"myMap()\">Details</a>";
+                                                // txt += "<button type=\"submit\" class=\"btn btn-primary btn-outline btn-lg\"><i class=\"icon-heart\"></i></button>";
                                                 txt += "</div>";
                                                 txt += "<br><br>";
-                                                txt += "<h3>"+myObj[x].eventname+"</h3>";
-                                                txt += "<p>"+myObj[x].date+"</p>"
-												txt += "</div>";
+                                                txt += "<h3>"+myObj[x].eventname+ "</h3>";
+                                                txt += "<p>"+myObj[x].date+"</p>";
+                                                txt += "</div>";
                                             }
 
                                         }
+                                        console.log("allalal is"+txt);
                                         document.getElementById("all_event_list").innerHTML = txt;
                                     };
                                     xmlhttp.open("POST", "/send-event", true);
                                     xmlhttp.send();
+
 								</script>
 
 							</div>

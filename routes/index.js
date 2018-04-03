@@ -118,6 +118,7 @@ router.post('/login_process', function(req,res){
 	})
 })
 
+/*
 router.post('/event_upload', checkLogin);
 router.post('/event_upload', function(req,res){
 
@@ -142,7 +143,7 @@ router.post('/event_upload', function(req,res){
 		"date": req.body.time,
 		"basicinfo": req.body.eventinfo,
 		"eventpicture": ''
-		};
+		}
 		form.parse(req, function(err, fields, files){
 			if(err) throw err;
 			var filesUrl = [];
@@ -158,7 +159,7 @@ router.post('/event_upload', function(req,res){
 					var targetFile = path.join(targetDir, fileName);
 					console.log(targetDir)
 					fs.renameSync(filePath, targetFile);
-					filesUrl.push('/music/'+fileName);
+					filesUrl.push('/event/'+fileName);
 					console.log("Here is the path");
 					console.log(filesUrl);
 			 
@@ -184,7 +185,7 @@ router.post('/event_upload', function(req,res){
 		});
 	}
 })
-
+*/
 
 
 router.post('/register_process', function(req,res){

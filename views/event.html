@@ -120,6 +120,62 @@
 
 		</style>
 
+
+		<!-- get event list -->
+		<script>
+            var xmlhttp, myObj, x, txt = "";
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    myObj = JSON.parse(this.responseText);
+                    if(myObj == null){
+                        txt += "No events for now. Create your own!";
+                    }
+                    else{
+                        txt += "<div class=\"section-heading\">";
+                        txt += "<div id=\"fh5co-timeline\" class=\"col-sm-1\">";
+                        txt += "<div class=\"container\">";
+                        txt += "<div class=\"row\">";
+                        txt += "<div class=\"col-md-offset-0\">";
+                        txt += "<ul class=\"timeline animate-box\">";
+
+                        txt += "<li class=\"timeline-heading text-center animate-box\">";
+                        txt += "<div><h3>Recent event</h3></div>";
+                        txt += "</li>";
+
+                        for (x in myObj) {
+                            if(x % 2 == 0){
+                                txt += "<li class=\"animate-box timeline-unverted\">";
+                            }
+                            else if(x % 2 == 1){
+                                txt += "<li class=\"timeline-inverted animate-box\">";
+                            }
+                            txt += "<div class=\"timeline-badge\"><i class=\"icon-genius\"></i></div>";
+                            txt += "<div class=\"timeline-panel\">";
+                            txt += "<div class=\"timeline-heading\">";
+                            txt += "<h3 class=\"timeline-title\">myObj[x].eventTitle</h3>";
+                            txt += "</div>";
+                            txt += "<div class=\"timeline-body\">";
+                            txt += "<p>myObj[x].eventTime myObj[x].eventLocation</p>";
+                            txt += "</div>";
+                            txt += "</div>";
+                            txt += "</li>";
+                        }
+                        txt += "</ul>";
+                        txt += "</div>";
+                        txt += "</div>";
+                        txt += "</div>";
+                        txt += "</div>";
+                        txt += "</div>";
+
+                    }
+                    document.getElementById("event_list").innerHTML = txt;
+                }
+            };
+            xmlhttp.open("POST", "geteventlist.txt", true);
+            xmlhttp.send();
+		</script>
+
 	</head>
 
 
@@ -372,7 +428,7 @@
 
 
 
-				<div class="col-md-12 col-md-push-0 animate-box" style="left:0px;"><!--3-->
+				<div id="event_list" class="col-md-12 col-md-push-0 animate-box" style="left:0px;"><!--3-->
 					<div class="section-heading">
 						<div id="fh5co-timeline" class="col-sm-1">
 							<div class="container">

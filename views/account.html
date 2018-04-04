@@ -683,7 +683,8 @@ function showSlides(n) {
                         document.getElementById("album_list").innerHTML = txt;
                     }
                 };
-                xmlhttp.open("POST", "http:127.0.0.1:8888/get_collection", true);
+                xmlhttp.open("POST", "http://127.0.0.1:8888/get_collection", true);
+                xmlhttp.send();
 			</script>
 			<!-- get user list -->
                         <script>

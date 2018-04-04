@@ -94,8 +94,8 @@ router.post("/send-event", function(req, res){
     });
 });
 
-router.get('/dialog.html', function(req, res, next) {
-	res.locals.logInfo = req.session.logInfo
+router.get('/dialog.html', checkLogin,function(req, res, next) {
+	console.log(res.locals.logInfo);
 	res.render('dialog');
 });
 

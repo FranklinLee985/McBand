@@ -381,12 +381,13 @@
                                                 txt += "<div class= \"individual\">";
                                                 txt += "<img src="+myObj[x].eventpicture+" alt="+myObj[x].eventname+">";
                                                 txt += "<div class=\"middle\">";
-                                                txt += "<a href=\"#eventinfo\" class=\"btn btn-primary btn-outline btn-lg\" role=\"button\" onclick=\"myMap()\">Details</a>";
+                                                txt += "<a href=\"#eventinfo\" class=\"btn btn-primary btn-outline btn-lg\" role=\"button\" onclick=\"myMap(myObj["+x+"])\">Details</a>";///////////////////////
                                                 // txt += "<button type=\"submit\" class=\"btn btn-primary btn-outline btn-lg\"><i class=\"icon-heart\"></i></button>";
                                                 txt += "</div>";
                                                 txt += "<br><br>";
-                                                txt += "<h3>"+myObj[x].eventname+ "</h3>";
+                                                txt += "<h3>"+myObj[x].eventname + "</h3>";
                                                 txt += "<p>"+myObj[x].date+"</p>";
+                                               // txt += "<div id="+myObj[x]+" class=\"hide\">"+myObj[x]+"</div>";////////////////////////////
                                                 txt += "</div>";
                                             }
 
@@ -430,9 +431,19 @@
  						 	//new map
  							var map = new google.maps.Map(document.getElementById("googleMap"),mapOptions);
 						}
-						function myMap() {
+						function myMap(obj) {
 							var geocoder = new google.maps.Geocoder();
-							var address = document.getElementById('eventaddress').textContent;
+							///////////////////////////////////////////////////////////
+							var venue = obj.venue;
+							var date = obj.date;
+							var name = obj.eventname;
+							var basicinfo = obj.basicinfo;
+							document.getElementById("aeventname").innerHTML = name;
+							document.getElementById("aeventdate").innerHTML = date;
+							document.getElementById("aeventvenue").innerHTML = venue;
+							document.getElementById("aeventbasicinfo").innerHTML = basicinfo;
+							///////////////////////////////////////////////////////////
+							var address = document.getElementById('aeventvenue').textContent;
  						 	//map options
   							var mapOptions = {
   						   		center: new google.maps.LatLng(22.38333,114.18333),
@@ -480,23 +491,22 @@
 				<form id="form-wrap" style="width:40%;height:600px;float: right; margin-top: -600px;">
 						<div class="row form-group text-center">
 							<div class="col-md-12">
-								<p style="font-size: 35px;"><%=eventInfo[0].eventname %></p>
+								<p style="font-size: 35px;" id="aeventname"><!-- <%=eventInfo[0].eventname %> --></p>
 								
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-md-12">
 								<i class="icon-clock3"></i>
-								<p><%=eventInfo[0].date %></p>
+								<p id="aeventdate"><!-- <%=eventInfo[0].date %> --></p>
 								<i class="icon-location3"></i>
-								<p id="eventaddress"><%=eventInfo[0].venue %></p>
+								<p id="aeventvenue"><!-- <%=eventInfo[0].venue %> --></p>
 							</div>
 						</div>
 								
 						<section class="row form-group eventsinfo" style="width: 107%; height: 240px; overflow: scroll;">
 							<div class="col-md-12">
-								<p><%=eventInfo[0].basicinfo %>
-							    </p>
+								<p id="aeventbasicinfo"><!-- <%=eventInfo[0].basicinfo %> --></p>
 							</div>
 						</section>
 						<div class="row form-group">

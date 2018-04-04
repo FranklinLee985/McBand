@@ -115,7 +115,7 @@ router.post('/login_process', function(req,res){
 		"email":req.body.email,
 		"name" : '',
 		"password":req.body.password,
-		"portraitPath":'/resources/upload/portraits/default.png'
+		"portraitPath":'/resources/upload/portraits/default.png',
 	};
 	console.log(response);
 	//Find data inside DB

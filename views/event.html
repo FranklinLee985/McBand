@@ -140,7 +140,7 @@
 				height: 180px;
 				width:auto;/*maintain aspect ratio*/
 				max-width:300px;
-				padding-top: -600px:;
+				padding-top: -600px;
 				/*padding-bottom: 0px;*/
 			}
 
@@ -164,62 +164,6 @@
 
 		</style>
 
-
-		<!-- get event timeline -->
-		<script>
-            var xmlhttp, myObj, x, txt = "";
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    myObj = JSON.parse(this.responseText);
-                    if(myObj == null){
-                        txt += "No events for now. Create your own!";
-                    }
-                    else{
-                        // txt += "<div class=\"section-heading\">";
-                        // txt += "<div id=\"fh5co-timeline\" class=\"col-sm-1\">";
-                        txt += "<div class=\"container\">";
-                        txt += "<div class=\"row\">";
-                        txt += "<div class=\"col-md-offset-0\">";
-                        txt += "<ul class=\"timeline animate-box\">";
-
-                        txt += "<li class=\"timeline-heading text-center animate-box\">";
-                        txt += "<div><h3>Recent event</h3></div>";
-                        txt += "</li>";
-
-                        for (x in myObj) {
-                            if(x % 2 == 0){
-                                txt += "<li class=\"animate-box timeline-unverted\">";
-                            }
-                            else if(x % 2 == 1){
-                                txt += "<li class=\"timeline-inverted animate-box\">";
-                            }
-                            txt += "<div class=\"timeline-badge\"><i class=\"icon-genius\"></i></div>";
-                            txt += "<div class=\"timeline-panel\">";
-                            txt += "<div class=\"timeline-heading\">";
-                            txt += "<h3 class=\"timeline-title\">"+myObj[x].eventname+"</h3>";
-                            txt += "</div>";
-                            txt += "<div class=\"timeline-body\">";
-                            txt += "<p>"+myObj[x].date+myObj[x].venue+"</p>";
-                            txt += "</div>";
-                            txt += "</div>";
-                            txt += "</li>";
-                        }
-                        txt += "</ul>";
-                        txt += "</div>";
-                        txt += "</div>";
-                        txt += "</div>";
-                        // txt += "</div>";
-                        // txt += "</div>";
-
-                    }
-                    console.log("txt is"+txt);
-                    document.getElementById("fh5co-timeline").innerHTML = txt;
-                }
-            };
-            xmlhttp.open("POST", "/send-event", true);
-            xmlhttp.send();
-		</script>
 
 	</head>
 
@@ -258,15 +202,16 @@
 				
 			</div>
 			<% if (locals.logInfo == null) { %>
-				<a href="sign.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;"><i class="icon-user2">   Login</i></a>
+				<a href="sign.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px; height: 100px;"><i class="icon-user2">   Login</i></a>
 			<% } else { %>
-				<form action="http://127.0.0.1:8888/logout" method="GET"><a style="float:right; margin-top: -30px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>! <input type="submit" style="border:0 none; background: transparent;" value="Logout"/></a></form>
+				<form action="http://127.0.0.1:8888/logout" method="GET"><a style="float:right; margin-top: -65px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>! <input type="submit" style="border:0 none; background: transparent; height: 100px;" value="Logout"/></a></form>
 			<% } %>
+		
 		<!-- </div> -->
 	</nav>
 
 
-	<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(images/hero_1.jpeg); margin-bottom: 10px;width:100%;height:400px;" data-stellar-background-ratio="0.5">
+	<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(/images/hero_1.jpeg); margin-bottom: 10px;width:100%;height:400px;" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 	</div>
 
@@ -280,7 +225,7 @@
 					<div class="row">
                         <!--highlight event-->
 						<div id="fh5co-featured-menu" class="fh5co-section">
-							<div class="container" style="margin-top: -400px;">
+							<div class="container" style="margin-top: 0px;">
 
 								<section id="all_event_list" class="scroll container animate-box">
 
@@ -491,16 +436,16 @@
 				<form id="form-wrap" style="width:40%;height:600px;float: right; margin-top: -600px;">
 						<div class="row form-group text-center">
 							<div class="col-md-12">
-								<p style="font-size: 35px;" id="aeventname"><!-- <%=eventInfo[0].eventname %> --></p>
+								<section style="font-size: 35px; width: auto; height: 70px; overflow: hidden;" id="aeventname"><!-- <%=eventInfo[0].eventname %> --></section>
 								
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-md-12">
 								<i class="icon-clock3"></i>
-								<p id="aeventdate"><!-- <%=eventInfo[0].date %> --></p>
+								<section id="aeventdate" style="width: auto; height: 50px; overflow: hidden;"><!-- <%=eventInfo[0].date %> --></section>
 								<i class="icon-location3"></i>
-								<p id="aeventvenue"><!-- <%=eventInfo[0].venue %> --></p>
+								<section id="aeventvenue" style="width: auto; height: 50px; overflow: hidden;"><!-- <%=eventInfo[0].venue %> --></section>
 							</div>
 						</div>
 								
@@ -629,6 +574,61 @@
 								</div>
 							</div>
 						</div>
+                        <!-- get event timeline -->
+                        <script>
+                            var xmlhttp, myObj, x, txt = "";
+                            xmlhttp = new XMLHttpRequest();
+                            xmlhttp.onreadystatechange = function() {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    myObj = JSON.parse(this.responseText);
+                                    if(myObj == null){
+                                        txt += "No events for now. Create your own!";
+                                    }
+                                    else{
+                                        // txt += "<div class=\"section-heading\">";
+                                        // txt += "<div id=\"fh5co-timeline\" class=\"col-sm-1\">";
+                                        txt += "<div class=\"container\">";
+                                        txt += "<div class=\"row\">";
+                                        txt += "<div class=\"col-md-offset-0\">";
+                                        txt += "<ul class=\"timeline animate-box\">";
+
+                                        txt += "<li class=\"timeline-heading text-center animate-box\">";
+                                        txt += "<div><h3>Recent event</h3></div>";
+                                        txt += "</li>";
+
+                                        for (x in myObj) {
+                                            if(x % 2 == 0){
+                                                txt += "<li class=\"animate-box timeline-unverted\">";
+                                            }
+                                            else if(x % 2 == 1){
+                                                txt += "<li class=\"timeline-inverted animate-box\">";
+                                            }
+                                            txt += "<div class=\"timeline-badge\"><i class=\"icon-genius\"></i></div>";
+                                            txt += "<div class=\"timeline-panel\">";
+                                            txt += "<div class=\"timeline-heading\">";
+                                            txt += "<h3 class=\"timeline-title\">"+myObj[x].eventname+"</h3>";
+                                            txt += "</div>";
+                                            txt += "<div class=\"timeline-body\">";
+                                            txt += "<p>"+myObj[x].date+" "+myObj[x].venue+"</p>";
+                                            txt += "</div>";
+                                            txt += "</div>";
+                                            txt += "</li>";
+                                        }
+                                        txt += "</ul>";
+                                        txt += "</div>";
+                                        txt += "</div>";
+                                        txt += "</div>";
+                                        // txt += "</div>";
+                                        // txt += "</div>";
+
+                                    }
+                                    console.log("txt is"+txt);
+                                    document.getElementById("fh5co-timeline").innerHTML = txt;
+                                }
+                            };
+                            xmlhttp.open("POST", "/send-event", true);
+                            xmlhttp.send();
+                        </script>
 					</div>
 				</div>
 			
@@ -806,6 +806,7 @@ function showSlides(n) {
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
+	</div>
 	</body>
 </html>
 

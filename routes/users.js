@@ -40,6 +40,7 @@ router.get('/users/:name',checkLogin,function(req, res, next) {
 	var collection = [];
 	var str = req.originalUrl;
 	var name = str.substring(str.lastIndexOf("/")+1);
+
 	db.connect(function(){
 		db.getPortrait(name,ptr,function(){
 			db.disconnect();

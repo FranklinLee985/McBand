@@ -74,7 +74,7 @@ exports.passevent = function(infos, callback){
         date: 'None',
         basicinfo: 'None',
         eventpicture: 'None'
-    }
+    };
     eventInfo.find({}).exec(function(err,docs){
         if(err) console.log(err);
         else{
@@ -85,7 +85,7 @@ exports.passevent = function(infos, callback){
             }
             callback();
         }
-    })
+    });
 }
 
 exports.getAll = function(callback){

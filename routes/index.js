@@ -114,8 +114,8 @@ router.post('/login_process', function(req,res){
 	var login_msg = {
 		"email":req.body.email,
 		"name" : '',
-		"password":req.body.password
-		"portraitPath":"/resources/upload/portraits/default.png"
+		"password":req.body.password,
+		"portraitPath":'/resources/upload/portraits/default.png'
 	};
 	console.log(response);
 	//Find data inside DB
@@ -215,13 +215,13 @@ router.post('/register_process', function(req,res){
 		"name":req.body.name,
 		"email":req.body.email,
 		"password":req.body.password[0],
-		"checkpassword":req.body.password[1],
-		"portraitPath":"/resources/upload/portraits/default.png"
+		"checkpassword":req.body.password[1]
 	};
 	var login_msg = {
 		"email":req.body.email,
 		"name" : req.body.name,
-		"password":req.body.password[0]
+		"password":req.body.password[0],
+		"portraitPath":"/resources/upload/portraits/default.png"
 	};
 	console.log(response);
 	//res.end(JSON.stringify(response));

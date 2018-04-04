@@ -4,7 +4,9 @@ var mdb = require('./music');
 
 var collectionSchema = new Schema({
 	email: String,
-	musicId: String
+	musicId: String,
+	musicname:String,
+	coverPath:String
 });
 
 var collectInfo = mongoose.model('collectionDB',collectionSchema);
@@ -56,36 +58,42 @@ exports.showAll = function(userEmail,result,callback){
 };
 
 exports.add = function(infos, callback) {
-	
-	collectInfo.find({email:infos.email,musicId:infos.musicId},function(err,docs){
-		if(err)console.log(err);
-		else{
-			if(docs.length > 0){
-				exports.errMsg = "You've already liked this music!";
-				callback();
-			}
+	var musicInfo = [];
+	mdb.search(infos.musicId, musicInfo,function(){
+		collectInfo.find({email:infos.email,musicId:infos.musicId},function(err,docs){
+			if(err)console.log(err);
 			else{
-				var collectdata = new collectInfo({
-					email:infos.email,
-					musicId:infos.musicId
-				});
-				collectdata.save(function(err1){
-					if(err1){
-						console.log(err1);
-					}
-					else{
-						exports.errmsg = '';
-						mdb.connect(function(){
-							mdb.likeChange(1,infos.musicId,function(){
-								mdb.disconnect();
-								callback();
+				if(docs.length > 0){
+					exports.errMsg = "You've already liked this music!";
+					callback();
+				}
+				else{
+					
+					var collectdata = new collectInfo({
+						email:infos.email,
+						musicId:infos.musicId,
+						musicname:musicInfo[0].musicname,
+						coverPath:musicInfo[0].coverPath
+					});
+					collectdata.save(function(err1){
+						if(err1){
+							console.log(err1);
+						}
+						else{
+							exports.errmsg = '';
+							mdb.connect(function(){
+								mdb.likeChange(1,infos.musicId,function(){
+									mdb.disconnect();
+									callback();
+								});
 							});
-						});
-					}
-				});
+						}
+					});
+				}
 			}
-		}
-	});
+		});
+	})
+
 };
 
 exports.isLiked = function(infos,callback){

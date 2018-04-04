@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../models/db');
 var cdb = require('../models/collection');
+var mdb = require('../models/music');
 var fs=require('fs');
 var formidable = require('formidable');
 var path=require('path');

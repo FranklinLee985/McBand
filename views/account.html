@@ -656,34 +656,80 @@ function showSlides(n) {
 </script>
 
 			<!-- get album collection -->
-
-			<!-- get user list 
 			<script>
                 var xmlhttp, myObj, x, txt = "";
                 xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         myObj = JSON.parse(this.responseText);
-                        for (x in myObj) {
-                            if(myobj[x].userName === "<%=portrait%>"){
-                                continue;
+                        console.log("collection json is"+myObj);
+                        if(myObj == null){
+                            txt += "You don't have any liked music!";
+                        }
+                        else{
+                            for (x in myObj) {
+                                txt += "<div class= \"individual\">";
+                                txt += "<img src="+myObj[x].coverPath+" alt="+myObj[x].musicname+">";
+                                txt += "<div class=\"middle\">";
+                                txt += "<a href=\"/music/" + myObj[x].musicId + " class=\"btn btn-primary btn-outline btn-lg\" role=\"button\">View</a>";
+                                txt += "</div>";
+                                txt += "<br><br>";
+                                txt += "<p>"+myObj[x].musicname+"</p>";
+                                txt += "</div>";
                             }
                         }
-                        txt += "<div class= \"individual\">";
-                        txt += "<img src=\"myObj[x].icon\" style=\"border-radius: 50%;\" alt=\"myObj[x].userName\">";
-                        txt += "<div class=\"middle\">";
-                        txt += "<button onclick=\"openDialogA()\" class=\"btn btn-primary btn-outline btn-lg\"><i class=\"icon-chat2\"></i></button>";
-                        txt += "</div>";
-                        txt += "<br><br>";
-                        txt += "<p>"+myObj[x].userName+"</p>";
-                        txt += "</div>";
+                        console.log("album collection section =" + txt);
+                        document.getElementById("album_list").innerHTML = txt;
                     }
-                    document.getElementById("user_list").innerHTML = txt;
                 };
-                xmlhttp.open("POST", "http://127.0.0.1:8888/get_all_user", true);
-                xmlhttp.send();
+                xmlhttp.open("POST", "http:127.0.0.1:8888/get_collection", true);
+			</script>
+			<!-- get user list -->
+                        <script>
+                            var xmlhttp, myObj, x, txt = "";
+                            xmlhttp = new XMLHttpRequest();
+            @ -687,7 +687,7 @@ function showSlides(n) {
+                                    myObj = JSON.parse(this.responseText);
+                                    console.log("all user json is"+myObj);
+                                    for (x in myObj) {
+                                        if(myobj[x].username === "<%=portrait%>"){
+                                        if(myObj[x].username === "<%=portrait%>"){
+                                            continue;
+                                        }
+                                    }
+            @ -706,9 +706,9 @@ function showSlides(n) {
+                            xmlhttp.open("POST", "http://127.0.0.1:8888/get_all_user", true);
+                            xmlhttp.send();
 
-			</script>-->
+                        </script>
+
+                        <!-- get user list
+                        <script>
+                            var xmlhttp, myObj, x, txt = "";
+                            xmlhttp = new XMLHttpRequest();
+                            xmlhttp.onreadystatechange = function() {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    myObj = JSON.parse(this.responseText);
+                                    for (x in myObj) {
+                                        if(myobj[x].userName === "<%=portrait%>"){
+                                            continue;
+                                        }
+                                    }
+                                    txt += "<div class= \"individual\">";
+                                    txt += "<img src=\"myObj[x].icon\" style=\"border-radius: 50%;\" alt=\"myObj[x].userName\">";
+                                    txt += "<div class=\"middle\">";
+                                    txt += "<button onclick=\"openDialogA()\" class=\"btn btn-primary btn-outline btn-lg\"><i class=\"icon-chat2\"></i></button>";
+                                    txt += "</div>";
+                                    txt += "<br><br>";
+                                    txt += "<p>"+myObj[x].userName+"</p>";
+                                    txt += "</div>";
+                                }
+                                document.getElementById("user_list").innerHTML = txt;
+                            };
+                            xmlhttp.open("POST", "http://127.0.0.1:8888/get_all_user", true);
+                            xmlhttp.send();
+
+                        </script>-->
 
 			<!-- get event timeline -->
 			<script>

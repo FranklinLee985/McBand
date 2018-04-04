@@ -100,3 +100,6 @@ Temporary Items
 *.jpeg
 *.swp
 views/.musiclibrary.html.swp
+.DS_Store
+public/.DS_Store
+.DS_Store

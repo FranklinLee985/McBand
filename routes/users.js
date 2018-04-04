@@ -55,8 +55,8 @@ router.post('/get_collection',checkLogin,function(req,res){
 	var result = [];
 	cdb.connect(function(){
 		cdb.showAll(userEmail,result,function(){
-			console.log(result);
-			res.send(JSON.strigify(result));
+			console.log("sending"+result);
+			res.send(JSON.stringify(result));
 		})
 	})
 })

@@ -242,19 +242,6 @@ router.post('/register_process', function(req,res){
 })
 
 
-router.post('/download',function(req,res){
-	var name = req.body.name;
-	//DB 操作
-
-	var filePath = "";
-	var fileExt = filePath.substring(filePath.lastIndexOf('.'));
-	var file = path.join(__dirname, tempDir) + name + fileExt;
-	fs.renameSync(filePath, file);
-	res.download(file,function(err){
-		if(err) console.log(err);
-		fs.unlinkSync(file);
-	});
-})
 
 
 // The following is to store the music, pic, sheet to local files

@@ -202,10 +202,11 @@
 				
 			</div>
 			<% if (locals.logInfo == null) { %>
-				<a href="sign.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px;"><i class="icon-user2">   Login</i></a>
+				<a href="sign.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px; height: 100px;"><i class="icon-user2">   Login</i></a>
 			<% } else { %>
-				<form action="http://127.0.0.1:8888/logout" method="GET"><a style="float:right; margin-top: -30px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>! <input type="submit" style="border:0 none; background: transparent;" value="Logout"/></a></form>
+				<form action="http://127.0.0.1:8888/logout" method="GET"><a style="float:right; margin-top: -65px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>! <input type="submit" style="border:0 none; background: transparent; height: 100px;" value="Logout"/></a></form>
 			<% } %>
+		
 		<!-- </div> -->
 	</nav>
 
@@ -435,22 +436,22 @@
 				<form id="form-wrap" style="width:40%;height:600px;float: right; margin-top: -600px;">
 						<div class="row form-group text-center">
 							<div class="col-md-12">
-								<p style="font-size: 35px;" id="aeventname">Party</p>
+								<section style="font-size: 35px; width: auto; height: 70px; overflow: hidden;" id="aeventname"><!-- <%=eventInfo[0].eventname %> --></section>
 								
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-md-12">
 								<i class="icon-clock3"></i>
-								<p id="aeventdate">2018/4/4</p>
+								<section id="aeventdate" style="width: auto; height: 50px; overflow: hidden;"><!-- <%=eventInfo[0].date %> --></section>
 								<i class="icon-location3"></i>
-								<p id="aeventvenue">New Town Plaza</p>
+								<section id="aeventvenue" style="width: auto; height: 50px; overflow: hidden;"><!-- <%=eventInfo[0].venue %> --></section>
 							</div>
 						</div>
 								
 						<section class="row form-group eventsinfo" style="width: 107%; height: 240px; overflow: scroll;">
 							<div class="col-md-12">
-								<p id="aeventbasicinfo">Coding Week</p>
+								<p id="aeventbasicinfo"><!-- <%=eventInfo[0].basicinfo %> --></p>
 							</div>
 						</section>
 						<div class="row form-group">

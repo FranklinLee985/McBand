@@ -664,7 +664,7 @@ function showSlides(n) {
                     if (this.readyState == 4 && this.status == 200) {
                         myObj = JSON.parse(this.responseText);
                         console.log("collection json is"+myObj);
-                        if(myObj == null){
+                        if(myObj.length === 0){
                             txt += "You don't have any liked music!";
                         }
                         else{

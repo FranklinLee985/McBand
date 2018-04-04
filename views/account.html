@@ -387,10 +387,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 fh5co-heading animate-box">
-						<h2>My friends</h2>
+						<h2>All Events</h2>
 						<div class="row">
 							<div class="col-md-6">
-								<p>View their profile, chat with them.</p>
+								<p>Chat with all of the member of McBand!</p>
 							</div>
 						</div>
 					</div>
@@ -480,14 +480,7 @@
 						</div>
 					</section>
 
-					<div class="row">
-						<div class="col-md-6 animate-box">
-							<br><br><br>
-							<input type="text" class="form-control" name="search" placeholder="Search for new friends...">
-							<br>
-							<p><a href="#" class="btn btn-primary btn-outline">Search</a></p>
-						</div>
-					</div>
+
 				</div>
 			</div>
 		</div>
@@ -723,7 +716,7 @@ function showSlides(n) {
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         myObj = JSON.parse(this.responseText);
-                        if(myObj == null){
+                        if(myObj.length === 0){
                             txt += "Go to search for some interesting events now!";
                         }
                         else{
@@ -764,6 +757,7 @@ function showSlides(n) {
                             txt += "</div>";
 
                         }
+                        console.log("event list is "+txt);
                         document.getElementById("event_list").innerHTML = txt;
                     }
                 };

@@ -114,7 +114,7 @@ router.post('/login_process', function(req,res){
 	var login_msg = {
 		"email":req.body.email,
 		"name" : '',
-		"password":req.body.password
+		"password":req.body.password,
 		"portraitPath":"/resources/upload/portraits/default.png"
 	};
 	console.log(response);

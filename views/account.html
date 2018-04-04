@@ -687,25 +687,8 @@ function showSlides(n) {
                 xmlhttp.send();
 			</script>
 			<!-- get user list -->
-                        <script>
-                            var xmlhttp, myObj, x, txt = "";
-                            xmlhttp = new XMLHttpRequest();
-            @ -687,7 +687,7 @@ function showSlides(n) {
-                                    myObj = JSON.parse(this.responseText);
-                                    console.log("all user json is"+myObj);
-                                    for (x in myObj) {
-                                        if(myobj[x].username === "<%=portrait%>"){
-                                        if(myObj[x].username === "<%=portrait%>"){
-                                            continue;
-                                        }
-                                    }
-            @ -706,9 +706,9 @@ function showSlides(n) {
-                            xmlhttp.open("POST", "http://127.0.0.1:8888/get_all_user", true);
-                            xmlhttp.send();
 
-                        </script>
-
-                        <!-- get user list
+                        <!-- get user list-->
                         <script>
                             var xmlhttp, myObj, x, txt = "";
                             xmlhttp = new XMLHttpRequest();
@@ -713,17 +696,17 @@ function showSlides(n) {
                                 if (this.readyState == 4 && this.status == 200) {
                                     myObj = JSON.parse(this.responseText);
                                     for (x in myObj) {
-                                        if(myobj[x].userName === "<%=portrait%>"){
+                                        if(myObj[x].username === "<%=locals.logInfo.name%>"){
                                             continue;
                                         }
                                     }
                                     txt += "<div class= \"individual\">";
-                                    txt += "<img src=\"myObj[x].icon\" style=\"border-radius: 50%;\" alt=\"myObj[x].userName\">";
+                                    txt += "<img src=\""+myObj[x].portraitPath+"\" style=\"border-radius: 50%;\" alt=\""+myObj[x].username+"\">";
                                     txt += "<div class=\"middle\">";
                                     txt += "<button onclick=\"openDialogA()\" class=\"btn btn-primary btn-outline btn-lg\"><i class=\"icon-chat2\"></i></button>";
                                     txt += "</div>";
                                     txt += "<br><br>";
-                                    txt += "<p>"+myObj[x].userName+"</p>";
+                                    txt += "<p>"+myObj[x].username+"</p>";
                                     txt += "</div>";
                                 }
                                 document.getElementById("user_list").innerHTML = txt;

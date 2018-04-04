@@ -61,6 +61,15 @@ router.post('/get_collection',checkLogin,function(req,res){
 	})
 })
 
+router.post('/get_all_user',function(req,res){
+	db.connect(function(){
+		db.findAll(function(){
+			db.disconnect();
+			console.log("UserList:"+db.users);
+			res.send(JSON.stringify(db.users));
+		})
+	})
+});
 
 router.post('/icon_upload',checkLogin,function(req,res,next){
 	var form = new formidable.IncomingForm();

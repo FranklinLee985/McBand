@@ -74,7 +74,6 @@ router.post('/icon_upload',checkLogin,function(req,res,next){
 			console.log("error in icon upload!!!!!!!!!!!!!!!!!!11!");
 			fs.mkdirSync(targetDir);
 		}
-		console.log("hahahahahahahahalol");
 		_fileParse();
 		console.log("after _fileParsehahahahahaha");
 	});

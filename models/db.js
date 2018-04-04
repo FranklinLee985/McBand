@@ -35,6 +35,7 @@ exports.search = function(login, login_msg,callback){
 				if(login.password === docs[0].password){
 					exports.errMsg = '';
 					login_msg.name = docs[0].username;
+					login_msg.portraitPath = docs[0].portraitPath;
 				}
 				else{
 					exports.errMsg = "Invalid password!";
@@ -66,12 +67,12 @@ exports.updatePortrait = function(infos,callback){
 	userInfo.find({email:infos.useremail},function(err,docs){
 		if(err) console.log(err);
 		else{
-			console.log("bbbbbbbbbb"+infos.useremail);
-			console.log("aaaaaaaaaaaaaaaaaaa"+docs[0]);
+			//console.log("bbbbbbbbbb"+infos.useremail);
+			//console.log("aaaaaaaaaaaaaaaaaaa"+docs[0]);
 			userInfo.update({email:infos.useremail},{portraitPath:infos.portraitPath},{multi:false},function(err,rec){
 				if(err) console.log(err);
 				else{
-					console.log("aaaaaaaaaaaaaaaaaaa"+rec.email);
+					//console.log("aaaaaaaaaaaaaaaaaaa"+rec.email);
 					console.log("update success! "+rec);
 					callback();
 				}

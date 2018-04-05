@@ -46,6 +46,9 @@
 		img {
 			vertical-align: middle;
 		}
+		header {
+			background-image: url("<%=musicInfo.coverPath%>");
+		}
 		/* Position the image container (needed to position the left and right arrows) */
 		.container {
 			position: relative;
@@ -171,25 +174,27 @@
 
 	<!--display Like or Unlike in the like button-->
 	<script>
-        var xmlhttp, text, id;
-        id = document.getElementsById("like_button");
-        text={"musicId": id.name};
-        console.log(id);
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
-        } else {  // code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function() {
-            if (this.readyState==4 && this.status==200) {
-                id.value=xmlhttp.responseText;
+		function displaylike(){
+            var xmlhttp, text, id;
+            id = document.getElementById("like_button");
+            text={"musicId": id.name};
+            console.log(text);
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            } else {  // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
             }
-        };
-        xmlhttp.open("POST", "http://127.0.0.1:8888/like-check", true);
-        xmlhttp.setRequestHeader("Content-type", "application/json");
-        xmlhttp.send(JSON.stringify(text));
-        console.log(JSON.stringify(text));
+            xmlhttp.onreadystatechange=function() {
+                if (this.readyState==4 && this.status==200) {
+                    id.value=xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("POST", "http://127.0.0.1:8888/like-check", true);
+            xmlhttp.setRequestHeader("Content-type", "application/json");
+            xmlhttp.send(JSON.stringify(text));
+            console.log(JSON.stringify(text));
+		}
 	</script>
 
 	<!-- Get comment -->
@@ -230,7 +235,7 @@
 
 </head>
 
-<body>
+<body onload="displaylike()">
 <!--loader-->
 <div class="fh5co-loader"></div>
 <!--page content-->
@@ -266,8 +271,14 @@
 		<!-- </div> -->
 	</nav>
 
+	<script>
+		var musicCoverPicPath;
+		musicCoverPicPath = "<%=musicInfo.coverPath %>";
+		console.log(musicCoverPicPath);
+	</script>
+
 	<!--header-->
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(/images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
+	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner"  data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -292,7 +303,7 @@
 				<div class="col-md-6 col-md-push-0 col-sm-6 col-sm-push-0">
 					<!-- sheet music-->
 					<!-- Slideshow container -->
- 					<embed src="<%=musicInfo.sheetPath%>" type="application/pdf" width="100%" height="600px" />
+ 					<embed src="<%=musicInfo.sheetPath%>" type="application/pdf" width="100%" height="770px" />
 				</div>
 
 				<div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
@@ -300,7 +311,7 @@
 						<div class="row form-group">
 							<div class="col-md-12">
 								<h3>Music Information</h3>
-								<img src="<%=musicInfo.coverPath %>" class="img-responsive" alt="<%= musicInfo.musicname %>">
+								<img src="<%=musicInfo.coverPath %>" class="img-responsive" style="max-height: 200px; padding-bottom: 10px;" alt="<%= musicInfo.musicname %>">
 								<label>Music Name</label>
 								<p><%= musicInfo.musicname %></p>
 								<label>Uploader</label>

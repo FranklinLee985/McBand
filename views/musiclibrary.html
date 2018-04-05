@@ -96,7 +96,8 @@
 	<!-- filter music by input -->
 	<script>
 		function filterSearch() {
-        	var input, filter, section, colmd4, colmd6, a, i;
+        	var input, filter, section, colmd4, a, i, isMatch;
+        	isMatch = 0;
 			input = document.getElementById("search");
 			filter = input.value.toUpperCase();
 			section = document.getElementById("all_music");
@@ -105,6 +106,7 @@
 				a = colmd4[i].getElementsByTagName("a")[0];
 				if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
 					colmd4[i].style.display = "";
+					isMatch = 1;
 				} else {
 					colmd4[i].style.display = "none";
 				}

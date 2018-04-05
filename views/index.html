@@ -95,7 +95,8 @@
                         console.log("Connected!");
                         myObj = JSON.parse(this.responseText);
                         if(myObj.length === 0){
-                            txt += "No musics yet!";
+                            txt = "No musics yet!";
+                            document.getElementById("livesearch").className = "";
                         }
                         else{
                             console.log("hasMatch =" + hasMatch);
@@ -113,7 +114,7 @@
                                     hasMatch = 1;
                                 }
                             }
-                            if(hasMatch == 0){
+                            if(hasMatch === 0){
                                 txt += "<div class=\"col-md-12\">";
                                 txt += "<p>No match.</p>";
                                 txt += "</div>";

@@ -1,6 +1,9 @@
 var express = require('express');
+// here we require the express framework
 var router = express.Router();
 var db = require('../models/db');
+// here we define the different database names for each different 
+// collection and database
 var cdb = require('../models/collection');
 var mdb = require('../models/music');
 var fs=require('fs');
@@ -9,6 +12,7 @@ var path=require('path');
 
 var iconUploadDir = '../public/resources/upload/portraits/';
 
+// check whether the user has been logged in
 function checkLogin(req,res,next){
 	if(!req.session.logInfo){
 		return res.redirect('/sign.html');
@@ -17,6 +21,7 @@ function checkLogin(req,res,next){
 	next();
 }
 
+// if not been logged in, redirect back to log in paeg
 function checkNotLogin(req,res,next){
 	if(req.session.logInfo){
 		return res.redirect('back');
@@ -50,6 +55,8 @@ router.get('/users/:name',checkLogin,function(req, res, next) {
 	});  
 });
 
+// here we get the collections from back end and display them
+// at front end when the /get_collection is detected
 router.post('/get_collection',checkLogin,function(req,res){
 	userEmail = res.locals.logInfo.email;
 	var result = [];
@@ -61,6 +68,7 @@ router.post('/get_collection',checkLogin,function(req,res){
 	})
 })
 
+// here we pass the requires from front end, and get all users from back end
 router.post('/get_all_user',function(req,res){
 	db.connect(function(){
 		db.findAll(function(){
@@ -71,6 +79,9 @@ router.post('/get_all_user',function(req,res){
 	})
 });
 
+// here we upload the portrait for each user and store it 
+// at local server, we store the relative path in the mongodb
+// database
 router.post('/icon_upload',checkLogin,function(req,res,next){
 	var form = new formidable.IncomingForm();
 	form.encoding = 'utf-8';

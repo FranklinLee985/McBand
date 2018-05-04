@@ -1,5 +1,7 @@
 var express = require('express');
+// we require the express framework to manage our databse
 var router = express.Router();
+// here we give each database a name
 var db = require('../models/db');
 var mdb = require('../models/music');
 var edb = require('../models/events');
@@ -8,11 +10,12 @@ var fs=require('fs');
 var formidable = require('formidable');
 var path=require('path');
 
+// here we define the relative path to store the music and pictures
 var musicUploadDir = '../public/resources/upload/music/';
 var tempDir = '../resources/upload/temp/';
 var eventUploadDir = '../public/resources/upload/event/';
 
-
+// here we check the session to see whether the user has logged in
 function checkLogin(req,res,next){
 	if(!req.session.logInfo){
 		return res.redirect('/sign.html');
@@ -21,6 +24,7 @@ function checkLogin(req,res,next){
 	next();
 }
 
+// if the user has not logged in, then we redirect him to the login page
 function checkNotLogin(req,res,next){
 	if(req.session.logInfo){
 		return res.redirect('back');
@@ -37,17 +41,19 @@ router.get('/', function(req, res) {
 	res.redirect('/index.html');
 });
 
+//if /index is detected in http, we relocate to index page
 router.get('/index.html', function(req, res) {
 	res.locals.logInfo = req.session.logInfo
 	res.render('index');
 });
 
+//if /sign is detected, we redirect to sign page
 router.get('/sign.html',checkNotLogin, function(req, res) {
 	res.locals.logInfo = req.session.logInfo
 	res.render('sign',{err:db.errMsg});
 });
 
-
+//if /event is detected, we redirect to event page
 router.get('/event.html', checkLogin,function(req, res) {
 
 	var infos = [];
@@ -60,6 +66,7 @@ router.get('/event.html', checkLogin,function(req, res) {
 	});
 });
 
+//if the /musiclibrary is detected, then redirect to music info page
 router.get('/musiclibrary.html', checkLogin,function(req, res, next) {
 	res.locals.logInfo = req.session.logInfo;
 	var email = "";
@@ -75,6 +82,7 @@ router.get('/musiclibrary.html', checkLogin,function(req, res, next) {
 	});
 });
 
+// here we would like to send music to our database
 router.post("/send-music", function(req, res){
 	mdb.connect(function(){
 		mdb.getAll(function(){
@@ -85,6 +93,7 @@ router.post("/send-music", function(req, res){
 	});
 });
 
+// here we receive event information and add to event databse in mongodb
 router.post("/send-event", function(req, res){
     edb.connect(function(){
         edb.getAll(function(){
@@ -99,12 +108,15 @@ router.get('/dialog.html', checkLogin,function(req, res, next) {
 	res.render('dialog');
 });
 
+// if logout is clicked, the user is prompted to login page
 router.get('/logout', function(req, res){
 	db.errMsg = '';
 	req.session.logInfo = null;
 	res.redirect('/sign.html');
 });
 
+// here is the login process, if successfulful, then redirect to 
+// account home page
 router.post('/login_process', function(req,res){
 	var response = {
 		"email":req.body.email,
@@ -209,7 +221,7 @@ router.post('/event_upload', function(req,res){
 })
 
 
-
+// here we get the register information from the html front end
 router.post('/register_process', function(req,res){
 	var response = {
 		"name":req.body.name,

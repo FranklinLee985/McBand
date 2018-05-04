@@ -3,6 +3,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+// We define the event schema as follows
 var eventSchema = new Schema({
     uploader: String,
     eventname: String,
@@ -14,6 +15,7 @@ var eventSchema = new Schema({
 
 var eventInfo = mongoose.model('EventDB', eventSchema);
 
+// here we want to connect to database
 exports.connect = function(callback){
     mongoose.connect('mongodb://localhost:27017/mcband', function(err){
         if(err){
@@ -25,10 +27,13 @@ exports.connect = function(callback){
 }
 
 
+// disconnect the database
 exports.disconnect = function(){
     mongoose.disconnect();
 }
 
+
+//search a specific event existed, if not existed then report the error
 exports.search = function(eventsearch, callback){
     eventInfo.find({eventname: eventsearch.eventname}, function(err, docs){
         if(err){
@@ -46,6 +51,7 @@ exports.search = function(eventsearch, callback){
 }
 
 
+// add a new event to databse
 exports.add = function(eventpara, callback) {
     var eventdata = new eventInfo({
         uploader: eventpara.username,
@@ -66,6 +72,7 @@ exports.add = function(eventpara, callback) {
     })
 }
 
+// Here we would like to pass our event to front end
 exports.passevent = function(infos, callback){
     var defaultValue = {
         uploader: 'None',
@@ -88,6 +95,7 @@ exports.passevent = function(infos, callback){
     });
 }
 
+// here we get all the existing events
 exports.getAll = function(callback){
     eventInfo.find({},function(err,docs){
         if(err) console.log(err);

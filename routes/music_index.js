@@ -1,4 +1,5 @@
 var express = require('express');
+// here we require the express framework
 var router = express.Router();
 var mdb = require('../models/music');
 var cdb = require('../models/collection');
@@ -8,6 +9,7 @@ router.get('/musicinfo.html', function(req, res, next) {
   res.redirect('/musiclibrary.html');
 });
 
+// this part we would like to generate music profile for each music
 router.get('/music/', function(req, res, next) {
   res.redirect('back');
 });
@@ -30,6 +32,8 @@ router.get('/music/:mid',function(req,res,next){
 	})
 });
 
+// if the "like" button is clicked at front end, we receive it here
+// and further prompt to the back end
 router.post('/like-check',function(req,res){
 	//console.log(req.body);
 	var text = req.body;
@@ -46,6 +50,8 @@ router.post('/like-check',function(req,res){
 	});
 });
 
+// if the "undo" button is clicked, then we further prompt the 
+//information to backend
 
 router.post('/like-change',function(req,res){
 	var userEmail = "";

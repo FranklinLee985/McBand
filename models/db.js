@@ -1,6 +1,8 @@
+// we use mongoose to manage mongodb database
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+// This defines the schema of user information
 var userSchema = new Schema({
 	username: String,
 	email: String,
@@ -10,6 +12,8 @@ var userSchema = new Schema({
 
 var userInfo = mongoose.model('UserDB',userSchema);
 
+
+// connect to mongdb
 exports.connect = function(callback){
 	mongoose.connect('mongodb://localhost:27017/mcband', function(err){
 		if(err){
@@ -20,10 +24,14 @@ exports.connect = function(callback){
 	});
 }
 
+// disconnect a certain database
 exports.disconnect = function(){
 	mongoose.disconnect();
 }
 
+//search for the users by email address
+//If the user exists, then report error message, otherwise update
+//the user database
 exports.search = function(login, login_msg,callback){
 	userInfo.find({email: login.email }, function(err, docs){
 		if(err){
@@ -48,6 +56,9 @@ exports.search = function(login, login_msg,callback){
 	});
 }
 
+
+//Here we store the portrait path in our local server
+//We don't store png files in our mongodb database
 exports.getPortrait = function(userName,ptr,callback){
 	userInfo.find({username:userName},function(err,docs){
 		if(err) console.log(err);
@@ -60,6 +71,8 @@ exports.getPortrait = function(userName,ptr,callback){
 	})
 }
 
+
+// Here we update our portrait if necessary
 exports.updatePortrait = function(infos,callback){
 
 	userInfo.find({email:infos.useremail},function(err,docs){
@@ -80,6 +93,8 @@ exports.updatePortrait = function(infos,callback){
 	})
 }
 
+// Here we want to find all the existing users
+// This function here further help to generate user list and chat box
 exports.findAll = function(callback){
 	//Not sure what it is used for. Need to be checked
 	userInfo.find({}, function(err, docs){
@@ -92,6 +107,8 @@ exports.findAll = function(callback){
 	});
 };
 
+// Here we use regular expression to check whether the input email
+// and the password 
 exports.add = function(register, callback){
 	var PWfilter  = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/;
 	var EMfilter  = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;

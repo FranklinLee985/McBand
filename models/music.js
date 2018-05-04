@@ -1,8 +1,10 @@
 // Here we want to stroe the music name to the database
-
+// we require the module and use mongoose to manage our database
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+
+// here we define the schema of each music
 var musicSchema = new Schema({
 	uploader: String,
 	musicname: String,
@@ -15,6 +17,8 @@ var musicSchema = new Schema({
 
 var musicInfo = mongoose.model('MusicDB', musicSchema);
 
+
+// here we connect to database
 exports.connect = function(callback){
 	mongoose.connect('mongodb://localhost:27017/mcband', function(err){
 		if(err){
@@ -25,11 +29,14 @@ exports.connect = function(callback){
 	});
 }
 
-
+// here we disconnect the database
 exports.disconnect = function(){
 	mongoose.disconnect();
 }
 
+// here we would like to search a certain piece of music 
+// and return the search informaiont back to front end
+//report error if the music has not been found
 exports.search = function(mid,result,callback){
 	musicInfo.find({musicId: mid}, function(err, docs){
 		if(err){
@@ -47,6 +54,9 @@ exports.search = function(mid,result,callback){
 }
 
 
+// here we add a new music to our database
+// if the uploaded information is not complete, then report the
+// add error
 exports.add = function(musicpara, callback) {
 	var musicdata = new musicInfo({
 		uploader:musicpara.username,
@@ -67,6 +77,9 @@ exports.add = function(musicpara, callback) {
 	})
 }
 
+// if the a user dislike a music then we change the like count 
+// for each music, this will also give information for ranking 
+// system
 exports.likeChange = function(para,mid,callback){
 	musicInfo.find({musicId:mid},function(err,docs){
 		if(err) console.log(err);
@@ -86,6 +99,9 @@ exports.likeChange = function(para,mid,callback){
 	})
 }
 
+// here we get all the music from the database and return it to 
+// front end. this will further give information to view all music
+// part
 exports.getAll = function(callback){
 	musicInfo.find({},function(err,docs){
 		if(err)console.log(err);
@@ -97,6 +113,8 @@ exports.getAll = function(callback){
 	})
 }
 
+// here we get the top ten music by selecting the music considering
+//their like count number
 exports.topTen = function(infos,callback){
 	var defaultValue = {
 		uploader: 'None',

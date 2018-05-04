@@ -1,7 +1,9 @@
+// here we require the module and use mongoose to manage our database
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var mdb = require('./music');
 
+// here we define the schema for collection 
 var collectionSchema = new Schema({
 	email: String,
 	musicId: String,
@@ -11,6 +13,7 @@ var collectionSchema = new Schema({
 
 var collectInfo = mongoose.model('collectionDB',collectionSchema);
 
+// here we would like connect to database
 exports.connect = function(callback){
 	mongoose.connect('mongodb://localhost:27017/mcband', function(err){
 		if(err){
@@ -21,10 +24,14 @@ exports.connect = function(callback){
 	});
 };
 
+// here we would like to disconnect the connected database
 exports.disconnect = function(){
 	mongoose.disconnect();
 };
 
+// here we would like to delete the like-relation between a user
+// and a piece of music, this will further facilitate the ranking
+// system
 exports.delete = function(infos,callback){
 	collectInfo.remove({email:infos.email,musicId:infos.musicId},function(err){
 		if(err){
@@ -44,6 +51,7 @@ exports.delete = function(infos,callback){
 };
 
 
+// here we pass all the collection information to front end
 exports.showAll = function(userEmail,result,callback){
 	collectInfo.find({email:userEmail},function(err,docs){
 		if(err)console.log(err);
@@ -57,6 +65,9 @@ exports.showAll = function(userEmail,result,callback){
 	});
 };
 
+
+// here we add a new collection
+// report error if the music has already been liked
 exports.add = function(infos, callback) {
 	var musicInfo = [];
 	mdb.search(infos.musicId, musicInfo,function(){
@@ -96,6 +107,8 @@ exports.add = function(infos, callback) {
 
 };
 
+// here we would like to find a certain collection by inputing the
+// user email address and the music id
 exports.isLiked = function(infos,callback){
 	collectInfo.find({email:infos.email,musicId:infos.musicId},function(err,docs){
 		if(err)console.log(err);

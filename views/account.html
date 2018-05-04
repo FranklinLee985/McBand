@@ -182,8 +182,9 @@
 		<div class="fh5co-loader"></div>
 	
 		<div id="page">
+
+		<!--navigaotr-->
 		<nav class="fh5co-nav" role="navigation">
-			<!-- <div class="top-menu"> -->
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 text-center logo-wrap">
@@ -195,7 +196,6 @@
 								<li><a href="/musiclibrary.html">Music library</a></li>
 								<li><a href="/event.html">Event</a></li>
 								<li class="active"><a href="account.html">Account</a></li>
-								
 							</ul>
 						</div>
 					</div>
@@ -205,10 +205,7 @@
 			<% } else { %>
 				<form action="http://127.0.0.1:8888/logout" method="GET"><a style="float:right; margin-top: -65px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>! <input type="submit" style="border:0 none; background: transparent; height: 100px;" value="Logout"/></a></form>
 			<% } %>
-		
-			
 		</nav>
-
 
 		<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(/images/hero_1.jpeg); margin-bottom: 10px;width:100%;height:400px;" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
@@ -223,8 +220,7 @@
 							<img src="<%=portrait%>" alt="Icon" style="width: 30%; border-radius: 50%;">
 							<button onclick="document.getElementById('id01').style.display='block'" class="button overlayll"><i class="icon-wrench"></i></button>
 
-
-						<div id="id01" class="modal">
+							<div id="id01" class="modal">
 							<form class="modal-content zoom" action="http://127.0.0.1:8888/icon_upload" method="post" enctype="multipart/form-data">
 								<div>
 									<div class="container">
@@ -245,20 +241,21 @@
 									<br>
 								</div>
 							</form>
-						</div>
+							</div>
 
+							<!--show the change icon frame box-->
+							<script>
+                		    // Get the modal
+               			     var modal = document.getElementById('id01');
 
-				<script>
-                    // Get the modal
-                    var modal = document.getElementById('id01');
+							// When the user clicks anywhere outside of the modal, close it
+							window.onclick = function(event) {
+							    if (event.target == modal) {
+                  	         	 modal.style.display = "none";
+								}
+							}
+							</script>
 
-                    // When the user clicks anywhere outside of the modal, close it
-                    window.onclick = function(event) {
-                        if (event.target == modal) {
-                            modal.style.display = "none";
-                        }
-                    }
-				</script>
 						</div>
 						<!--User Name-->
 						<br><br>
@@ -429,12 +426,12 @@
 
 					<!-- All User List -->
 					<section id="user_list" class="scroll container animate-box" style="margin-top: 0px;">
+						<!--below are some hardcode to test the layout-->
 						<div class="individual">
 							<!--User Icon-->
 							<img src="/images/icons/taylor_swift_icon.jpeg" style="border-radius: 50%;" alt="Icon">
 							<div class="middle">
 								<button onclick="openDialogA()" class="btn btn-primary btn-outline btn-lg"><i class="icon-chat2"></i></button>
-								<!-- <button onclick="openDialogA()" class="btn btn-primary btn-outline btn-lg"><i class="icon-chat2"></i></button> -->
 							</div>
 							<!--User Name-->
 							<br><br>
@@ -545,11 +542,7 @@
 			</div>
 		</div>
 
-		
-
-
 		<br><br><br><br>
-
 
 		<!--footer-->
 		<div id="fh5co-started" class="fh5co-section animate-box" style="margin-top:-50px; background-image: url(/images/hero_1.jpeg);" data-stellar-background-ratio="0.5">

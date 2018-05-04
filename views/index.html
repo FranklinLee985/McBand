@@ -147,8 +147,8 @@
 	<div class="fh5co-loader"></div>
 	
 	<div id="page">
+    <!-- navigation bar-->
 	<nav class="fh5co-nav" role="navigation">
-		<!-- <div class="top-menu"> -->
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 text-center logo-wrap">
@@ -163,16 +163,12 @@
 						</ul>
 					</div>
 				</div>
-				
 			</div>
 			<% if (locals.logInfo == null) { %>
 				<a href="sign.html" class="button" style="float:right; margin-top: -30px; margin-right: 150px; height: 100px;"><i class="icon-user2">   Login</i></a>
 			<% } else { %>
 				<form action="http://127.0.0.1:8888/logout" method="GET"><a style="float:right; margin-top: -65px; margin-right: 150px;">Hi,<%=locals.logInfo.name %>! <input type="submit" style="border:0 none; background: transparent; height: 100px;" value="Logout"/></a></form>
 			<% } %>
-		
-		
-		<!-- </div> -->
 	</nav>
 
 	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" data-stellar-background-ratio="0.5">
@@ -189,6 +185,7 @@
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
 							<h1> <em>Start Your Music Journey</em></h1>
 							<div class="row">
+                                <!--search bar-->
 								<form action="#" id="form-wrap">
 									<div class="row form-group">
 										<div class="col-md-12">

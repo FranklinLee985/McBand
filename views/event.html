@@ -67,55 +67,52 @@
 			input[type=search]:focus {
 				width: 100%;
 			}
-.searchicon {
-  background: transparent;
-  border: none;
-  margin-bottom: 20px;
-}
-.searchicon:active, .searchicon:focus {
-  outline: none;
-  box-shadow: none;
-  border-color: #fff;
-}
+                        .searchicon {
+                          background: transparent;
+                          border: none;
+                          margin-bottom: 20px;
+                        }
+                        .searchicon:active, .searchicon:focus {
+                          outline: none;
+                          box-shadow: none;
+                          border-color: #fff;
+                        }
 
-#fh5co-featured-menu .fh5co-bg-img {
-	height: 200px;
-	background-size: cover;
-}
+                        #fh5co-featured-menu .fh5co-bg-img {
+                                height: 200px;
+                        	background-size: cover;
+                        }
 
+                       .mySlides {display: none}
 
-
-
-.mySlides {display: none}
-
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 300px;
-  width: auto;
-  padding: 16px;
-  margin-left: -15px;
-  margin-right: -15px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
+                       .prev, .next {
+                         cursor: pointer;
+                         position: absolute;
+                         top: 300px;
+                         width: auto;
+                         padding: 16px;
+                         margin-left: -15px;
+                         margin-right: -15px;
+                         color: white;
+                         font-weight: bold;
+                         font-size: 18px;
+                         transition: 0.6s ease;
+                         border-radius: 0 3px 3px 0;
+                       }
+                       .next {
+                         right: 0;
+                         border-radius: 3px 0 0 3px;
+                       }
+                       @media only screen and (max-width: 300px) {
+                         .prev, .next,.text {font-size: 11px}
+                       }
 
 
-.middle{
-	position: relative;
-	top: 25px;
+                       .middle{
+	                       position: relative;
+	                       top: 25px;
 
-}
+                       }
 
 			.scroll {
 				width: 100%;
@@ -153,13 +150,10 @@
 				top: -30%;
 			}
 
-		/*.eventsinfo::-webkit-scrollbar{
-			width:5px;
-		}*/
-		.eventsinfo::-webkit-scrollbar{
-			border-radius: 5px;
-			background:rgba(255,255,255,.1);
-		}
+		        .eventsinfo::-webkit-scrollbar{
+		        	border-radius: 5px;
+		        	background:rgba(255,255,255,.1);
+		        }
 
 		</style>
 
@@ -205,7 +199,7 @@
 					<br><br>
 					<h2>Find Interesting Event</h2>
 					<div class="row">
-                        <!--highlight event-->
+                                                <!--highlight event-->
 						<div id="fh5co-featured-menu" class="fh5co-section">
 							<div class="container" style="margin-top: 0px;">
 
@@ -213,7 +207,7 @@
 
 
 
-
+                                                                        <!--hard code for testing below-->
 									<div class="individual">
 										<!--Event Image-->
 										<img src="images/event_pics/musicparty.jpg" alt="musicparty">
@@ -225,10 +219,6 @@
 										<h3>Music Party</h3>
 										<p>7th April</p>
 									</div>
-
-
-
-
 									<div class="individual">
 										<!--Event Image-->
 										<img src="images/event_pics/musicparty.jpg" alt="musicparty">
@@ -341,7 +331,7 @@
 
 	<div id="fh5co-about" class="fh5co-section">
 		<div class="container">
-			    <!--map-->
+			        <!--map-->
 				<div id="eventinfo" class="col-md-6" style="width:100%;height:600px;margin-top: -300px;">
 					<div id="googleMap" style="width:60%;height:600px;"></div>
 
@@ -414,7 +404,7 @@
 
 				</div>
 
-				<!--info table-->
+				<!--info table for event-->
 				<form id="form-wrap" style="width:40%;height:600px;float: right; margin-top: -600px;">
 						<div class="row form-group text-center">
 							<div class="col-md-12">
@@ -438,6 +428,7 @@
 						</section>
 				</form>
 
+			        <!--timeline for events-->
 				<div id="fh5co-featured-testimony" class="fh5co-section">
 					<div class="container">
 						<div class="row">
@@ -511,7 +502,8 @@
 								<div class="row">
 									<div class="col-md-offset-0">
 										<ul class="timeline animate-box">
-
+											
+                                                                                        <!--hard code for testing timeline of the events below-->
 											<li class="timeline-heading text-center animate-box">
 												<div><h3>Recent event</h3></div>
 											</li>
@@ -613,7 +605,7 @@
 
 
 
-<!--create an event by yourself! need to change a little bit-->
+<!--create an event by yourself!-->
 <div id="fh5co-featured-testimony" class="fh5co-section" style="margin-top: -600px;">
 		<div class="container">
 			<div class="row">
@@ -638,8 +630,8 @@
 												<div class="col-md-7">
 													<label>Event Picture</label>
 													<input type="file" class="form-control" name="event_pic" accept="image/*" required>
-											    </div>
-                                            </div>
+											        </div>
+                                                                                        </div>
 											<div class="row form-group">
 												<div class="col-md-7">
 													<label>Event Name</label>

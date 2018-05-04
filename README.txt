@@ -18,7 +18,7 @@ our McBand directory:
 check the database infomation, just run "mongo" in another server
 3. Then at McBand directory, run "npm start"
 4. Open Chrome, and input url: "http://127.0.0.1:8888/"
-5. Then you can enjoy Music journey with McBand
+5. Then you can enjoy Music journey with McBand (Note that you have to upload music yourself)
 
 Best regards
 
